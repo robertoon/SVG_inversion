@@ -1,0 +1,25 @@
+pcf version=2
+* control data keyword
+pestmode                                 estimation
+noptmax                                10
+svdmode                                 1
+maxsing                          10000000
+eigthresh                           1e-06
+eigwrite                                1
+ies_num_reals                  1500
+ies_bad_phi_sigma              1.25
+panther_agent_freeze_on_fail   True
+par_sigma_range                6
+ies_multimodal_alpha           0.05
+* parameter groups external
+pest_run.pargp_data.csv
+* parameter data external
+pest_run.par_data.csv
+* observation data external
+pest_run.obs_data.csv
+* model command line
+python forward_run.py
+* model input external
+pest_run.tplfile_data.csv
+* model output external
+pest_run.insfile_data.csv

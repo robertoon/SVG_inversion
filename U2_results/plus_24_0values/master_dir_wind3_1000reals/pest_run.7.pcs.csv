@@ -1,0 +1,11 @@
+group,mean_change,std_change,num_at_near_bounds,percent_at_near_bounds,initial_cv,current_cv,num_cv_dec
+wind0,0,0,0,0,0,0,0
+wind1,0,0,0,0,0,0,0
+wind2,0,0,0,0,0,0,0
+wind5,0,0,0,0,0,0,0
+wind3,250.581,65.8964,0,0,4.60199,0.450385,17
+wind4,0,0,0,0,0,0,0
+eruption_mass,0.530727,87.9664,0,0,0.0159172,0.0019053,1
+median_grainsize,26.9988,92.0786,0,0,0.608432,0.0660217,1
+plume_height,0.122598,70.5136,0,0,0.00478647,0.00140963,1
+std_grainsize,44.8189,91.1862,0,0,0.160803,0.0256842,1

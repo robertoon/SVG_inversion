@@ -1,0 +1,8 @@
+pest_file,model_file
+./tephra2.in.tpl,./tephra2.in
+./wind2.tpl,./wind2
+./wind4.tpl,./wind4
+./wind3.tpl,./wind3
+./wind1.tpl,./wind1
+./wind0.tpl,./wind0
+./wind5.tpl,./wind5

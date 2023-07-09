@@ -1,0 +1,3399 @@
+             pestpp-ies - a GLM iterative Ensemble Smoother
+for PEST(++) datasets 
+
+                 by the PEST++ developement team
+
+
+
+
+
+version: 5.1.24
+binary compiled on Oct  7 2022 at 02:40:29
+
+using control file: "pest_run.pst"
+in directory: "/home1/robertcon/SVG_inv/svg_test_5/master_dir_wind0_1500reals"
+on host: "master32"
+started at 12/17/22 12:36:32
+
+...reading external file 'pest_run.pargp_data.csv'
+...header line: PARGPNME,INCTYP,DERINC,DERINCLB,FORCEN,DERINCMUL,DERMTHD,SPLITTHRESH,SPLITRELDIFF,SPLITACTION
+...read 9 lines from external file
+...reading external file 'pest_run.par_data.csv'
+...header line: PARNME,PARTRANS,PARCHGLIM,PARVAL1,PARLBND,PARUBND,PARGP,SCALE,OFFSET,DERCOM,HEIGHT
+...read 40 lines from external file
+...reading external file 'pest_run.obs_data.csv'
+...header line: OBSNME,OBSVAL,WEIGHT,OBGNME,EAST,NORTH,STANDARD_DEVIATION,LOWER_BOUND
+...read 65 lines from external file
+...reading external file 'pest_run.tplfile_data.csv'
+...header line: PEST_FILE,MODEL_FILE
+...read 3 lines from external file
+...reading external file 'pest_run.insfile_data.csv'
+...header line: PEST_FILE,MODEL_FILE
+...read 2 lines from external file
+
+    This software has been approved for release by the
+    U.S.Geological Survey(USGS).Although the software has 
+    been subjected to rigorous review, the USGS reserves the
+    right to update the software as needed pursuant to further
+    analysisand review.No warranty, expressed or implied, is 
+    made by the USGS or the U.S.Government as to the
+    functionality of the softwareand related material nor shall
+    the fact of release constitute any such warranty.
+    Furthermore, the software is released on condition that
+    neither the USGS nor the U.S.Government shall be held
+    liable for any damages resulting from its authorized 
+    or unauthorized use.
+
+
+Case dimensions:- 
+    Number of parameters = 39
+    Number of adjustable parameters = 39
+    Number of observations = 64
+    Number of prior estimates = 0
+
+PEST Control Information
+    relparmax = 1
+    facparmax = 1.1
+    facorig = 0.001
+    phiredswh = 0.1
+    noptmax = 10
+    phiredstp = 0.01
+    nphistp = 3
+    nphinored = 3
+    relparstp = 0.01
+    nrelpar = 3
+
+
+    PEST++ OPTIONS: 
+
+...general options (used in multiple tools): 
+svd_pack: redsvd
+lambda_scale_fac: 0.75,1,1.1,
+forgive_unknown_args: 0
+max_run_fail: 3
+panther_poll_interval: 1
+parameter_covariance: 
+observation_covariance: 
+hotstart_resfile: 
+overdue_resched_fac: 1.15
+overdue_giveup_fac: 100
+overdue_giveup_minutes: 1e+30
+condor_submit_file: 
+tie_by_group: 0
+par_sigma_range: 6
+enforce_tied_bounds: 0
+debug_parse_only: 0
+check_tplins: 1
+fill_tpl_zeros: 0
+tpl_force_decimal: 0
+additional_ins_delimiters: 
+random_seed: 358183147
+num_tpl_ins_threads: 1
+save_binary: 0
+ensemble_output_precision: 6
+panther_echo: 1
+panther_agent_restart_on_error: 0
+panther_agent_no_ping_timeout_secs: -1
+panther_debug_loop: 0
+debug_check_par_en_consistency: 0
+panther_agent_freeze_on_fail: 1
+panther_transfer_on_finish: 
+panther_transfer_on_fail: 
+
+...pestpp-glm specific options:
+max_n_super: 1000000
+super_eigthresh: 1e-06
+n_iter_base: 1000000
+n_iter_super: 0
+super_relparmax: 0.1
+max_super_frz_iter: 20
+max_reg_iter: 20
+lambdas: 0.1,1,10,100,1000,
+iteration_summary: 0
+der_forgive: 1
+uncertainty: 1
+forecasts: 
+base_jacobian: 
+glm_num_reals: 0
+jac_scale: 1
+glm_normal_form: DIAG
+glm_debug_der_fail: 0
+glm_debug_lamb_fail: 0
+glm_debug_real_fail: 0
+glm_accept_mc_phi: 0
+glm_rebase_super: 0
+glm_iter_mc: 0
+glm_high_2nd_iter_phi: 0
+
+...pestpp-swp options:
+sweep_parameter_csv_file: 
+sweep_output_csv_file: sweep_out.csv
+sweep_chunk: 500
+sweep_forgive: 0
+sweep_base_run: 0
+sweep_include_regul_phi: 0
+
+...pestpp-opt options:
+opt_objective_function: 
+opt_coin_log: 1
+opt_skip_final: 0
+opt_std_weights: 0
+opt_stack_size: 0
+opt_par_stack: 
+opt_obs_stack: 
+opt_decision_variable_groups: 
+opt_external_variable_groups: 
+opt_constraint_groups: 
+opt_risk: 0.5
+opt_iter_derinc_fac: 1
+opt_direction: 1
+opt_iter_tol: 0.001
+opt_recalc_fosm_every: 1
+opt_chance_points: SINGLE
+
+...pestpp-sqp options:
+sqp_dv_en: 
+sqp_obs_restart_en: 
+sqp_num_reals: -1
+sqp_update_hessian: 0
+sqp_scale_facs:
+  1e-05
+  0.0001
+  0.001
+  0.005
+  0.01
+  0.05
+  0.075
+  0.1
+  0.25
+  0.5
+  1
+
+...pestpp-mou options:
+mou_generator: DE
+mou_population_size: 100
+mou_dv_population_file: 
+mou_obs_population_restart_file: 
+mou_objectives: 
+mou_max_archive_size: 500
+mou_risk_objective: 0
+mou_verbose_level: 1
+mou_env_selector: NSGA
+mou_mating_selector: TOURNAMENT
+mou_crossover_prob: 0.75
+mou_mutation_prob: -999
+mou_de_f: 0.8
+mou_save_population_every: -1
+mou_pso_omega: 0.7
+mou_pso_social_const: 2
+mou_pso_cognitive: 2
+mou_population_schedule: 
+mou_simplex_reflections:10
+mou_simplex_factors: 
+ 0.5
+ 0.6
+ 0.7
+ 0.8
+mou_simplex_mutation: 0
+
+...shared pestpp-ies/pestpp-da options:
+(note: 'da' args override 'ies' args when using pestpp-da)
+ies_parameter_ensemble: 
+ies_observation_ensemble: 
+ies_weights_ensemble: 
+ies_restart_parameter_ensemble: 
+ies_restart_observation_ensemble: 
+ies_use_approximate_solution: 1
+ies_lambda_mults: 0.1,1,10,
+ies_initial_lambda: 0
+ies_use_approx: 1
+ies_subset_size: 4
+ies_reg_factor: 0
+ies_verbose_level: 1
+ies_use_prior_scaling: 0
+ies_num_reals: 1500
+ies_bad_phi: 1e+300
+ies_bad_phi_sigma: 1.25
+ies_include_base: 1
+ies_use_empirical_prior: 0
+ies_group_draws: 1
+ies_enforce_bounds: 1
+ies_localizer: 
+ies_accept_phi_fac: 1.05
+ies_lambda_inc_fac: 10
+ies_lambda_dec_fac: 0.75
+ies_save_lambda_ensembles: 0
+ies_subset_how: RANDOM
+ies_localize_how: PARAMETERS
+ies_num_threads: -1
+ies_debug_fail_subset: 0
+ies_debug_fail_remainder: 0
+ies_debug_bad_phi: 0
+ies_debug_upgrade_only: 0
+ies_debug_high_subset_phi: 0
+ies_debug_high_upgrade_phi: 0
+ies_csv_by_reals: 1
+ies_autoadaloc: 0
+ies_autoadaloc_sigma_dist: 1
+ies_enforce_chglim: 0
+ies_center_on: 
+ies_no_noise: 0
+ies_drop_conflicts: 0
+ies_save_rescov:0
+ies_pdc_sigma_distance: -1
+ies_use_mda: 0
+ies_mda_init_fac: 10
+ies_mda_dec_fac: 0.5
+ies_localization_type: LOCAL
+ies_upgrades_in_memory: 1
+ies_ordered_binary: 1
+ies_multimodal_alpha: 0.05
+ies_localizer_forgive_extra: 0
+ies_phi_fractions_file: 
+
+pestpp-sen options: 
+gsa_method: MORRIS
+gsa_morris_pooled_obs: 0
+gsa_morris_obs_sen: 1
+gsa_morris_p: 4
+gsa_morris_r: 4
+gsa_morris_delta: 0.6666
+gsa_sobol_samples: 4
+gsa_sobol_par_dist: norm
+
+pestpp-da options (those not shared with pestpp-ies):
+da_parameter_cycle_table: 
+da_observation_cycle_table: 
+da_hotstart_cycle: 0
+da_stop_cycle: 1000000000
+da_use_simulated_states: 1
+da_noptmax_schedule: 
+
+
+
+Model command line(s):- 
+    python forward_run.py
+
+Model interface files:-
+    template files:
+      ./tephra2.in.tpl
+      ./wind0.tpl
+    model input files:
+      ./tephra2.in
+      ./wind0
+
+    instruction files:
+      ./svg_u1_data.txt.ins
+    model output files:
+      ./svg_u1_data.txt
+
+
+Parameter group information
+NAME                   INCREMENT TYPE     DERIVATIVE INCREMENT    INCREMENT LOWER BOUND  FORCE CENTRAL     INCREMENT MULTIPLIER
+wind0                        RELATIVE                     0.01                        0         SWITCH                        2
+beta                         RELATIVE                     0.01                        0         SWITCH                        2
+diffusion_coefficient        RELATIVE                     0.01                        0         SWITCH                        2
+eruption_mass                RELATIVE                     0.01                        0         SWITCH                        2
+fall_time_threshold          RELATIVE                     0.01                        0         SWITCH                        2
+median_grainsize             RELATIVE                     0.01                        0         SWITCH                        2
+plume_height                 RELATIVE                     0.01                        0         SWITCH                        2
+std_grainsize                RELATIVE                     0.01                        0         SWITCH                        2
+
+
+
+Parameter information
+NAME                     TRANSFORMATION        CHANGE LIMIT  INITIAL VALUE    LOWER BOUND    UPPER BOUND                 GROUP          SCALE         OFFSET  DERIVATIVE COMMAND
+beta                     log                     FACTOR       0.316228            0.1              1                  beta              1              0                   1
+diffusion_coefficient    log                     FACTOR        1732.05            300          10000 diffusion_coefficient              1              0                   1
+eruption_mass            log                     FACTOR    2.23607e+10          5e+09          1e+11         eruption_mass              1              0                   1
+fall_time_threshold      log                     FACTOR        848.528            600           1200   fall_time_threshold              1              0                   1
+median_grainsize         none                  RELATIVE              0             -2              2      median_grainsize              1              0                   1
+plume_height             log                     FACTOR        13856.4          12000          16000          plume_height              1              0                   1
+std_grainsize            log                     FACTOR        2.29129            1.5            3.5         std_grainsize              1              0                   1
+wind0_height:10974.0_dir none                  RELATIVE           16.7          -83.3          116.7                 wind0              1              0                   1
+wind0_height:10974.0_vel none                    FACTOR           63.2           31.6           94.8                 wind0              1              0                   1
+wind0_height:112.0_dir   none                  RELATIVE            5.8          -94.2          105.8                 wind0              1              0                   1
+wind0_height:112.0_vel   none                    FACTOR          251.3         125.65         376.95                 wind0              1              0                   1
+wind0_height:12456.0_dir none                  RELATIVE           18.2          -81.8          118.2                 wind0              1              0                   1
+wind0_height:12456.0_vel none                    FACTOR           62.7          31.35          94.05                 wind0              1              0                   1
+wind0_height:14262.0_dir none                  RELATIVE           20.2          -79.8          120.2                 wind0              1              0                   1
+wind0_height:14262.0_vel none                    FACTOR           72.5          36.25         108.75                 wind0              1              0                   1
+wind0_height:1525.0_dir  none                  RELATIVE            3.4          -96.6          103.4                 wind0              1              0                   1
+wind0_height:1525.0_vel  none                    FACTOR          302.4          151.2          453.6                 wind0              1              0                   1
+wind0_height:16622.0_dir none                  RELATIVE           17.4          -82.6          117.4                 wind0              1              0                   1
+wind0_height:16622.0_vel none                    FACTOR           90.7          45.35         136.05                 wind0              1              0                   1
+wind0_height:18640.0_dir none                  RELATIVE           10.3          -89.7          110.3                 wind0              1              0                   1
+wind0_height:18640.0_vel none                    FACTOR             88             44            132                 wind0              1              0                   1
+wind0_height:20616.0_dir none                  RELATIVE            8.9          -91.1          108.9                 wind0              1              0                   1
+wind0_height:20616.0_vel none                    FACTOR           90.5          45.25         135.75                 wind0              1              0                   1
+wind0_height:23814.0_dir none                  RELATIVE              2            -98            102                 wind0              1              0                   1
+wind0_height:23814.0_vel none                    FACTOR          248.3         124.15         372.45                 wind0              1              0                   1
+wind0_height:26442.0_dir none                  RELATIVE           10.9          -89.1          110.9                 wind0              1              0                   1
+wind0_height:26442.0_vel none                    FACTOR          270.9         135.45         406.35                 wind0              1              0                   1
+wind0_height:3163.0_dir  none                  RELATIVE              1            -99            101                 wind0              1              0                   1
+wind0_height:3163.0_vel  none                    FACTOR          344.6          172.3          516.9                 wind0              1              0                   1
+wind0_height:4432.0_dir  none                  RELATIVE            1.2          -98.8          101.2                 wind0              1              0                   1
+wind0_height:4432.0_vel  none                    FACTOR           17.3           8.65          25.95                 wind0              1              0                   1
+wind0_height:5882.0_dir  none                  RELATIVE            2.7          -97.3          102.7                 wind0              1              0                   1
+wind0_height:5882.0_vel  none                    FACTOR           81.3          40.65         121.95                 wind0              1              0                   1
+wind0_height:7604.0_dir  none                  RELATIVE            7.1          -92.9          107.1                 wind0              1              0                   1
+wind0_height:7604.0_vel  none                    FACTOR           97.9          48.95         146.85                 wind0              1              0                   1
+wind0_height:796.0_dir   none                  RELATIVE            6.4          -93.6          106.4                 wind0              1              0                   1
+wind0_height:796.0_vel   none                    FACTOR          272.7         136.35         409.05                 wind0              1              0                   1
+wind0_height:9708.0_dir  none                  RELATIVE           13.1          -86.9          113.1                 wind0              1              0                   1
+wind0_height:9708.0_vel  none                    FACTOR           56.5          28.25          84.75                 wind0              1              0                   1
+
+
+
+Observation information
+NAME                                                   VALUE                GROUP              WEIGHT
+mass_east:691536.9571_north:1472268.609                  7.5               obgnme             1.33333
+mass_east:691761.1951_north:1472254.183                  7.5               obgnme             1.33333
+mass_east:692160.2298_north:1473177.647                   15               obgnme            0.666667
+mass_east:692193.9800_north:1472953.200                   30               obgnme            0.333333
+mass_east:692320.9146_north:1470354.661                  1.5               obgnme             6.66667
+mass_east:692341.8300_north:1473492.400                 22.5               obgnme            0.444444
+mass_east:692364.7132_north:1470367.143                  1.5               obgnme             6.66667
+mass_east:692531.9473_north:1470074.692                  1.5               obgnme             6.66667
+mass_east:692553.9683_north:1470044.157                 0.75               obgnme                  10
+mass_east:692556.9148_north:1474042.065                    3               obgnme             3.33333
+mass_east:692614.8900_north:1473096.060                   30               obgnme            0.333333
+mass_east:692625.6287_north:1471812.114                  4.5               obgnme             2.22222
+mass_east:693237.5500_north:1473027.710                   30               obgnme            0.333333
+mass_east:693307.8300_north:1472882.830                   45               obgnme            0.222222
+mass_east:693883.8300_north:1473125.850                   45               obgnme            0.222222
+mass_east:694377.3600_north:1467140.620                 37.5               obgnme            0.266667
+mass_east:695371.1900_north:1473577.850                   30               obgnme            0.333333
+mass_east:695655.1900_north:1473710.470                   75               obgnme            0.133333
+mass_east:697797.7000_north:1474207.000                  240               obgnme                 0.1
+mass_east:697897.3700_north:1474135.590                  300               obgnme                 0.1
+mass_east:697934.4700_north:1474070.690                  270               obgnme                 0.1
+mass_east:697994.9800_north:1474063.940                  345               obgnme                 0.1
+mass_east:698174.9200_north:1473965.360                  285               obgnme                 0.1
+mass_east:698193.1400_north:1473787.020                  225               obgnme                 0.1
+mass_east:698366.8800_north:1479093.000                   60               obgnme            0.166667
+mass_east:698388.5400_north:1479093.160                   45               obgnme            0.222222
+mass_east:698414.0100_north:1473663.840                  195               obgnme                 0.1
+mass_east:698421.1500_north:1473650.610                  165               obgnme                 0.1
+mass_east:698637.1944_north:1479927.937                   15               obgnme            0.666667
+mass_east:699066.5700_north:1473349.550                  105               obgnme                 0.1
+mass_east:699749.1900_north:1478820.010                  150               obgnme                 0.1
+mass_east:700125.6119_north:1479352.578                   75               obgnme            0.133333
+mass_east:700383.6161_north:1472828.366                   45               obgnme            0.222222
+mass_east:700534.2473_north:1465200.142                    3               obgnme             3.33333
+mass_east:700608.1100_north:1479002.790                  120               obgnme                 0.1
+mass_east:700951.9146_north:1479457.732                 82.5               obgnme            0.121212
+mass_east:701230.3042_north:1473607.164                   60               obgnme            0.166667
+mass_east:701236.7800_north:1475734.540                142.5               obgnme                 0.1
+mass_east:701403.2659_north:1474089.033                   75               obgnme            0.133333
+mass_east:701447.5679_north:1478796.180                 82.5               obgnme            0.121212
+mass_east:701979.8903_north:1474231.631                   75               obgnme            0.133333
+mass_east:702055.6754_north:1478553.709                   75               obgnme            0.133333
+mass_east:702329.8068_north:1477485.218                 97.5               obgnme            0.102564
+mass_east:702331.1537_north:1477050.524                 82.5               obgnme            0.121212
+mass_east:702349.4475_north:1472091.164                 22.5               obgnme            0.444444
+mass_east:702379.3700_north:1474878.730                 67.5               obgnme            0.148148
+mass_east:702482.6430_north:1470462.430                  7.5               obgnme             1.33333
+mass_east:702518.8983_north:1470461.695                  7.5               obgnme             1.33333
+mass_east:702558.4110_north:1475908.563                   90               obgnme            0.111111
+mass_east:702689.9009_north:1472997.564                   45               obgnme            0.222222
+mass_east:702691.3487_north:1464877.287                  1.5               obgnme             6.66667
+mass_east:702854.5674_north:1467466.960                   60               obgnme            0.166667
+mass_east:702936.0558_north:1474386.983                   45               obgnme            0.222222
+mass_east:703169.6307_north:1473542.173                   30               obgnme            0.333333
+mass_east:703507.3490_north:1474766.077                   45               obgnme            0.222222
+mass_east:703540.6353_north:1472478.642                   15               obgnme            0.666667
+mass_east:703626.6524_north:1470324.906                 10.5               obgnme            0.952381
+mass_east:703634.9476_north:1470325.699                 10.5               obgnme            0.952381
+mass_east:703737.2128_north:1469459.118                    6               obgnme             1.66667
+mass_east:703741.1090_north:1468505.821                  7.5               obgnme             1.33333
+mass_east:703894.7541_north:1465612.150                  7.5               obgnme             1.33333
+mass_east:703963.5297_north:1471311.749                  7.5               obgnme             1.33333
+mass_east:703986.7135_north:1466887.458                  7.5               obgnme             1.33333
+mass_east:703990.7543_north:1467265.652                  7.5               obgnme             1.33333
+
+
+
+Prior information
+
+   no prior information provided
+
+
+
+PEST SVD Information
+    maxsing = 10000000
+    eigthresh = 1e-06
+
+
+
+
+
+...resetting max_run_fail to 1
+...resetting overdue_giveup_fac to 2.0
+...resetting overdue_resched_fac to 1.15
+
+  ---  initializing  ---  
+
+  ---  using glm algorithm  ---  
+...using REDSVD for truncated svd solve
+...maxsing: 10000000
+...eigthresh:  1e-06
+...initializing localizer
+...not using localization
+...using lambda multipliers: 0.1 , 1 , 10 , 
+...using lambda scaling factors: 0.75 , 1 , 1.1 , 
+...acceptable phi factor:  1.05
+...lambda increase factor:  10
+...lambda decrease factor:  0.75
+...max run fail:  1
+
+  ---  sanity_check warnings  ---  
+...noptmax > 3, this is a lot of iterations for an ensemble method, please consider using fewer iterations for better outcomes
+...continuing initialization...
+...initializing prior parameter covariance matrix
+...parcov loaded  from parameter bounds, using par_sigma_range 6
+...initializing observation noise covariance matrix
+Note: the following observations have 'standard_deviation' defined - this will be used
+      instead of weight for the observation noise covariance matrix : 
+MASS_EAST:691536.9571_NORTH:1472268.609 0.375
+MASS_EAST:691761.1951_NORTH:1472254.183 0.375
+MASS_EAST:692160.2298_NORTH:1473177.647 0.75
+MASS_EAST:692193.9800_NORTH:1472953.200 1.5
+MASS_EAST:692320.9146_NORTH:1470354.661 0.1
+MASS_EAST:692341.8300_NORTH:1473492.400 1.125
+MASS_EAST:692364.7132_NORTH:1470367.143 0.1
+MASS_EAST:692531.9473_NORTH:1470074.692 0.1
+MASS_EAST:692553.9683_NORTH:1470044.157 0.1
+MASS_EAST:692556.9148_NORTH:1474042.065 0.15
+MASS_EAST:692614.8900_NORTH:1473096.060 1.5
+MASS_EAST:692625.6287_NORTH:1471812.114 0.225
+MASS_EAST:693237.5500_NORTH:1473027.710 1.5
+MASS_EAST:693307.8300_NORTH:1472882.830 2.25
+MASS_EAST:693883.8300_NORTH:1473125.850 2.25
+MASS_EAST:694377.3600_NORTH:1467140.620 1.875
+MASS_EAST:695371.1900_NORTH:1473577.850 1.5
+MASS_EAST:695655.1900_NORTH:1473710.470 3.75
+MASS_EAST:697797.7000_NORTH:1474207.000 12
+MASS_EAST:697897.3700_NORTH:1474135.590 15
+MASS_EAST:697934.4700_NORTH:1474070.690 13.5
+MASS_EAST:697994.9800_NORTH:1474063.940 17.25
+MASS_EAST:698174.9200_NORTH:1473965.360 14.25
+MASS_EAST:698193.1400_NORTH:1473787.020 11.25
+MASS_EAST:698366.8800_NORTH:1479093.000 3
+MASS_EAST:698388.5400_NORTH:1479093.160 2.25
+MASS_EAST:698414.0100_NORTH:1473663.840 9.75
+MASS_EAST:698421.1500_NORTH:1473650.610 8.25
+MASS_EAST:698637.1944_NORTH:1479927.937 0.75
+MASS_EAST:699066.5700_NORTH:1473349.550 5.25
+MASS_EAST:699749.1900_NORTH:1478820.010 7.5
+MASS_EAST:700125.6119_NORTH:1479352.578 3.75
+MASS_EAST:700383.6161_NORTH:1472828.366 2.25
+MASS_EAST:700534.2473_NORTH:1465200.142 0.15
+MASS_EAST:700608.1100_NORTH:1479002.790 6
+MASS_EAST:700951.9146_NORTH:1479457.732 4.125
+MASS_EAST:701230.3042_NORTH:1473607.164 3
+MASS_EAST:701236.7800_NORTH:1475734.540 7.125
+MASS_EAST:701403.2659_NORTH:1474089.033 3.75
+MASS_EAST:701447.5679_NORTH:1478796.180 4.125
+MASS_EAST:701979.8903_NORTH:1474231.631 3.75
+MASS_EAST:702055.6754_NORTH:1478553.709 3.75
+MASS_EAST:702329.8068_NORTH:1477485.218 4.875
+MASS_EAST:702331.1537_NORTH:1477050.524 4.125
+MASS_EAST:702349.4475_NORTH:1472091.164 1.125
+MASS_EAST:702379.3700_NORTH:1474878.730 3.375
+MASS_EAST:702482.6430_NORTH:1470462.430 0.375
+MASS_EAST:702518.8983_NORTH:1470461.695 0.375
+MASS_EAST:702558.4110_NORTH:1475908.563 4.5
+MASS_EAST:702689.9009_NORTH:1472997.564 2.25
+MASS_EAST:702691.3487_NORTH:1464877.287 0.1
+MASS_EAST:702854.5674_NORTH:1467466.960 3
+MASS_EAST:702936.0558_NORTH:1474386.983 2.25
+MASS_EAST:703169.6307_NORTH:1473542.173 1.5
+MASS_EAST:703507.3490_NORTH:1474766.077 2.25
+MASS_EAST:703540.6353_NORTH:1472478.642 0.75
+MASS_EAST:703626.6524_NORTH:1470324.906 0.525
+MASS_EAST:703634.9476_NORTH:1470325.699 0.525
+MASS_EAST:703737.2128_NORTH:1469459.118 0.3
+MASS_EAST:703741.1090_NORTH:1468505.821 0.375
+MASS_EAST:703894.7541_NORTH:1465612.150 0.375
+MASS_EAST:703963.5297_NORTH:1471311.749 0.375
+MASS_EAST:703986.7135_NORTH:1466887.458 0.375
+MASS_EAST:703990.7543_NORTH:1467265.652 0.375
+...obscov loaded  from observation weights
+...using reg_factor:  0
+...drawing parameter realizations:  1500
+...not using prior parameter covariance matrix scaling
+...drawing observation noise realizations:  1500
+Note: the following observations contain 'lower_bound' and/or 'upper_bound' information that will be
+      enforced on the additive noise realizations: 
+MASS_EAST:691536.9571_NORTH:1472268.609 0 1.79769e+308
+MASS_EAST:691761.1951_NORTH:1472254.183 0 1.79769e+308
+MASS_EAST:692160.2298_NORTH:1473177.647 0 1.79769e+308
+MASS_EAST:692193.9800_NORTH:1472953.200 0 1.79769e+308
+MASS_EAST:692320.9146_NORTH:1470354.661 0 1.79769e+308
+MASS_EAST:692341.8300_NORTH:1473492.400 0 1.79769e+308
+MASS_EAST:692364.7132_NORTH:1470367.143 0 1.79769e+308
+MASS_EAST:692531.9473_NORTH:1470074.692 0 1.79769e+308
+MASS_EAST:692553.9683_NORTH:1470044.157 0 1.79769e+308
+MASS_EAST:692556.9148_NORTH:1474042.065 0 1.79769e+308
+MASS_EAST:692614.8900_NORTH:1473096.060 0 1.79769e+308
+MASS_EAST:692625.6287_NORTH:1471812.114 0 1.79769e+308
+MASS_EAST:693237.5500_NORTH:1473027.710 0 1.79769e+308
+MASS_EAST:693307.8300_NORTH:1472882.830 0 1.79769e+308
+MASS_EAST:693883.8300_NORTH:1473125.850 0 1.79769e+308
+MASS_EAST:694377.3600_NORTH:1467140.620 0 1.79769e+308
+MASS_EAST:695371.1900_NORTH:1473577.850 0 1.79769e+308
+MASS_EAST:695655.1900_NORTH:1473710.470 0 1.79769e+308
+MASS_EAST:697797.7000_NORTH:1474207.000 0 1.79769e+308
+MASS_EAST:697897.3700_NORTH:1474135.590 0 1.79769e+308
+MASS_EAST:697934.4700_NORTH:1474070.690 0 1.79769e+308
+MASS_EAST:697994.9800_NORTH:1474063.940 0 1.79769e+308
+MASS_EAST:698174.9200_NORTH:1473965.360 0 1.79769e+308
+MASS_EAST:698193.1400_NORTH:1473787.020 0 1.79769e+308
+MASS_EAST:698366.8800_NORTH:1479093.000 0 1.79769e+308
+MASS_EAST:698388.5400_NORTH:1479093.160 0 1.79769e+308
+MASS_EAST:698414.0100_NORTH:1473663.840 0 1.79769e+308
+MASS_EAST:698421.1500_NORTH:1473650.610 0 1.79769e+308
+MASS_EAST:698637.1944_NORTH:1479927.937 0 1.79769e+308
+MASS_EAST:699066.5700_NORTH:1473349.550 0 1.79769e+308
+MASS_EAST:699749.1900_NORTH:1478820.010 0 1.79769e+308
+MASS_EAST:700125.6119_NORTH:1479352.578 0 1.79769e+308
+MASS_EAST:700383.6161_NORTH:1472828.366 0 1.79769e+308
+MASS_EAST:700534.2473_NORTH:1465200.142 0 1.79769e+308
+MASS_EAST:700608.1100_NORTH:1479002.790 0 1.79769e+308
+MASS_EAST:700951.9146_NORTH:1479457.732 0 1.79769e+308
+MASS_EAST:701230.3042_NORTH:1473607.164 0 1.79769e+308
+MASS_EAST:701236.7800_NORTH:1475734.540 0 1.79769e+308
+MASS_EAST:701403.2659_NORTH:1474089.033 0 1.79769e+308
+MASS_EAST:701447.5679_NORTH:1478796.180 0 1.79769e+308
+MASS_EAST:701979.8903_NORTH:1474231.631 0 1.79769e+308
+MASS_EAST:702055.6754_NORTH:1478553.709 0 1.79769e+308
+MASS_EAST:702329.8068_NORTH:1477485.218 0 1.79769e+308
+MASS_EAST:702331.1537_NORTH:1477050.524 0 1.79769e+308
+MASS_EAST:702349.4475_NORTH:1472091.164 0 1.79769e+308
+MASS_EAST:702379.3700_NORTH:1474878.730 0 1.79769e+308
+MASS_EAST:702482.6430_NORTH:1470462.430 0 1.79769e+308
+MASS_EAST:702518.8983_NORTH:1470461.695 0 1.79769e+308
+MASS_EAST:702558.4110_NORTH:1475908.563 0 1.79769e+308
+MASS_EAST:702689.9009_NORTH:1472997.564 0 1.79769e+308
+MASS_EAST:702691.3487_NORTH:1464877.287 0 1.79769e+308
+MASS_EAST:702854.5674_NORTH:1467466.960 0 1.79769e+308
+MASS_EAST:702936.0558_NORTH:1474386.983 0 1.79769e+308
+MASS_EAST:703169.6307_NORTH:1473542.173 0 1.79769e+308
+MASS_EAST:703507.3490_NORTH:1474766.077 0 1.79769e+308
+MASS_EAST:703540.6353_NORTH:1472478.642 0 1.79769e+308
+MASS_EAST:703626.6524_NORTH:1470324.906 0 1.79769e+308
+MASS_EAST:703634.9476_NORTH:1470325.699 0 1.79769e+308
+MASS_EAST:703737.2128_NORTH:1469459.118 0 1.79769e+308
+MASS_EAST:703741.1090_NORTH:1468505.821 0 1.79769e+308
+MASS_EAST:703894.7541_NORTH:1465612.150 0 1.79769e+308
+MASS_EAST:703963.5297_NORTH:1471311.749 0 1.79769e+308
+MASS_EAST:703986.7135_NORTH:1466887.458 0 1.79769e+308
+MASS_EAST:703990.7543_NORTH:1467265.652 0 1.79769e+308
+...adding 'base' parameter values to ensemble
+...adding 'base' observation values to ensemble
+checking for denormal values in pe
+...saved initial parameter ensemble to  pest_run.0.par.csv
+checking for denormal values in obs + noise ensemble
+...saved obs+noise observation ensemble (obsval + noise realizations) to  pest_run.obs+noise.csv
+...setting weights ensemble from control file weights
+checking for denormal values in weights ensemble
+...using subset in lambda testing, number of realizations used in subset testing:  4
+...subset how:  RANDOM
+...centering on ensemble mean vector
+...running initial ensemble of size 1500
+...saved initial obs ensemble to pest_run.0.obs.csv
+
+  ---  pre-drop initial phi summary  ---  
+       phi type           mean            std            min            max
+       measured         255980    1.01998e+06        4001.05     1.6681e+07
+         actual         255947    1.01997e+06        3948.19    1.66784e+07
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                        255947    1.01997e+06        3948.19    1.66784e+07            100    3.27339e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...checking for prior-data conflict...
+...bad_phi_sigma 1.25 and mean 255980 yields bad phi threshold of 1.53096e+06
+
+  ---  dropping realizations as bad:  63  ---  
+...dropping par:obs realizations: 3 : 3 , 38 : 38 , 53 : 53 , 76 : 76 , 98 : 98 , 115 : 115 , 139 : 139 , 142 : 142 , 184 : 184 , 234 : 234 , 285 : 285 , 305 : 305 , 342 : 342 , 344 : 344 , 360 : 360 , 396 : 396 , 426 : 426 , 433 : 433 , 447 : 447 , 505 : 505 , 541 : 541 , 543 : 543 , 574 : 574 , 575 : 575 , 602 : 602 , 648 : 648 , 664 : 664 , 671 : 671 , 684 : 684 , 693 : 693 , 706 : 706 , 744 : 744 , 775 : 775 , 777 : 777 , 784 : 784 , 825 : 825 , 842 : 842 , 861 : 861 , 889 : 889 , 911 : 911 , 919 : 919 , 954 : 954 , 972 : 972 , 981 : 981 , 996 : 996 , 1011 : 1011 , 1016 : 1016 , 1025 : 1025 , 1029 : 1029 , 1031 : 1031 , 1086 : 1086 , 1160 : 1160 , 1188 : 1188 , 1199 : 1199 , 1253 : 1253 , 1287 : 1287 , 1360 : 1360 , 1365 : 1365 , 1369 : 1369 , 1371 : 1371 , 1398 : 1398 , 1419 : 1419 , 1481 : 1481 , 
+
+  ---  initial phi summary  ---  
+       phi type           mean            std            min            max
+       measured        90980.1         214697        4001.05    1.50882e+06
+         actual        90942.3         214601        3948.19    1.51248e+06
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       90942.3         214601        3948.19    1.51248e+06            100    3.22674e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...current lambda: 100
+
+  ---  initialization complete  ---  
+
+  ---  starting solve for iteration: 1  ---  
+...current lambda:  100
+...preparing fast-look containers for threaded localization solve
+...starting calcs for glm factor 10
+see .log file for more details
+...multimodal solve for inflation factor  10
+...finished calcs for: 10
+...starting calcs for glm factor 100
+see .log file for more details
+...multimodal solve for inflation factor  100
+...finished calcs for: 100
+...starting calcs for glm factor 1000
+see .log file for more details
+...multimodal solve for inflation factor  1000
+...finished calcs for: 1000
+
+  ---  running upgrade ensembles  ---  
+...subset idx:pe real name:  2:2, 209:218, 371:386, 1436:BASE, 
+...subset idx:oe real name:  2:2, 209:218, 371:386, 1436:BASE, 
+
+  ---  evaluting upgrade ensembles  ---  
+...last mean:  90980.1
+...last stdev:  214697
+...bad_phi_sigma 1.25 and mean 99417 yields bad phi threshold of 322409
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 2 : 2 , 
+
+  ---  phi summary for lambda, scale fac:10 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        10220.9         988.61        9360.56        11300.9
+         actual        10280.6         921.77        9360.56        11204.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       10280.6         921.77        9360.56        11204.1            100    7.40611e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 28310.8 yields bad phi threshold of 62443.8
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 2 : 2 , 
+
+  ---  phi summary for lambda, scale fac:10 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        14777.5        4422.18        10406.1        19248.8
+         actual        14861.9         4237.2        10719.8        19188.2
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       14861.9         4237.2        10719.8        19188.2            100    3.23683e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 16144.9 yields bad phi threshold of 22513.8
+
+  ---  phi summary for lambda, scale fac:10 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        16144.9        5095.08        10020.3        21994.4
+         actual        16131.6        4988.92        10328.4        21941.2
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       16131.6        4988.92        10328.4        21941.2            100    5.00627e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 79123.6 yields bad phi threshold of 251128
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 2 : 2 , 
+
+  ---  phi summary for lambda, scale fac:100 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        10352.5        5022.64        6173.14        15924.5
+         actual        10356.8        5179.49        6173.14        16149.9
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       10356.8        5179.49        6173.14        16149.9            100    2.22045e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 93131.8 yields bad phi threshold of 288777
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 2 : 2 , 
+
+  ---  phi summary for lambda, scale fac:100 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        15021.2        11769.2        6598.86        28468.8
+         actual        15010.2          11930        6598.86        28663.7
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       15010.2          11930        6598.86        28663.7            100    1.92296e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 94748.8 yields bad phi threshold of 287303
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 2 : 2 , 
+
+  ---  phi summary for lambda, scale fac:100 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        18024.3        16555.7        6764.37        37033.4
+         actual        18006.1        16709.8        6764.37        37207.6
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       18006.1        16709.8        6764.37        37207.6            100    7.85046e-15            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 25702.6 yields bad phi threshold of 70005.5
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 2 : 2 , 
+
+  ---  phi summary for lambda, scale fac:1000 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        8026.11        3077.82        5103.75        11238.8
+         actual        8049.97           3213        5103.75        11475.8
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       8049.97           3213        5103.75        11475.8            100    1.75542e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 35564.7 yields bad phi threshold of 101802
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 2 : 2 , 
+
+  ---  phi summary for lambda, scale fac:1000 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        9122.37        4092.43        5126.45        13304.9
+         actual        9132.85        4220.87        5126.45        13539.6
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       9132.85        4220.87        5126.45        13539.6            100    5.20741e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 40387.8 yields bad phi threshold of 117029
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 2 : 2 , 
+
+  ---  phi summary for lambda, scale fac:1000 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        9796.44        4888.07        5142.17        14888.8
+         actual        9803.34        5021.78        5142.17        15121.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       9803.34        5021.78        5142.17        15121.1            100    3.68219e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+  ---  phi summary for best lambda, scale fac: 1000 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        8026.11        3077.82        5103.75        11238.8
+         actual        8049.97           3213        5103.75        11475.8
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+
+  ---  running remaining realizations for best lambda, scale:1000 , 0.75 ,   ---  
+...bad_phi_sigma 1.25 and mean 52356.1 yields bad phi threshold of 437507
+
+  ---  dropping realizations as bad:  26  ---  
+...dropping par:obs realizations: 29 : 29 , 33 : 33 , 154 : 154 , 179 : 179 , 200 : 200 , 225 : 225 , 372 : 372 , 373 : 373 , 544 : 544 , 563 : 563 , 622 : 622 , 677 : 677 , 686 : 686 , 713 : 713 , 729 : 729 , 763 : 763 , 778 : 778 , 853 : 853 , 1145 : 1145 , 1181 : 1181 , 1390 : 1390 , 1397 : 1397 , 1401 : 1401 , 1431 : 1431 , 1455 : 1455 , 1456 : 1456 , 
+...phi summary for entire ensemble using lambda,scale_fac 1000 , 0.75 , 
+       phi type           mean            std            min            max
+       measured        21732.5        44730.3        3308.51         415619
+         actual        21709.9        44714.7        3279.41         415637
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+...last best mean phi * acceptable phi factor:  95529.1
+...current best mean phi:  21732.5
+
+  ---  updating parameter ensemble  ---  
+
+  ---  updating lambda to  750  ---  
+
+  ---  EnsembleMethod iteration 1 report  ---  
+   number of active realizations:  1410
+   number of model runs:           2969
+      current obs ensemble saved to pest_run.1.obs.csv
+      current par ensemble saved to pest_run.1.par.csv
+       phi type           mean            std            min            max
+       measured        21732.5        44730.3        3308.51         415619
+         actual        21709.9        44714.7        3279.41         415637
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       21709.9        44714.7        3279.41         415637            100    3.02381e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+   ---  parameter group change summmary  ---    
+   (compared to the initial ensemble using active realizations)
+group                 mean change  std change  n at/near bnds  % at/near bnds   init CV   curr CV n CV decr
+median_grainsize          86.2348     6.75493               0               0        25   1.7e+02         0
+wind0                          31         6.7               9               0       4.6       2.8         2
+beta                         0.34         7.6               1               0      0.33      0.31         0
+diffusion_coefficient        0.19         7.4               0               0     0.078     0.072         0
+eruption_mass               0.024         8.9               0               0     0.021     0.019         0
+fall_time_threshold         0.024         5.4               0               0     0.017     0.016         0
+std_grainsize               0.011         6.9               0               0      0.17      0.16         0
+plume_height               0.0074         4.4               0               0    0.0051    0.0048         0
+    Note: parameter change summary sorted according to abs 'mean change'.
+          'n CV decr' is the number of parameters with current CV less 30% of the initial CV
+
+...saved parameter change summary to pest_run.1.pcs.csv
+
+  ---  phi-based termination criteria check  ---  
+...phiredstp:  0.01
+...nphistp:  3
+...nphinored (also used for consecutive bad lambda cycles):  3
+...best mean phi sequence: 90980.1 , 21732.5 , 
+...best phi yet:  21732.5
+...number of consecutive bad lambda testing cycles:  0
+...number of iterations satisfying phiredstp criteria:  1
+...number of iterations since best yet mean phi:  0
+
+  ---  starting solve for iteration: 2  ---  
+...current lambda:  750
+...preparing fast-look containers for threaded localization solve
+...starting calcs for glm factor 75
+see .log file for more details
+...multimodal solve for inflation factor  75
+...finished calcs for: 75
+...starting calcs for glm factor 750
+see .log file for more details
+...multimodal solve for inflation factor  750
+...finished calcs for: 750
+...starting calcs for glm factor 7500
+see .log file for more details
+...multimodal solve for inflation factor  7500
+...finished calcs for: 7500
+
+  ---  running upgrade ensembles  ---  
+...subset idx:pe real name:  2:BASE, 183:194, 717:765, 1104:1175, 
+...subset idx:oe real name:  2:BASE, 183:194, 717:765, 1104:1175, 
+
+  ---  evaluting upgrade ensembles  ---  
+...last mean:  21732.5
+...last stdev:  44730.3
+...bad_phi_sigma 1.25 and mean 10124 yields bad phi threshold of 12045.6
+
+  ---  phi summary for lambda, scale fac:75 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured          10124        1537.29        8250.18          11504
+         actual        10068.4        1491.28        8250.18        11359.8
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       10068.4        1491.28        8250.18        11359.8            100    2.31111e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 13428.2 yields bad phi threshold of 15693.8
+
+  ---  phi summary for lambda, scale fac:75 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        13428.2        1812.48          11221        15637.7
+         actual        13406.2        1931.98        10936.1        15637.7
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       13406.2        1931.98        10936.1        15637.7            100    3.45182e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 15737.7 yields bad phi threshold of 20772.8
+
+  ---  phi summary for lambda, scale fac:75 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        15737.7        4028.07        10992.3        20801.2
+         actual        15730.1        4139.32        10709.9        20801.2
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       15730.1        4139.32        10709.9        20801.2            100    2.86658e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 9002.58 yields bad phi threshold of 13192.8
+
+  ---  phi summary for lambda, scale fac:750 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        9002.58        3352.16        4787.98        12351.3
+         actual        8905.69        3299.46        4787.98        12057.6
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       8905.69        3299.46        4787.98        12057.6            100    3.14018e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 9175.73 yields bad phi threshold of 13654.8
+
+  ---  phi summary for lambda, scale fac:750 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        9175.73        3583.23        4746.23        12781.5
+         actual        9087.94        3528.96        4746.23          12489
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       9087.94        3528.96        4746.23          12489            100    3.56887e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 9291.35 yields bad phi threshold of 13895.5
+
+  ---  phi summary for lambda, scale fac:750 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        9291.35        3683.33        4741.12        12922.2
+         actual         9207.7        3631.22        4741.12        12630.5
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                        9207.7        3631.22        4741.12        12630.5            100    3.20494e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 8987.92 yields bad phi threshold of 12644
+
+  ---  phi summary for lambda, scale fac:7500 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        8987.92         2924.9        5033.54        11523.9
+         actual        8875.15        2881.03        5033.54        11231.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       8875.15        2881.03        5033.54        11231.1            100    1.92296e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 8983.94 yields bad phi threshold of 12684.1
+
+  ---  phi summary for lambda, scale fac:7500 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        8983.94        2960.14        5011.26          11603
+         actual        8872.28        2915.45        5011.26        11309.9
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       8872.28        2915.45        5011.26        11309.9            100    2.22045e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 8982.82 yields bad phi threshold of 12701.1
+
+  ---  phi summary for lambda, scale fac:7500 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        8982.82        2974.63        5002.52        11635.3
+         actual        8871.62        2929.59        5002.52        11342.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       8871.62        2929.59        5002.52        11342.1            100    3.45182e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+  ---  phi summary for best lambda, scale fac: 7500 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        8982.82        2974.63        5002.52        11635.3
+         actual        8871.62        2929.59        5002.52        11342.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+
+  ---  running remaining realizations for best lambda, scale:7500 , 1.1 ,   ---  
+...bad_phi_sigma 1.25 and mean 21675 yields bad phi threshold of 138448
+
+  ---  dropping realizations as bad:  19  ---  
+...dropping par:obs realizations: 21 : 21 , 129 : 129 , 245 : 245 , 317 : 317 , 400 : 400 , 409 : 409 , 463 : 463 , 550 : 550 , 567 : 567 , 596 : 596 , 634 : 634 , 841 : 841 , 893 : 893 , 941 : 941 , 966 : 966 , 971 : 971 , 1021 : 1021 , 1240 : 1240 , 1270 : 1270 , 
+...phi summary for entire ensemble using lambda,scale_fac 7500 , 1.1 , 
+       phi type           mean            std            min            max
+       measured        13341.7        12523.7         3183.2         128924
+         actual        13319.8        12513.5        3159.75         128782
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+...last best mean phi * acceptable phi factor:  22819.2
+...current best mean phi:  13341.7
+
+  ---  updating parameter ensemble  ---  
+
+  ---  updating lambda to  5625  ---  
+
+  ---  EnsembleMethod iteration 2 report  ---  
+   number of active realizations:  1391
+   number of model runs:           4411
+      current obs ensemble saved to pest_run.2.obs.csv
+      current par ensemble saved to pest_run.2.par.csv
+       phi type           mean            std            min            max
+       measured        13341.7        12523.7         3183.2         128924
+         actual        13319.8        12513.5        3159.75         128782
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       13319.8        12513.5        3159.75         128782            100    2.97383e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+   ---  parameter group change summmary  ---    
+   (compared to the initial ensemble using active realizations)
+group                 mean change  std change  n at/near bnds  % at/near bnds   init CV   curr CV n CV decr
+median_grainsize          153.263     9.19764               0               0        25        43         0
+wind0                          33         8.9               4               0       4.6       2.8         2
+beta                         0.67         9.7               1               0      0.33       0.3         0
+diffusion_coefficient        0.24         9.2               0               0     0.078     0.071         0
+std_grainsize                0.16         8.4               0               0      0.17      0.15         0
+fall_time_threshold         0.028           7               0               0     0.017     0.016         0
+eruption_mass                0.01          11               0               0     0.021     0.019         0
+plume_height                0.009           6               0               0    0.0051    0.0048         0
+    Note: parameter change summary sorted according to abs 'mean change'.
+          'n CV decr' is the number of parameters with current CV less 30% of the initial CV
+
+...saved parameter change summary to pest_run.2.pcs.csv
+
+  ---  phi-based termination criteria check  ---  
+...phiredstp:  0.01
+...nphistp:  3
+...nphinored (also used for consecutive bad lambda cycles):  3
+...best mean phi sequence: 90980.1 , 21732.5 , 13341.7 , 
+...best phi yet:  13341.7
+...number of consecutive bad lambda testing cycles:  0
+...number of iterations satisfying phiredstp criteria:  1
+...number of iterations since best yet mean phi:  0
+
+  ---  starting solve for iteration: 3  ---  
+...current lambda:  5625
+...preparing fast-look containers for threaded localization solve
+...starting calcs for glm factor 562.5
+see .log file for more details
+...multimodal solve for inflation factor  562.5
+...finished calcs for: 562.5
+...starting calcs for glm factor 5625
+see .log file for more details
+...multimodal solve for inflation factor  5625
+...finished calcs for: 5625
+...starting calcs for glm factor 56250
+see .log file for more details
+...multimodal solve for inflation factor  56250
+...finished calcs for: 56250
+
+  ---  running upgrade ensembles  ---  
+...subset idx:pe real name:  0:BASE, 405:435, 965:1049, 1116:1207, 
+...subset idx:oe real name:  0:BASE, 405:435, 965:1049, 1116:1207, 
+
+  ---  evaluting upgrade ensembles  ---  
+...last mean:  13341.7
+...last stdev:  12523.7
+...bad_phi_sigma 1.25 and mean 7091.9 yields bad phi threshold of 9592.4
+
+  ---  phi summary for lambda, scale fac:562.5 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured         7091.9        2000.39        4683.33        9371.25
+         actual        6918.93        1908.33        4683.33        9174.08
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       6918.93        1908.33        4683.33        9174.08            100    4.00297e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 6611.88 yields bad phi threshold of 8360.47
+
+  ---  phi summary for lambda, scale fac:562.5 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        6611.88        1398.87        4714.65        7966.76
+         actual        6460.83        1292.09        4714.65        7669.96
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       6460.83        1292.09        4714.65        7669.96            100    2.86658e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 6739.37 yields bad phi threshold of 8544.11
+
+  ---  phi summary for lambda, scale fac:562.5 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        6739.37         1443.8        4755.41        8101.72
+         actual        6593.64         1342.1        4755.41        7809.93
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       6593.64         1342.1        4755.41        7809.93            100    2.86658e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 13343 yields bad phi threshold of 28057
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 435 : 435 , 
+
+  ---  phi summary for lambda, scale fac:5625 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        7534.52        2326.62        4922.47        9384.65
+         actual        7356.81        2189.55        4922.47        9165.27
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       7356.81        2189.55        4922.47        9165.27            100    1.57009e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 12544.5 yields bad phi threshold of 25679.5
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 435 : 435 , 
+
+  ---  phi summary for lambda, scale fac:5625 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        7365.61        2168.36        4897.65        8965.21
+         actual        7189.28        2027.49        4897.65        8749.89
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       7189.28        2027.49        4897.65        8749.89            100    2.71948e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 12231.7 yields bad phi threshold of 24746.8
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 435 : 435 , 
+
+  ---  phi summary for lambda, scale fac:5625 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        7300.32        2110.05        4888.01        8802.89
+         actual         7124.5        1967.58        4888.01        8589.07
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                        7124.5        1967.58        4888.01        8589.07            100    7.85046e-15            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 15900.1 yields bad phi threshold of 35833
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 435 : 435 , 
+
+  ---  phi summary for lambda, scale fac:56250 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        8010.07        2812.81         4993.4        10560.8
+         actual        7828.06        2683.16         4993.4        10328.4
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       7828.06        2683.16         4993.4        10328.4            100    5.20741e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 15764.1 yields bad phi threshold of 35408.6
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 435 : 435 , 
+
+  ---  phi summary for lambda, scale fac:56250 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured         7989.4        2790.82        4990.39        10510.2
+         actual        7807.57        2660.95        4990.39        10278.4
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       7807.57        2660.95        4990.39        10278.4            100    2.71948e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 15710.7 yields bad phi threshold of 35241.9
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 435 : 435 , 
+
+  ---  phi summary for lambda, scale fac:56250 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        7981.13        2782.03        4989.18          10490
+         actual        7799.38        2652.07        4989.18        10258.3
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       7799.38        2652.07        4989.18        10258.3            100    2.93737e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+  ---  phi summary for best lambda, scale fac: 562.5 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        6611.88        1398.87        4714.65        7966.76
+         actual        6460.83        1292.09        4714.65        7669.96
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+
+  ---  running remaining realizations for best lambda, scale:562.5 , 1 ,   ---  
+...bad_phi_sigma 1.25 and mean 25636.3 yields bad phi threshold of 282983
+
+  ---  dropping realizations as bad:  10  ---  
+...dropping par:obs realizations: 116 : 116 , 204 : 204 , 229 : 229 , 366 : 366 , 566 : 566 , 590 : 590 , 805 : 805 , 950 : 950 , 1292 : 1292 , 1474 : 1474 , 
+...phi summary for entire ensemble using lambda,scale_fac 562.5 , 1 , 
+       phi type           mean            std            min            max
+       measured        13708.4        22835.1        2818.86         256127
+         actual        13686.1        22821.4        2632.64         255351
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+...last best mean phi * acceptable phi factor:  14008.8
+...current best mean phi:  13708.4
+
+  ---  updating parameter ensemble  ---  
+
+  ---  not updating lambda (standard deviation reduction criteria not met)  ---  
+
+  ---  EnsembleMethod iteration 3 report  ---  
+   number of active realizations:  1381
+   number of model runs:           5834
+      current obs ensemble saved to pest_run.3.obs.csv
+      current par ensemble saved to pest_run.3.par.csv
+       phi type           mean            std            min            max
+       measured        13708.4        22835.1        2818.86         256127
+         actual        13686.1        22821.4        2632.64         255351
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       13686.1        22821.4        2632.64         255351            100    2.97979e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+   ---  parameter group change summmary  ---    
+   (compared to the initial ensemble using active realizations)
+group                 mean change  std change  n at/near bnds  % at/near bnds   init CV   curr CV n CV decr
+median_grainsize          643.888     18.9528               0               0        25       3.7         1
+wind0                          36          18               1               0       4.6        18         2
+beta                          5.6          17               0               0      0.33      0.29         0
+diffusion_coefficient        0.74          18               0               0     0.078     0.064         0
+std_grainsize                0.29          16               0               0      0.17      0.14         0
+eruption_mass                0.14          23               0               0     0.021     0.016         0
+fall_time_threshold         0.088          16               0               0     0.017     0.014         0
+plume_height                0.051          15               0               0    0.0051    0.0043         0
+    Note: parameter change summary sorted according to abs 'mean change'.
+          'n CV decr' is the number of parameters with current CV less 30% of the initial CV
+
+...saved parameter change summary to pest_run.3.pcs.csv
+
+  ---  phi-based termination criteria check  ---  
+...phiredstp:  0.01
+...nphistp:  3
+...nphinored (also used for consecutive bad lambda cycles):  3
+...best mean phi sequence: 90980.1 , 21732.5 , 13341.7 , 13708.4 , 
+...best phi yet:  13341.7
+...number of consecutive bad lambda testing cycles:  0
+...number of iterations satisfying phiredstp criteria:  1
+...number of iterations since best yet mean phi:  1
+
+  ---  starting solve for iteration: 4  ---  
+...current lambda:  5625
+...preparing fast-look containers for threaded localization solve
+...starting calcs for glm factor 562.5
+see .log file for more details
+...multimodal solve for inflation factor  562.5
+...finished calcs for: 562.5
+...starting calcs for glm factor 5625
+see .log file for more details
+...multimodal solve for inflation factor  5625
+...finished calcs for: 5625
+...starting calcs for glm factor 56250
+see .log file for more details
+...multimodal solve for inflation factor  56250
+...finished calcs for: 56250
+
+  ---  running upgrade ensembles  ---  
+...subset idx:pe real name:  0:BASE, 538:582, 981:1072, 1363:1480, 
+...subset idx:oe real name:  0:BASE, 538:582, 981:1072, 1363:1480, 
+
+  ---  evaluting upgrade ensembles  ---  
+...last mean:  13708.4
+...last stdev:  22835.1
+...bad_phi_sigma 1.25 and mean 39648.7 yields bad phi threshold of 89471.3
+
+  ---  phi summary for lambda, scale fac:562.5 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        39648.7        39858.1        4515.42        86775.9
+         actual        39482.9        39665.5        4515.42        86618.7
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       39482.9        39665.5        4515.42        86618.7            100    1.69589e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 40655.3 yields bad phi threshold of 100851
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 1480 : 1480 , 
+
+  ---  phi summary for lambda, scale fac:562.5 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        17960.5        19704.2        4450.84        40570.1
+         actual        17816.2        19358.2        4450.84        40015.5
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       17816.2        19358.2        4450.84        40015.5            100     2.6037e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 39818.2 yields bad phi threshold of 103512
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 1480 : 1480 , 
+
+  ---  phi summary for lambda, scale fac:562.5 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        15058.7        14710.2        4425.67        31846.6
+         actual          14931          14398        4425.67          31343
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                         14931          14398        4425.67          31343            100    3.42194e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 25176 yields bad phi threshold of 54087.6
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 582 : 582 , 
+
+  ---  phi summary for lambda, scale fac:5625 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured          15360        14977.2         4671.5        32478.5
+         actual        15369.2        14900.2         4671.5          32388
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       15369.2        14900.2         4671.5          32388            100    2.22045e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 26354.8 yields bad phi threshold of 56715.2
+
+  ---  phi summary for lambda, scale fac:5625 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        26354.8        24288.3        4657.46        56598.7
+         actual        26228.2        24028.3        4657.46        56068.3
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       26228.2        24028.3        4657.46        56068.3            100    2.22045e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 26823.2 yields bad phi threshold of 57746.7
+
+  ---  phi summary for lambda, scale fac:5625 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        26823.2        24738.9        4651.87        57320.9
+         actual        26694.3        24476.6        4651.87        56782.9
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       26694.3        24476.6        4651.87        56782.9            100    2.22045e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 21943.8 yields bad phi threshold of 46500.8
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 582 : 582 , 
+
+  ---  phi summary for lambda, scale fac:56250 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        13267.5        11280.9        4709.81        26051.3
+         actual        13279.8          11215        4709.81        25972.7
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       13279.8          11215        4709.81        25972.7            100    1.11022e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 22077.2 yields bad phi threshold of 46828.5
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 582 : 582 , 
+
+  ---  phi summary for lambda, scale fac:56250 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        13341.1        11411.2         4708.2        26278.5
+         actual        13353.3        11344.8         4708.2        26199.4
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       13353.3        11344.8         4708.2        26199.4            100    1.57009e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 22130.8 yields bad phi threshold of 46959.9
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 582 : 582 , 
+
+  ---  phi summary for lambda, scale fac:56250 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        13370.9        11463.9        4707.55        26370.4
+         actual          13383        11397.3        4707.55        26291.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                         13383        11397.3        4707.55        26291.1            100    3.92523e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+  ---  phi summary for best lambda, scale fac: 56250 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        13267.5        11280.9        4709.81        26051.3
+         actual        13279.8          11215        4709.81        25972.7
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+
+  ---  running remaining realizations for best lambda, scale:56250 , 0.75 ,   ---  
+...bad_phi_sigma 1.25 and mean 13690.5 yields bad phi threshold of 42828.8
+
+  ---  dropping realizations as bad:  58  ---  
+...dropping par:obs realizations: 218 : 218 , 7 : 7 , 28 : 28 , 51 : 51 , 104 : 104 , 176 : 176 , 221 : 221 , 228 : 228 , 236 : 236 , 250 : 250 , 254 : 254 , 257 : 257 , 276 : 276 , 327 : 327 , 418 : 418 , 424 : 424 , 438 : 438 , 451 : 451 , 461 : 461 , 527 : 527 , 588 : 588 , 600 : 600 , 604 : 604 , 675 : 675 , 687 : 687 , 712 : 712 , 717 : 717 , 738 : 738 , 740 : 740 , 741 : 741 , 772 : 772 , 795 : 795 , 798 : 798 , 802 : 802 , 830 : 830 , 896 : 896 , 926 : 926 , 1034 : 1034 , 1060 : 1060 , 1068 : 1068 , 1080 : 1080 , 1108 : 1108 , 1131 : 1131 , 1144 : 1144 , 1149 : 1149 , 1169 : 1169 , 1218 : 1218 , 1222 : 1222 , 1236 : 1236 , 1269 : 1269 , 1284 : 1284 , 1331 : 1331 , 1340 : 1340 , 1341 : 1341 , 1351 : 1351 , 1414 : 1414 , 1452 : 1452 , 1470 : 1470 , 
+...phi summary for entire ensemble using lambda,scale_fac 56250 , 0.75 , 
+       phi type           mean            std            min            max
+       measured        9687.31        5341.23        2813.39        41790.3
+         actual        9665.86        5339.25        2631.01        41796.5
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+...last best mean phi * acceptable phi factor:  14393.8
+...current best mean phi:  9687.31
+
+  ---  updating parameter ensemble  ---  
+
+  ---  updating lambda to  42187.5  ---  
+
+  ---  EnsembleMethod iteration 4 report  ---  
+   number of active realizations:  1322
+   number of model runs:           7247
+      current obs ensemble saved to pest_run.4.obs.csv
+      current par ensemble saved to pest_run.4.par.csv
+       phi type           mean            std            min            max
+       measured        9687.31        5341.23        2813.39        41790.3
+         actual        9665.86        5339.25        2631.01        41796.5
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       9665.86        5339.25        2631.01        41796.5            100     2.9453e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+   ---  parameter group change summmary  ---    
+   (compared to the initial ensemble using active realizations)
+group                 mean change  std change  n at/near bnds  % at/near bnds   init CV   curr CV n CV decr
+median_grainsize          641.657     18.6597               0               0        25       3.7         1
+wind0                          39          18               1               0       4.6        16         2
+beta                          5.6          17               0               0      0.33      0.29         0
+diffusion_coefficient        0.71          19               0               0     0.078     0.064         0
+std_grainsize                0.42          16               0               0      0.17      0.14         0
+eruption_mass                0.11          23               0               0     0.021     0.016         0
+fall_time_threshold         0.076          16               0               0     0.017     0.014         0
+plume_height                0.053          15               0               0    0.0051    0.0043         0
+    Note: parameter change summary sorted according to abs 'mean change'.
+          'n CV decr' is the number of parameters with current CV less 30% of the initial CV
+
+...saved parameter change summary to pest_run.4.pcs.csv
+
+  ---  phi-based termination criteria check  ---  
+...phiredstp:  0.01
+...nphistp:  3
+...nphinored (also used for consecutive bad lambda cycles):  3
+...best mean phi sequence: 90980.1 , 21732.5 , 13341.7 , 13708.4 , 9687.31 , 
+...best phi yet:  9687.31
+...number of consecutive bad lambda testing cycles:  0
+...number of iterations satisfying phiredstp criteria:  1
+...number of iterations since best yet mean phi:  0
+
+  ---  starting solve for iteration: 5  ---  
+...current lambda:  42187.5
+...preparing fast-look containers for threaded localization solve
+...starting calcs for glm factor 4218.75
+see .log file for more details
+...multimodal solve for inflation factor  4218.75
+...finished calcs for: 4218.75
+...starting calcs for glm factor 42187.5
+see .log file for more details
+...multimodal solve for inflation factor  42187.5
+...finished calcs for: 42187.5
+...starting calcs for glm factor 421875
+see .log file for more details
+...multimodal solve for inflation factor  421875
+...finished calcs for: 421875
+
+  ---  running upgrade ensembles  ---  
+...subset idx:pe real name:  0:BASE, 19:12, 499:556, 1212:1375, 
+...subset idx:oe real name:  0:BASE, 19:12, 499:556, 1212:1375, 
+
+  ---  evaluting upgrade ensembles  ---  
+...last mean:  9687.31
+...last stdev:  5341.23
+...bad_phi_sigma 1.25 and mean 19532.2 yields bad phi threshold of 39107.3
+
+  ---  phi summary for lambda, scale fac:4218.75 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        19532.2        15660.1        4696.35        35641.9
+         actual        19479.3        15696.8        4696.35        35692.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       19479.3        15696.8        4696.35        35692.1            100    1.81299e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 18937 yields bad phi threshold of 37611.1
+
+  ---  phi summary for lambda, scale fac:4218.75 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured          18937        14939.3        4691.91        33838.1
+         actual          18885        14974.7        4691.91        33886.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                         18885        14974.7        4691.91        33886.1            100    1.81299e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 18674 yields bad phi threshold of 36959.2
+
+  ---  phi summary for lambda, scale fac:4218.75 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured          18674        14628.2        4690.25        33091.4
+         actual        18622.3          14663        4690.25        33138.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       18622.3          14663        4690.25        33138.1            100    3.84593e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 20678.7 yields bad phi threshold of 42162.1
+
+  ---  phi summary for lambda, scale fac:42187.5 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        20678.7        17186.7        4708.24        39845.5
+         actual          20622        17225.4        4708.24        39892.6
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                         20622        17225.4        4708.24        39892.6            100    2.48253e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 20642 yields bad phi threshold of 42056.9
+
+  ---  phi summary for lambda, scale fac:42187.5 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured          20642        17131.9        4707.72        39685.4
+         actual        20585.5        17170.6        4707.72        39732.9
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       20585.5        17170.6        4707.72        39732.9            100    2.64286e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 20627.6 yields bad phi threshold of 42015.4
+
+  ---  phi summary for lambda, scale fac:42187.5 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        20627.6        17110.2        4707.52        39620.8
+         actual        20571.1        17148.9        4707.52        39668.5
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       20571.1        17148.9        4707.52        39668.5            100    3.45182e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 20762.8 yields bad phi threshold of 42414.1
+
+  ---  phi summary for lambda, scale fac:421875 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        20762.8        17321.1        4709.65        40259.9
+         actual        20705.6        17359.9        4709.65        40305.9
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       20705.6        17359.9        4709.65        40305.9            100    2.56395e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 20760.7 yields bad phi threshold of 42407.7
+
+  ---  phi summary for lambda, scale fac:421875 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        20760.7        17317.6         4709.6        40248.6
+         actual        20703.5        17356.4         4709.6        40294.7
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       20703.5        17356.4         4709.6        40294.7            100    4.44089e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 20759.5 yields bad phi threshold of 42403.9
+
+  ---  phi summary for lambda, scale fac:421875 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        20759.5        17315.5        4709.58        40242.4
+         actual        20702.3        17354.3        4709.58        40288.5
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       20702.3        17354.3        4709.58        40288.5            100    1.81299e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+  ---  best subset mean phi  (18674) greater than acceptable phi : 10171.7  ---  
+...updating realizations with reduced phi
+updating pe:oe real =BASE:BASE, current phi: new phi  =4709.81:4690.25
+updating pe:oe real =12:12, current phi: new phi  =30350.5:29376.2
+updating pe:oe real =556:556, current phi: new phi  =7722.14:7538.16
+updating pe:oe real =1375:1375, current phi: new phi  =40306.5:33091.4
+...current best mean phi (after updating reduced-phi reals):  9680.96
+
+  ---  partial update improved phi stats, updating lambda to  3164.06  ---  
+...returing to upgrade calculations...
+
+  ---  EnsembleMethod iteration 5 report  ---  
+   number of active realizations:  1322
+   number of model runs:           7283
+      current obs ensemble saved to pest_run.5.obs.csv
+      current par ensemble saved to pest_run.5.par.csv
+       phi type           mean            std            min            max
+       measured        9680.96         5310.8        2813.39        41790.3
+         actual        9659.53        5308.81        2631.01        41796.5
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       9659.53        5308.81        2631.01        41796.5            100     2.9472e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+   ---  parameter group change summmary  ---    
+   (compared to the initial ensemble using active realizations)
+group                 mean change  std change  n at/near bnds  % at/near bnds   init CV   curr CV n CV decr
+median_grainsize          641.727     18.6676               0               0        25       3.7         1
+wind0                          39          18               1               0       4.6        16         2
+beta                          5.6          17               0               0      0.33      0.29         0
+diffusion_coefficient        0.72          19               0               0     0.078     0.064         0
+std_grainsize                0.41          16               0               0      0.17      0.14         0
+eruption_mass                0.11          23               0               0     0.021     0.016         0
+fall_time_threshold         0.076          16               0               0     0.017     0.014         0
+plume_height                0.053          15               0               0    0.0051    0.0043         0
+    Note: parameter change summary sorted according to abs 'mean change'.
+          'n CV decr' is the number of parameters with current CV less 30% of the initial CV
+
+...saved parameter change summary to pest_run.5.pcs.csv
+
+  ---  phi-based termination criteria check  ---  
+...phiredstp:  0.01
+...nphistp:  3
+...nphinored (also used for consecutive bad lambda cycles):  3
+...best mean phi sequence: 90980.1 , 21732.5 , 13341.7 , 13708.4 , 9680.96 , 
+...best phi yet:  9680.96
+...number of consecutive bad lambda testing cycles:  1
+...number of iterations satisfying phiredstp criteria:  1
+...number of iterations since best yet mean phi:  0
+
+  ---  starting solve for iteration: 6  ---  
+...current lambda:  3164.06
+...preparing fast-look containers for threaded localization solve
+...starting calcs for glm factor 316.406
+see .log file for more details
+...multimodal solve for inflation factor  316.406
+...finished calcs for: 316.406
+...starting calcs for glm factor 3164.06
+see .log file for more details
+...multimodal solve for inflation factor  3164.06
+...finished calcs for: 3164.06
+...starting calcs for glm factor 31640.6
+see .log file for more details
+...multimodal solve for inflation factor  31640.6
+...finished calcs for: 31640.6
+
+  ---  running upgrade ensembles  ---  
+...subset idx:pe real name:  0:BASE, 6:194, 48:46, 578:650, 
+...subset idx:oe real name:  0:BASE, 6:194, 48:46, 578:650, 
+
+  ---  evaluting upgrade ensembles  ---  
+...last mean:  9680.96
+...last stdev:  5310.8
+...bad_phi_sigma 1.25 and mean 8841.67 yields bad phi threshold of 14298.2
+
+  ---  phi summary for lambda, scale fac:316.406 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        8841.67         4365.2        4578.48        12873.6
+         actual        8925.84        4377.47        4578.48          12944
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       8925.84        4377.47        4578.48          12944            100    3.73757e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 9057.26 yields bad phi threshold of 13606.8
+
+  ---  phi summary for lambda, scale fac:316.406 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        9057.26        3639.62        4575.09        13081.7
+         actual        9123.15         3680.1        4575.09        13192.6
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       9123.15         3680.1        4575.09        13192.6            100    2.86658e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 9682.98 yields bad phi threshold of 14361.2
+
+  ---  phi summary for lambda, scale fac:316.406 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        9682.98        3742.55        4580.22        13479.9
+         actual        9738.79        3786.85        4580.22        13591.7
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       9738.79        3786.85        4580.22        13591.7            100    2.22045e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 10086.4 yields bad phi threshold of 16285.5
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 650 : 650 , 
+
+  ---  phi summary for lambda, scale fac:3164.06 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        8019.01        3353.74        4656.87        11364.3
+         actual        8126.05        3408.79        4656.87        11471.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       8126.05        3408.79        4656.87        11471.1            100    6.84387e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 9887.3 yields bad phi threshold of 15793.3
+
+  ---  phi summary for lambda, scale fac:3164.06 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured         9887.3        4724.77        4645.83        15642.5
+         actual        9984.58        4734.59        4645.83        15711.6
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       9984.58        4734.59        4645.83        15711.6            100    2.56395e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 9808.03 yields bad phi threshold of 15602.4
+
+  ---  phi summary for lambda, scale fac:3164.06 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        9808.03        4635.48        4641.43        15387.9
+         actual        9904.92        4645.12        4641.43        15455.9
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       9904.92        4645.12        4641.43        15455.9            100    1.92296e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 10613.4 yields bad phi threshold of 17662.5
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 650 : 650 , 
+
+  ---  phi summary for lambda, scale fac:31640.6 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        8138.81         3310.4        4686.59        11286.3
+         actual        8246.49         3372.2        4686.59        11392.8
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       8246.49         3372.2        4686.59        11392.8            100    4.44089e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 10588.8 yields bad phi threshold of 17594.2
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 650 : 650 , 
+
+  ---  phi summary for lambda, scale fac:31640.6 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured         8134.3        3311.64        4685.38          11289
+         actual        8241.97        3373.19        4685.38        11395.5
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       8241.97        3373.19        4685.38        11395.5            100    4.29988e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 10578.9 yields bad phi threshold of 17567
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 650 : 650 , 
+
+  ---  phi summary for lambda, scale fac:31640.6 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        8132.52        3312.18        4684.89        11290.2
+         actual        8240.17        3373.63        4684.89        11396.7
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       8240.17        3373.63        4684.89        11396.7            100    2.22045e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+  ---  phi summary for best lambda, scale fac: 3164.06 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        8019.01        3353.74        4656.87        11364.3
+         actual        8126.05        3408.79        4656.87        11471.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+
+  ---  running remaining realizations for best lambda, scale:3164.06 , 0.75 ,   ---  
+...bad_phi_sigma 1.25 and mean 9661.7 yields bad phi threshold of 18455.5
+
+  ---  dropping realizations as bad:  71  ---  
+...dropping par:obs realizations: 1480 : 1480 , 10 : 10 , 12 : 12 , 31 : 31 , 48 : 48 , 87 : 87 , 134 : 134 , 158 : 158 , 160 : 160 , 162 : 162 , 175 : 175 , 187 : 187 , 217 : 217 , 240 : 240 , 303 : 303 , 322 : 322 , 339 : 339 , 345 : 345 , 369 : 369 , 385 : 385 , 388 : 388 , 403 : 403 , 443 : 443 , 444 : 444 , 470 : 470 , 474 : 474 , 559 : 559 , 564 : 564 , 603 : 603 , 605 : 605 , 640 : 640 , 642 : 642 , 644 : 644 , 649 : 649 , 658 : 658 , 701 : 701 , 718 : 718 , 844 : 844 , 890 : 890 , 900 : 900 , 965 : 965 , 969 : 969 , 1088 : 1088 , 1091 : 1091 , 1097 : 1097 , 1106 : 1106 , 1162 : 1162 , 1163 : 1163 , 1176 : 1176 , 1205 : 1205 , 1217 : 1217 , 1247 : 1247 , 1268 : 1268 , 1285 : 1285 , 1337 : 1337 , 1339 : 1339 , 1368 : 1368 , 1375 : 1375 , 1376 : 1376 , 1396 : 1396 , 1427 : 1427 , 1442 : 1442 , 1443 : 1443 , 1446 : 1446 , 1460 : 1460 , 1461 : 1461 , 1463 : 1463 , 1476 : 1476 , 1483 : 1483 , 1484 : 1484 , 1488 : 1488 , 
+...phi summary for entire ensemble using lambda,scale_fac 3164.06 , 0.75 , 
+       phi type           mean            std            min            max
+       measured        8488.31        2943.47        2742.44        18170.8
+         actual        8466.49        2937.73        2601.34        18455.9
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+...last best mean phi * acceptable phi factor:  10165
+...current best mean phi:  8488.31
+
+  ---  updating parameter ensemble  ---  
+
+  ---  updating lambda to  2373.05  ---  
+
+  ---  EnsembleMethod iteration 6 report  ---  
+   number of active realizations:  1250
+   number of model runs:           8637
+      current obs ensemble saved to pest_run.6.obs.csv
+      current par ensemble saved to pest_run.6.par.csv
+       phi type           mean            std            min            max
+       measured        8488.31        2943.47        2742.44        18170.8
+         actual        8466.49        2937.73        2601.34        18455.9
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       8466.49        2937.73        2601.34        18455.9            100    2.86767e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+   ---  parameter group change summmary  ---    
+   (compared to the initial ensemble using active realizations)
+group                 mean change  std change  n at/near bnds  % at/near bnds   init CV   curr CV n CV decr
+median_grainsize          658.823     20.4386               0               0        25       3.5         1
+wind0                          43          20               1               0       4.6       8.1         2
+beta                          6.3          18               0               0      0.33      0.29         0
+diffusion_coefficient        0.93          20               0               0     0.078     0.063         0
+std_grainsize                0.35          17               0               0      0.17      0.14         0
+eruption_mass                0.13          24               0               0     0.021     0.016         0
+fall_time_threshold           0.1          18               0               0     0.017     0.014         0
+plume_height                0.056          16               0               0    0.0051    0.0043         0
+    Note: parameter change summary sorted according to abs 'mean change'.
+          'n CV decr' is the number of parameters with current CV less 30% of the initial CV
+
+...saved parameter change summary to pest_run.6.pcs.csv
+
+  ---  phi-based termination criteria check  ---  
+...phiredstp:  0.01
+...nphistp:  3
+...nphinored (also used for consecutive bad lambda cycles):  3
+...best mean phi sequence: 90980.1 , 21732.5 , 13341.7 , 13708.4 , 9680.96 , 8488.31 , 
+...best phi yet:  8488.31
+...number of consecutive bad lambda testing cycles:  0
+...number of iterations satisfying phiredstp criteria:  1
+...number of iterations since best yet mean phi:  0
+
+  ---  starting solve for iteration: 7  ---  
+...current lambda:  2373.05
+...preparing fast-look containers for threaded localization solve
+...starting calcs for glm factor 237.305
+see .log file for more details
+...multimodal solve for inflation factor  237.305
+...finished calcs for: 237.305
+...starting calcs for glm factor 2373.05
+see .log file for more details
+...multimodal solve for inflation factor  2373.05
+...finished calcs for: 2373.05
+...starting calcs for glm factor 23730.5
+see .log file for more details
+...multimodal solve for inflation factor  23730.5
+...finished calcs for: 23730.5
+
+  ---  running upgrade ensembles  ---  
+...subset idx:pe real name:  0:BASE, 505:599, 565:676, 739:884, 
+...subset idx:oe real name:  0:BASE, 505:599, 565:676, 739:884, 
+
+  ---  evaluting upgrade ensembles  ---  
+...last mean:  8488.31
+...last stdev:  2943.47
+...bad_phi_sigma 1.25 and mean 6386.39 yields bad phi threshold of 9442.39
+
+  ---  phi summary for lambda, scale fac:237.305 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        6386.39         2444.8        4215.71        8642.89
+         actual        6418.19        2393.44        4328.06         8806.4
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       6418.19        2393.44        4328.06         8806.4            100    2.56395e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 5937.25 yields bad phi threshold of 8800.97
+
+  ---  phi summary for lambda, scale fac:237.305 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        5937.25        2290.97        3708.07        7933.34
+         actual         5966.4        2235.53        3864.64        8095.67
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                        5966.4        2235.53        3864.64        8095.67            100    2.86658e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 5770.41 yields bad phi threshold of 8526.1
+
+  ---  phi summary for lambda, scale fac:237.305 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        5770.41        2204.55         3575.9        7690.02
+         actual        5798.96        2148.84        3726.19           7808
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       5798.96        2148.84        3726.19           7808            100    2.86658e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 7405.7 yields bad phi threshold of 10606.2
+
+  ---  phi summary for lambda, scale fac:2373.05 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured         7405.7        2560.41        4590.02        9904.07
+         actual        7447.87        2527.98        4590.02        10070.4
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       7447.87        2527.98        4590.02        10070.4            100    4.10432e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 7347.22 yields bad phi threshold of 10548
+
+  ---  phi summary for lambda, scale fac:2373.05 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        7347.22        2560.59        4567.33        9841.29
+         actual         7388.7        2526.55        4567.33        10007.4
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                        7388.7        2526.55        4567.33        10007.4            100    2.64286e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 7323.36 yields bad phi threshold of 10523.8
+
+  ---  phi summary for lambda, scale fac:2373.05 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        7323.36        2560.32        4558.35        9815.06
+         actual        7364.56        2525.64        4558.35        9981.15
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       7364.56        2525.64        4558.35        9981.15            100    2.22045e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 7553.39 yields bad phi threshold of 10747.9
+
+  ---  phi summary for lambda, scale fac:23730.5 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        7553.39        2555.62         4649.5        10053.6
+         actual        7597.43        2527.58         4649.5        10220.3
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       7597.43        2527.58         4649.5        10220.3            100    2.86658e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 7547.66 yields bad phi threshold of 10742.6
+
+  ---  phi summary for lambda, scale fac:23730.5 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        7547.66        2555.95        4647.04        10048.1
+         actual        7591.62        2527.74        4647.04        10214.7
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       7591.62        2527.74        4647.04        10214.7            100    2.56395e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 7545.36 yields bad phi threshold of 10740.5
+
+  ---  phi summary for lambda, scale fac:23730.5 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        7545.36        2556.07        4646.06        10045.8
+         actual        7589.29        2527.78        4646.06        10212.5
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       7589.29        2527.78        4646.06        10212.5            100    2.56395e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+  ---  phi summary for best lambda, scale fac: 237.305 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        5770.41        2204.55         3575.9        7690.02
+         actual        5798.96        2148.84        3726.19           7808
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+
+  ---  running remaining realizations for best lambda, scale:237.305 , 1.1 ,   ---  
+...bad_phi_sigma 1.25 and mean 13237.4 yields bad phi threshold of 79848.2
+
+  ---  dropping realizations as bad:  16  ---  
+...dropping par:obs realizations: 165 : 165 , 304 : 304 , 306 : 306 , 341 : 341 , 365 : 365 , 428 : 428 , 478 : 478 , 769 : 769 , 850 : 850 , 891 : 891 , 1006 : 1006 , 1014 : 1014 , 1078 : 1078 , 1225 : 1225 , 1261 : 1261 , 1327 : 1327 , 
+...phi summary for entire ensemble using lambda,scale_fac 237.305 , 1.1 , 
+       phi type           mean            std            min            max
+       measured        8835.86        8243.04        2337.41        79100.5
+         actual        8813.06        8242.08        2325.53        79321.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+...last best mean phi * acceptable phi factor:  8912.73
+...current best mean phi:  8835.86
+
+  ---  updating parameter ensemble  ---  
+
+  ---  not updating lambda (standard deviation reduction criteria not met)  ---  
+
+  ---  EnsembleMethod iteration 7 report  ---  
+   number of active realizations:  1234
+   number of model runs:           9919
+      current obs ensemble saved to pest_run.7.obs.csv
+      current par ensemble saved to pest_run.7.par.csv
+       phi type           mean            std            min            max
+       measured        8835.86        8243.04        2337.41        79100.5
+         actual        8813.06        8242.08        2325.53        79321.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       8813.06        8242.08        2325.53        79321.1            100    2.97172e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+   ---  parameter group change summmary  ---    
+   (compared to the initial ensemble using active realizations)
+group                 mean change  std change  n at/near bnds  % at/near bnds   init CV   curr CV n CV decr
+median_grainsize          1275.58     36.6498               0               0        25       1.3         1
+wind0                          63          36               0               0       4.6         2         4
+beta                           18          33               0               0      0.33      0.27         0
+diffusion_coefficient         2.5          36               0               0     0.078     0.051         0
+eruption_mass                0.67          41               0               0     0.021     0.012         0
+fall_time_threshold          0.38          34               0               0     0.017     0.011         0
+std_grainsize                0.24          33               0               0      0.17      0.11         0
+plume_height                 0.12          33               0               0    0.0051    0.0034         0
+    Note: parameter change summary sorted according to abs 'mean change'.
+          'n CV decr' is the number of parameters with current CV less 30% of the initial CV
+
+...saved parameter change summary to pest_run.7.pcs.csv
+
+  ---  phi-based termination criteria check  ---  
+...phiredstp:  0.01
+...nphistp:  3
+...nphinored (also used for consecutive bad lambda cycles):  3
+...best mean phi sequence: 90980.1 , 21732.5 , 13341.7 , 13708.4 , 9680.96 , 8488.31 , 8835.86 , 
+...best phi yet:  8488.31
+...number of consecutive bad lambda testing cycles:  0
+...number of iterations satisfying phiredstp criteria:  1
+...number of iterations since best yet mean phi:  1
+
+  ---  starting solve for iteration: 8  ---  
+...current lambda:  2373.05
+...preparing fast-look containers for threaded localization solve
+...starting calcs for glm factor 237.305
+see .log file for more details
+...multimodal solve for inflation factor  237.305
+...finished calcs for: 237.305
+...starting calcs for glm factor 2373.05
+see .log file for more details
+...multimodal solve for inflation factor  2373.05
+...finished calcs for: 2373.05
+...starting calcs for glm factor 23730.5
+see .log file for more details
+...multimodal solve for inflation factor  23730.5
+...finished calcs for: 23730.5
+
+  ---  running upgrade ensembles  ---  
+...subset idx:pe real name:  0:BASE, 17:6, 150:167, 163:183, 
+...subset idx:oe real name:  0:BASE, 17:6, 150:167, 163:183, 
+
+  ---  evaluting upgrade ensembles  ---  
+...last mean:  8835.86
+...last stdev:  8243.04
+...bad_phi_sigma 1.25 and mean 3833.29 yields bad phi threshold of 4907.79
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 6 : 6 , 
+
+  ---  phi summary for lambda, scale fac:237.305 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        3464.29        539.786        3004.57        4058.65
+         actual        3474.26        610.594        2948.96        4144.18
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       3474.26        610.594        2948.96        4144.18            100    4.00297e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 3556.44 yields bad phi threshold of 4723.55
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 6 : 6 , 
+
+  ---  phi summary for lambda, scale fac:237.305 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        3100.12         241.46         2843.8         3323.3
+         actual        3101.82        297.637        2789.71        3382.49
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       3101.82        297.637        2789.71        3382.49            100    4.44089e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 3480.95 yields bad phi threshold of 4707.91
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 6 : 6 , 
+
+  ---  phi summary for lambda, scale fac:237.305 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        2995.81        181.808        2789.67        3133.28
+         actual         2994.2        230.999        2736.22        3181.89
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                        2994.2        230.999        2736.22        3181.89            100    4.57757e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 4918.87 yields bad phi threshold of 6880.96
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 183 : 183 , 
+
+  ---  phi summary for lambda, scale fac:2373.05 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        4217.05         860.51        3497.63        5170.31
+         actual        4324.09        1096.27        3438.76         5550.3
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       4324.09        1096.27        3438.76         5550.3            100    2.35514e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 4816.37 yields bad phi threshold of 6633.67
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 183 : 183 , 
+
+  ---  phi summary for lambda, scale fac:2373.05 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        4182.81        872.955        3467.17         5155.4
+         actual        4289.72        1109.09        3408.28        5535.05
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       4289.72        1109.09        3408.28        5535.05            100    1.75542e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 4775.71 yields bad phi threshold of 6536.52
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 183 : 183 , 
+
+  ---  phi summary for lambda, scale fac:2373.05 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        4169.41        877.964        3455.02        5149.55
+         actual        4276.28        1114.22        3396.12        5529.05
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       4276.28        1114.22        3396.12        5529.05            100    4.50975e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 5195.32 yields bad phi threshold of 7554.93
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 183 : 183 , 
+
+  ---  phi summary for lambda, scale fac:23730.5 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        4314.15        828.431        3581.58        5213.16
+         actual        4421.53        1062.48        3522.76        5594.12
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       4421.53        1062.48        3522.76        5594.12            100    1.92296e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 5183.85 yields bad phi threshold of 7526.77
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 183 : 183 , 
+
+  ---  phi summary for lambda, scale fac:23730.5 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        4310.04        829.716        3578.24        5211.46
+         actual         4417.4        1063.87        3519.42        5592.38
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                        4417.4        1063.87        3519.42        5592.38            100    2.35514e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 5179.25 yields bad phi threshold of 7515.47
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 183 : 183 , 
+
+  ---  phi summary for lambda, scale fac:23730.5 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured         4308.4        830.232        3576.91        5210.78
+         actual        4415.76        1064.43        3518.09        5591.68
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       4415.76        1064.43        3518.09        5591.68            100    2.71948e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+  ---  phi summary for best lambda, scale fac: 237.305 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        2995.81        181.808        2789.67        3133.28
+         actual         2994.2        230.999        2736.22        3181.89
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+
+  ---  running remaining realizations for best lambda, scale:237.305 , 1.1 ,   ---  
+...bad_phi_sigma 1.25 and mean 11324.6 yields bad phi threshold of 99493.2
+
+  ---  dropping realizations as bad:  12  ---  
+...dropping par:obs realizations: 109 : 109 , 262 : 262 , 338 : 338 , 362 : 362 , 381 : 381 , 482 : 482 , 490 : 490 , 532 : 532 , 787 : 787 , 955 : 955 , 963 : 963 , 1137 : 1137 , 
+...phi summary for entire ensemble using lambda,scale_fac 237.305 , 1.1 , 
+       phi type           mean            std            min            max
+       measured        7207.69        9364.75        1901.68        97186.6
+         actual        7182.78        9363.97        2006.44        96951.4
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+...last best mean phi * acceptable phi factor:  9277.66
+...current best mean phi:  7207.69
+
+  ---  updating parameter ensemble  ---  
+
+  ---  not updating lambda (standard deviation reduction criteria not met)  ---  
+
+  ---  EnsembleMethod iteration 8 report  ---  
+   number of active realizations:  1221
+   number of model runs:           11185
+      current obs ensemble saved to pest_run.8.obs.csv
+      current par ensemble saved to pest_run.8.par.csv
+       phi type           mean            std            min            max
+       measured        7207.69        9364.75        1901.68        97186.6
+         actual        7182.78        9363.97        2006.44        96951.4
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       7182.78        9363.97        2006.44        96951.4            100    2.98057e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+   ---  parameter group change summmary  ---    
+   (compared to the initial ensemble using active realizations)
+group                 mean change  std change  n at/near bnds  % at/near bnds   init CV   curr CV n CV decr
+median_grainsize          1499.84      46.212               0               0        25      0.96         1
+wind0                          71          44               0               0       4.6       1.5         6
+beta                           24          40               0               0      0.33      0.26         0
+diffusion_coefficient         3.7          43               0               0     0.078     0.047         0
+eruption_mass                0.93          52               0               0     0.021      0.01         0
+std_grainsize                0.75          40               0               0      0.17       0.1         0
+fall_time_threshold           0.5          42               0               0     0.017    0.0098         0
+plume_height                 0.11          41               0               0    0.0051     0.003         0
+    Note: parameter change summary sorted according to abs 'mean change'.
+          'n CV decr' is the number of parameters with current CV less 30% of the initial CV
+
+...saved parameter change summary to pest_run.8.pcs.csv
+
+  ---  phi-based termination criteria check  ---  
+...phiredstp:  0.01
+...nphistp:  3
+...nphinored (also used for consecutive bad lambda cycles):  3
+...best mean phi sequence: 90980.1 , 21732.5 , 13341.7 , 13708.4 , 9680.96 , 8488.31 , 8835.86 , 7207.69 , 
+...best phi yet:  7207.69
+...number of consecutive bad lambda testing cycles:  0
+...number of iterations satisfying phiredstp criteria:  1
+...number of iterations since best yet mean phi:  0
+
+  ---  starting solve for iteration: 9  ---  
+...current lambda:  2373.05
+...preparing fast-look containers for threaded localization solve
+...starting calcs for glm factor 237.305
+see .log file for more details
+...multimodal solve for inflation factor  237.305
+...finished calcs for: 237.305
+...starting calcs for glm factor 2373.05
+see .log file for more details
+...multimodal solve for inflation factor  2373.05
+...finished calcs for: 2373.05
+...starting calcs for glm factor 23730.5
+see .log file for more details
+...multimodal solve for inflation factor  23730.5
+...finished calcs for: 23730.5
+
+  ---  running upgrade ensembles  ---  
+...subset idx:pe real name:  0:BASE, 288:340, 420:510, 595:733, 
+...subset idx:oe real name:  0:BASE, 288:340, 420:510, 595:733, 
+
+  ---  evaluting upgrade ensembles  ---  
+...last mean:  7207.69
+...last stdev:  9364.75
+...bad_phi_sigma 1.25 and mean 3264.45 yields bad phi threshold of 4395.35
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 340 : 340 , 
+
+  ---  phi summary for lambda, scale fac:237.305 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        2823.66        249.041        2551.29        3039.74
+         actual        2858.74        230.521        2618.35        3077.93
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       2858.74        230.521        2618.35        3077.93            100    2.22045e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 3153.79 yields bad phi threshold of 4242.49
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 340 : 340 , 
+
+  ---  phi summary for lambda, scale fac:237.305 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        2736.94        308.624        2393.12        2990.02
+         actual        2769.67        293.423        2451.58        3029.76
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       2769.67        293.423        2451.58        3029.76            100    5.87475e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 3116.09 yields bad phi threshold of 4189.48
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 340 : 340 , 
+
+  ---  phi summary for lambda, scale fac:237.305 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        2708.66        331.836        2338.49        2979.46
+         actual        2740.52        318.525        2393.65        3019.88
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       2740.52        318.525        2393.65        3019.88            100    1.92296e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 3629.13 yields bad phi threshold of 4895.76
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 340 : 340 , 
+
+  ---  phi summary for lambda, scale fac:2373.05 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        3125.63         138.26         3031.2        3284.33
+         actual        3167.33        144.688         3031.2        3319.27
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       3167.33        144.688         3031.2        3319.27            100    3.23683e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 3601.01 yields bad phi threshold of 4863.97
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 340 : 340 , 
+
+  ---  phi summary for lambda, scale fac:2373.05 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        3099.44        147.958        3007.52        3270.12
+         actual        3140.57        147.449        3020.69        3305.22
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       3140.57        147.449        3020.69        3305.22            100    3.92523e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 3590 yields bad phi threshold of 4851.43
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 340 : 340 , 
+
+  ---  phi summary for lambda, scale fac:2373.05 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        3089.29        152.488        2986.77        3264.52
+         actual        3130.19        149.595        3016.56        3299.68
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       3130.19        149.595        3016.56        3299.68            100    5.26625e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 3708.6 yields bad phi threshold of 4986.15
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 340 : 340 , 
+
+  ---  phi summary for lambda, scale fac:23730.5 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        3200.44        132.416        3060.77        3324.16
+         actual         3243.7         160.16        3060.77        3358.72
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                        3243.7         160.16        3060.77        3358.72            100    4.00297e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 3705.15 yields bad phi threshold of 4982.41
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 340 : 340 , 
+
+  ---  phi summary for lambda, scale fac:23730.5 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured         3197.1        131.943        3059.54         3322.6
+         actual        3240.29        158.763        3059.54        3357.17
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       3240.29        158.763        3059.54        3357.17            100    3.42194e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 3703.78 yields bad phi threshold of 4980.92
+
+  ---  dropping realizations as bad:  1  ---  
+...dropping par:obs realizations: 340 : 340 , 
+
+  ---  phi summary for lambda, scale fac:23730.5 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        3195.77         131.78        3059.05        3321.97
+         actual        3238.93        158.225        3059.05        3356.55
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       3238.93        158.225        3059.05        3356.55            100    3.42194e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+  ---  phi summary for best lambda, scale fac: 237.305 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        2708.66        331.836        2338.49        2979.46
+         actual        2740.52        318.525        2393.65        3019.88
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+
+  ---  running remaining realizations for best lambda, scale:237.305 , 1.1 ,   ---  
+...bad_phi_sigma 1.25 and mean 4338.37 yields bad phi threshold of 11404
+
+  ---  dropping realizations as bad:  35  ---  
+...dropping par:obs realizations: 63 : 63 , 118 : 118 , 131 : 131 , 144 : 144 , 201 : 201 , 277 : 277 , 316 : 316 , 430 : 430 , 432 : 432 , 439 : 439 , 450 : 450 , 471 : 471 , 517 : 517 , 520 : 520 , 536 : 536 , 587 : 587 , 607 : 607 , 681 : 681 , 723 : 723 , 791 : 791 , 796 : 796 , 821 : 821 , 832 : 832 , 907 : 907 , 918 : 918 , 929 : 929 , 1004 : 1004 , 1096 : 1096 , 1104 : 1104 , 1132 : 1132 , 1172 : 1172 , 1288 : 1288 , 1354 : 1354 , 1377 : 1377 , 1453 : 1453 , 
+...phi summary for entire ensemble using lambda,scale_fac 237.305 , 1.1 , 
+       phi type           mean            std            min            max
+       measured        3605.97        1432.45        1727.81        11162.2
+         actual        3582.16        1425.92        1698.84        11133.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+...last best mean phi * acceptable phi factor:  7568.07
+...current best mean phi:  3605.97
+
+  ---  updating parameter ensemble  ---  
+
+  ---  updating lambda to  177.979  ---  
+
+  ---  EnsembleMethod iteration 9 report  ---  
+   number of active realizations:  1185
+   number of model runs:           12438
+      current obs ensemble saved to pest_run.9.obs.csv
+      current par ensemble saved to pest_run.9.par.csv
+       phi type           mean            std            min            max
+       measured        3605.97        1432.45        1727.81        11162.2
+         actual        3582.16        1425.92        1698.84        11133.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       3582.16        1425.92        1698.84        11133.1            100    2.88589e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+   ---  parameter group change summmary  ---    
+   (compared to the initial ensemble using active realizations)
+group                 mean change  std change  n at/near bnds  % at/near bnds   init CV   curr CV n CV decr
+median_grainsize          1717.34     52.4854               0               0        25      0.73         1
+wind0                          81          50               0               0       4.6       2.1        11
+beta                           28          47               0               0      0.33      0.25         0
+diffusion_coefficient         4.7          48               0               0     0.078     0.043         0
+eruption_mass                 1.2          58               0               0     0.021    0.0087         0
+std_grainsize                0.71          47               0               0      0.17      0.09         0
+fall_time_threshold          0.58          48               0               0     0.017    0.0088         0
+plume_height                 0.12          47               0               0    0.0051    0.0027         0
+    Note: parameter change summary sorted according to abs 'mean change'.
+          'n CV decr' is the number of parameters with current CV less 30% of the initial CV
+
+...saved parameter change summary to pest_run.9.pcs.csv
+
+  ---  phi-based termination criteria check  ---  
+...phiredstp:  0.01
+...nphistp:  3
+...nphinored (also used for consecutive bad lambda cycles):  3
+...best mean phi sequence: 90980.1 , 21732.5 , 13341.7 , 13708.4 , 9680.96 , 8488.31 , 8835.86 , 7207.69 , 3605.97 , 
+...best phi yet:  3605.97
+...number of consecutive bad lambda testing cycles:  0
+...number of iterations satisfying phiredstp criteria:  1
+...number of iterations since best yet mean phi:  0
+
+  ---  starting solve for iteration: 10  ---  
+...current lambda:  177.979
+...preparing fast-look containers for threaded localization solve
+...starting calcs for glm factor 17.7979
+see .log file for more details
+...multimodal solve for inflation factor  17.7979
+...finished calcs for: 17.7979
+...starting calcs for glm factor 177.979
+see .log file for more details
+...multimodal solve for inflation factor  177.979
+...finished calcs for: 177.979
+...starting calcs for glm factor 1779.79
+see .log file for more details
+...multimodal solve for inflation factor  1779.79
+...finished calcs for: 1779.79
+
+  ---  running upgrade ensembles  ---  
+...subset idx:pe real name:  0:BASE, 672:858, 804:1022, 1069:1346, 
+...subset idx:oe real name:  0:BASE, 672:858, 804:1022, 1069:1346, 
+
+  ---  evaluting upgrade ensembles  ---  
+...last mean:  3605.97
+...last stdev:  1432.45
+...bad_phi_sigma 1.25 and mean 2348.81 yields bad phi threshold of 2534.25
+
+  ---  phi summary for lambda, scale fac:17.7979 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        2348.81        148.352        2208.56        2506.05
+         actual        2296.36        144.582        2142.41        2449.47
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       2296.36        144.582        2142.41        2449.47            100    3.20494e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 2155.47 yields bad phi threshold of 2389.11
+
+  ---  phi summary for lambda, scale fac:17.7979 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        2155.47        186.912        1956.01        2346.01
+         actual        2114.59        182.584        1893.96        2295.78
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       2114.59        182.584        1893.96        2295.78            100    4.79671e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 2109.11 yields bad phi threshold of 2378.94
+
+  ---  phi summary for lambda, scale fac:17.7979 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        2109.11        215.869        1873.34         2298.9
+         actual        2072.88        213.414        1824.69        2305.37
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       2072.88        213.414        1824.69        2305.37            100    1.43329e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 3052.46 yields bad phi threshold of 3444.15
+
+  ---  phi summary for lambda, scale fac:177.979 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        3052.46         313.35        2670.63        3430.21
+         actual        2976.84        313.369        2670.63        3410.84
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       2976.84        313.369        2670.63        3410.84            100    2.31111e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 2946.7 yields bad phi threshold of 3270.54
+
+  ---  phi summary for lambda, scale fac:177.979 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured         2946.7        259.074        2626.14        3254.86
+         actual         2873.6        260.578        2626.14        3238.09
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                        2873.6        260.578        2626.14        3238.09            100    3.20494e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 2905.01 yields bad phi threshold of 3202.02
+
+  ---  phi summary for lambda, scale fac:177.979 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        2905.01        237.606        2608.46        3185.36
+         actual        2832.95        239.628        2608.46        3169.64
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       2832.95        239.628        2608.46        3169.64            100    4.88162e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 3335.95 yields bad phi threshold of 3895.49
+
+  ---  phi summary for lambda, scale fac:1779.79 , 0.75 ,   ---  
+       phi type           mean            std            min            max
+       measured        3335.95        447.627        2791.93        3876.21
+         actual        3254.11        442.257        2791.93        3850.65
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       3254.11        442.257        2791.93        3850.65            100      2.794e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 3322.43 yields bad phi threshold of 3874.07
+
+  ---  phi summary for lambda, scale fac:1779.79 , 1 ,   ---  
+       phi type           mean            std            min            max
+       measured        3322.43        441.314        2786.58         3855.4
+         actual        3240.87         436.24        2786.58         3830.1
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       3240.87         436.24        2786.58         3830.1            100    4.15407e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+...bad_phi_sigma 1.25 and mean 3316.94 yields bad phi threshold of 3865.36
+
+  ---  phi summary for lambda, scale fac:1779.79 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        3316.94        438.736        2784.44        3846.92
+         actual        3235.49        433.782        2784.44        3821.72
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       3235.49        433.782        2784.44        3821.72            100    3.20494e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+  ---  phi summary for best lambda, scale fac: 17.7979 , 1.1 ,   ---  
+       phi type           mean            std            min            max
+       measured        2109.11        215.869        1873.34         2298.9
+         actual        2072.88        213.414        1824.69        2305.37
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+
+  ---  running remaining realizations for best lambda, scale:17.7979 , 1.1 ,   ---  
+...bad_phi_sigma 1.25 and mean 2116.71 yields bad phi threshold of 2863.79
+
+  ---  dropping realizations as bad:  68  ---  
+...dropping par:obs realizations: 46 : 46 , 1175 : 1175 , 9 : 9 , 11 : 11 , 34 : 34 , 35 : 35 , 39 : 39 , 52 : 52 , 107 : 107 , 112 : 112 , 145 : 145 , 171 : 171 , 197 : 197 , 246 : 246 , 249 : 249 , 274 : 274 , 318 : 318 , 347 : 347 , 361 : 361 , 380 : 380 , 387 : 387 , 393 : 393 , 398 : 398 , 401 : 401 , 411 : 411 , 442 : 442 , 465 : 465 , 469 : 469 , 484 : 484 , 491 : 491 , 528 : 528 , 539 : 539 , 552 : 552 , 554 : 554 , 560 : 560 , 583 : 583 , 678 : 678 , 746 : 746 , 749 : 749 , 804 : 804 , 817 : 817 , 835 : 835 , 837 : 837 , 876 : 876 , 883 : 883 , 899 : 899 , 949 : 949 , 951 : 951 , 974 : 974 , 1002 : 1002 , 1008 : 1008 , 1015 : 1015 , 1094 : 1094 , 1133 : 1133 , 1221 : 1221 , 1233 : 1233 , 1265 : 1265 , 1289 : 1289 , 1316 : 1316 , 1323 : 1323 , 1324 : 1324 , 1366 : 1366 , 1388 : 1388 , 1399 : 1399 , 1426 : 1426 , 1445 : 1445 , 1479 : 1479 , 1482 : 1482 , 
+...phi summary for entire ensemble using lambda,scale_fac 17.7979 , 1.1 , 
+       phi type           mean            std            min            max
+       measured        2008.92        242.256        1588.11         2854.5
+         actual        1987.22        237.664        1612.47        2991.95
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+
+
+...last best mean phi * acceptable phi factor:  3786.27
+...current best mean phi:  2008.92
+
+  ---  updating parameter ensemble  ---  
+
+  ---  updating lambda to  13.3484  ---  
+
+  ---  EnsembleMethod iteration 10 report  ---  
+   number of active realizations:  1117
+   number of model runs:           13655
+      current obs ensemble saved to pest_run.10.obs.csv
+      current par ensemble saved to pest_run.10.par.csv
+       phi type           mean            std            min            max
+       measured        2008.92        242.256        1588.11         2854.5
+         actual        1987.22        237.664        1612.47        2991.95
+     note: 'measured' phi reported above includes 
+           realizations of measurement noise, 
+           'actual' phi does not.
+  ---  observation group phi summary ---  
+       (computed using 'actual' phi)
+           (sorted by mean phi)
+group                           mean            std            min            max        percent            std            min            max
+obgnme                       1987.22        237.664        1612.47        2991.95            100    2.68638e-14            100            100
+    Note: 'percent' is the percentage of the actual phi for each realization.
+
+
+
+
+   ---  parameter group change summmary  ---    
+   (compared to the initial ensemble using active realizations)
+group                 mean change  std change  n at/near bnds  % at/near bnds   init CV   curr CV n CV decr
+median_grainsize           2171.9     69.6689               0               0        25      0.36         1
+wind0                          98          65               0               0       4.6       0.8        12
+beta                           35          61               0               0      0.33       0.2         0
+diffusion_coefficient         9.1          67               0               0     0.078     0.028         0
+eruption_mass                 1.7          71               0               0     0.021    0.0061         1
+std_grainsize                 1.2          62               0               0      0.17     0.062         0
+fall_time_threshold          0.76          63               0               0     0.017    0.0062         0
+plume_height                  0.2          61               0               0    0.0051     0.002         0
+    Note: parameter change summary sorted according to abs 'mean change'.
+          'n CV decr' is the number of parameters with current CV less 30% of the initial CV
+
+...saved parameter change summary to pest_run.10.pcs.csv
+
+  ---  phi-based termination criteria check  ---  
+...phiredstp:  0.01
+...nphistp:  3
+...nphinored (also used for consecutive bad lambda cycles):  3
+...best mean phi sequence: 90980.1 , 21732.5 , 13341.7 , 13708.4 , 9680.96 , 8488.31 , 8835.86 , 7207.69 , 3605.97 , 2008.92 , 
+...best phi yet:  2008.92
+...number of consecutive bad lambda testing cycles:  0
+...number of iterations satisfying phiredstp criteria:  1
+...number of iterations since best yet mean phi:  0
+
+
+pestpp-ies analysis complete...
+started at 12/17/22 12:36:32
+finished at 12/17/22 14:03:06
+took 86.5667 minutes

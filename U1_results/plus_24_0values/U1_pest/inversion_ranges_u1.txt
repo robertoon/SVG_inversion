@@ -1,0 +1,30 @@
+VENT_EASTING 696856
+VENT_NORTHING 1474557
+VENT_ELEVATION 780
+
+PLUME_HEIGHT 12000 16000
+ALPHA 2.0
+BETA 0.1 1.0
+ERUPTION_MASS 5e9 1e11
+MAX_GRAINSIZE -3
+MIN_GRAINSIZE 7
+MEDIAN_GRAINSIZE -2.0 2.0
+STD_GRAINSIZE 1.5 3.5
+
+# eddy diff for small particles in m2/s (400 cm2/s) 
+EDDY_CONST  0.04
+
+# diffusion coeff for large particles (m2/s)
+DIFFUSION_COEFFICIENT 300 10000
+
+# threshold for change in diffusion (seconds fall time)
+FALL_TIME_THRESHOLD 600 1200
+# density model for the pyroclasts
+LITHIC_DENSITY 	2700.0
+PUMICE_DENSITY 	500.0
+
+#define column integration steps
+COL_STEPS 200
+PART_STEPS 100
+
+PLUME_MODEL 2

@@ -1,0 +1,14 @@
+group,mean_change,std_change,num_at_near_bounds,percent_at_near_bounds,initial_cv,current_cv,num_cv_dec
+wind0,0,0,0,0,0,0,0
+wind1,0,0,0,0,0,0,0
+wind2,0,0,0,0,0,0,0
+wind5,0,0,0,0,0,0,0
+wind3,131.423,48.5509,0,0,4.9601,23.5649,7
+wind4,0,0,0,0,0,0,0
+beta,69.3995,61.0751,0,0,0.331729,0.421971,0
+diffusion_coefficient,12.9286,60.1941,0,0,0.0939714,0.0429603,0
+eruption_mass,0.375649,77.5032,0,0,0.0160175,0.003617,1
+fall_time_threshold,19.9963,65.0101,0,0,0.230296,0.100721,0
+median_grainsize,17.6615,70.2019,0,0,0.60825,0.220124,0
+plume_height,0.574164,45.7714,0,0,0.0050599,0.00275975,0
+std_grainsize,14.6882,42.6373,0,0,0.152294,0.0761717,0

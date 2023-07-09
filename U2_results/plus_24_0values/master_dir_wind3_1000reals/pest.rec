@@ -1,0 +1,995 @@
+             pestpp-glm 5.1.24
+
+    by The PEST++ Development Team
+
+
+
+version: 5.1.24
+binary compiled on Oct  7 2022 at 02:40:29
+
+using control file: "pest.pst"
+
+in directory: "/home1/robertcon/SVG_inv/svg_test_5/U2_pest"
+on host: "master32"
+started at 01/08/23 09:33:00
+
+...reading external file 'pest.pargp_data.csv'
+...header line: PARGPNME,INCTYP,DERINC,DERINCLB,FORCEN,DERINCMUL,DERMTHD,SPLITTHRESH,SPLITRELDIFF,SPLITACTION
+...read 11 lines from external file
+...reading external file 'pest.par_data.csv'
+...header line: PARNME,PARTRANS,PARCHGLIM,PARVAL1,PARLBND,PARUBND,PARGP,SCALE,OFFSET,DERCOM,HEIGHT
+...read 205 lines from external file
+...reading external file 'pest.obs_data.csv'
+...header line: OBSNME,OBSVAL,WEIGHT,OBGNME,EAST,NORTH,STANDARD_DEVIATION,LOWER_BOUND
+...read 103 lines from external file
+...reading external file 'pest.tplfile_data.csv'
+...header line: PEST_FILE,MODEL_FILE
+...read 8 lines from external file
+...reading external file 'pest.insfile_data.csv'
+...header line: PEST_FILE,MODEL_FILE
+...read 2 lines from external file
+
+Note 'NOPTMAX' == 0, switching to forgiveness mode when checking inputs
+
+noptmax = 0, resetting max_run_fail = 1
+
+    This software has been approved for release by the
+    U.S.Geological Survey(USGS).Although the software has 
+    been subjected to rigorous review, the USGS reserves the
+    right to update the software as needed pursuant to further
+    analysisand review.No warranty, expressed or implied, is 
+    made by the USGS or the U.S.Government as to the
+    functionality of the softwareand related material nor shall
+    the fact of release constitute any such warranty.
+    Furthermore, the software is released on condition that
+    neither the USGS nor the U.S.Government shall be held
+    liable for any damages resulting from its authorized 
+    or unauthorized use.
+
+
+pestmode:- 
+   estimation
+
+
+Case dimensions:- 
+    Number of parameters = 204
+    Number of adjustable parameters = 36
+    Number of observations = 102
+    Number of prior estimates = 0
+
+PEST Control Information
+    relparmax = 1
+    facparmax = 1.1
+    facorig = 0.001
+    phiredswh = 0.1
+    noptmax = 0
+    phiredstp = 0.01
+    nphistp = 3
+    nphinored = 3
+    relparstp = 0.01
+    nrelpar = 3
+
+
+    PEST++ OPTIONS: 
+
+...general options (used in multiple tools): 
+svd_pack: redsvd
+lambda_scale_fac: 0.75,1,1.1,
+forgive_unknown_args: 0
+max_run_fail: 1
+panther_poll_interval: 1
+parameter_covariance: 
+observation_covariance: 
+hotstart_resfile: 
+overdue_resched_fac: 1.15
+overdue_giveup_fac: 100
+overdue_giveup_minutes: 1e+30
+condor_submit_file: 
+tie_by_group: 0
+par_sigma_range: 4
+enforce_tied_bounds: 0
+debug_parse_only: 0
+check_tplins: 1
+fill_tpl_zeros: 0
+tpl_force_decimal: 0
+additional_ins_delimiters: 
+random_seed: 358183147
+num_tpl_ins_threads: 1
+save_binary: 0
+ensemble_output_precision: 6
+panther_echo: 1
+panther_agent_restart_on_error: 0
+panther_agent_no_ping_timeout_secs: -1
+panther_debug_loop: 0
+debug_check_par_en_consistency: 0
+panther_agent_freeze_on_fail: 0
+panther_transfer_on_finish: 
+panther_transfer_on_fail: 
+
+...pestpp-glm specific options:
+max_n_super: 1000000
+super_eigthresh: 1e-06
+n_iter_base: 1000000
+n_iter_super: 0
+super_relparmax: 0.1
+max_super_frz_iter: 20
+max_reg_iter: 20
+lambdas: 0.1,1,10,100,1000,
+iteration_summary: 1
+der_forgive: 1
+uncertainty: 1
+forecasts: 
+base_jacobian: 
+glm_num_reals: 0
+jac_scale: 1
+glm_normal_form: DIAG
+glm_debug_der_fail: 0
+glm_debug_lamb_fail: 0
+glm_debug_real_fail: 0
+glm_accept_mc_phi: 0
+glm_rebase_super: 0
+glm_iter_mc: 0
+glm_high_2nd_iter_phi: 0
+
+...pestpp-swp options:
+sweep_parameter_csv_file: 
+sweep_output_csv_file: sweep_out.csv
+sweep_chunk: 500
+sweep_forgive: 0
+sweep_base_run: 0
+sweep_include_regul_phi: 0
+
+...pestpp-opt options:
+opt_objective_function: 
+opt_coin_log: 1
+opt_skip_final: 0
+opt_std_weights: 0
+opt_stack_size: 0
+opt_par_stack: 
+opt_obs_stack: 
+opt_decision_variable_groups: 
+opt_external_variable_groups: 
+opt_constraint_groups: 
+opt_risk: 0.5
+opt_iter_derinc_fac: 1
+opt_direction: 1
+opt_iter_tol: 0.001
+opt_recalc_fosm_every: 1
+opt_chance_points: SINGLE
+
+...pestpp-sqp options:
+sqp_dv_en: 
+sqp_obs_restart_en: 
+sqp_num_reals: -1
+sqp_update_hessian: 0
+sqp_scale_facs:
+  1e-05
+  0.0001
+  0.001
+  0.005
+  0.01
+  0.05
+  0.075
+  0.1
+  0.25
+  0.5
+  1
+
+...pestpp-mou options:
+mou_generator: DE
+mou_population_size: 100
+mou_dv_population_file: 
+mou_obs_population_restart_file: 
+mou_objectives: 
+mou_max_archive_size: 500
+mou_risk_objective: 0
+mou_verbose_level: 1
+mou_env_selector: NSGA
+mou_mating_selector: TOURNAMENT
+mou_crossover_prob: 0.75
+mou_mutation_prob: -999
+mou_de_f: 0.8
+mou_save_population_every: -1
+mou_pso_omega: 0.7
+mou_pso_social_const: 2
+mou_pso_cognitive: 2
+mou_population_schedule: 
+mou_simplex_reflections:10
+mou_simplex_factors: 
+ 0.5
+ 0.6
+ 0.7
+ 0.8
+mou_simplex_mutation: 0
+
+...shared pestpp-ies/pestpp-da options:
+(note: 'da' args override 'ies' args when using pestpp-da)
+ies_parameter_ensemble: 
+ies_observation_ensemble: 
+ies_weights_ensemble: 
+ies_restart_parameter_ensemble: 
+ies_restart_observation_ensemble: 
+ies_use_approximate_solution: 1
+ies_lambda_mults: 0.1,1,10,
+ies_initial_lambda: 0
+ies_use_approx: 1
+ies_subset_size: 4
+ies_reg_factor: 0
+ies_verbose_level: 1
+ies_use_prior_scaling: 0
+ies_num_reals: 50
+ies_bad_phi: 1e+300
+ies_bad_phi_sigma: 1e+300
+ies_include_base: 1
+ies_use_empirical_prior: 0
+ies_group_draws: 0
+ies_enforce_bounds: 1
+ies_localizer: 
+ies_accept_phi_fac: 1.05
+ies_lambda_inc_fac: 10
+ies_lambda_dec_fac: 0.75
+ies_save_lambda_ensembles: 0
+ies_subset_how: RANDOM
+ies_localize_how: PARAMETERS
+ies_num_threads: -1
+ies_debug_fail_subset: 0
+ies_debug_fail_remainder: 0
+ies_debug_bad_phi: 0
+ies_debug_upgrade_only: 0
+ies_debug_high_subset_phi: 0
+ies_debug_high_upgrade_phi: 0
+ies_csv_by_reals: 1
+ies_autoadaloc: 0
+ies_autoadaloc_sigma_dist: 1
+ies_enforce_chglim: 0
+ies_center_on: 
+ies_no_noise: 0
+ies_drop_conflicts: 0
+ies_save_rescov:0
+ies_pdc_sigma_distance: -1
+ies_use_mda: 0
+ies_mda_init_fac: 10
+ies_mda_dec_fac: 0.5
+ies_localization_type: LOCAL
+ies_upgrades_in_memory: 1
+ies_ordered_binary: 1
+ies_multimodal_alpha: 1
+ies_localizer_forgive_extra: 0
+ies_phi_fractions_file: 
+
+pestpp-sen options: 
+gsa_method: MORRIS
+gsa_morris_pooled_obs: 0
+gsa_morris_obs_sen: 1
+gsa_morris_p: 4
+gsa_morris_r: 4
+gsa_morris_delta: 0.6666
+gsa_sobol_samples: 4
+gsa_sobol_par_dist: norm
+
+pestpp-da options (those not shared with pestpp-ies):
+da_parameter_cycle_table: 
+da_observation_cycle_table: 
+da_hotstart_cycle: 0
+da_stop_cycle: 1000000000
+da_use_simulated_states: 1
+da_noptmax_schedule: 
+
+
+
+Model command line(s):- 
+    python forward_run.py
+
+Model interface files:-
+    template files:
+      ./tephra2.in.tpl
+      ./wind2.tpl
+      ./wind4.tpl
+      ./wind3.tpl
+      ./wind1.tpl
+      ./wind0.tpl
+      ./wind5.tpl
+    model input files:
+      ./tephra2.in
+      ./wind2
+      ./wind4
+      ./wind3
+      ./wind1
+      ./wind0
+      ./wind5
+
+    instruction files:
+      ./svg_u2_data.txt.ins
+    model output files:
+      ./svg_u2_data.txt
+
+
+Parameter group information
+NAME              INCREMENT TYPE     DERIVATIVE INCREMENT    INCREMENT LOWER BOUND  FORCE CENTRAL     INCREMENT MULTIPLIER
+wind0                   RELATIVE                     0.01                        0         SWITCH                        2
+wind1                   RELATIVE                     0.01                        0         SWITCH                        2
+wind2                   RELATIVE                     0.01                        0         SWITCH                        2
+wind5                   RELATIVE                     0.01                        0         SWITCH                        2
+wind3                   RELATIVE                     0.01                        0         SWITCH                        2
+wind4                   RELATIVE                     0.01                        0         SWITCH                        2
+eruption_mass           RELATIVE                     0.01                        0         SWITCH                        2
+median_grainsize        RELATIVE                     0.01                        0         SWITCH                        2
+plume_height            RELATIVE                     0.01                        0         SWITCH                        2
+std_grainsize           RELATIVE                     0.01                        0         SWITCH                        2
+
+
+
+Parameter information
+NAME                     TRANSFORMATION        CHANGE LIMIT  INITIAL VALUE    LOWER BOUND    UPPER BOUND            GROUP          SCALE         OFFSET  DERIVATIVE COMMAND
+eruption_mass            log                     FACTOR    3.16228e+10          1e+10          1e+11    eruption_mass              1              0                   1
+median_grainsize         none                  RELATIVE              1              0              4 median_grainsize              1              0                   1
+plume_height             log                     FACTOR        13856.4          12000          16000     plume_height              1              0                   1
+std_grainsize            log                     FACTOR        2.12132            1.5              3    std_grainsize              1              0                   1
+wind0_height:108.0_dir   fixed                 RELATIVE            6.8          -93.2          106.8            wind0              1              0                   1
+wind0_height:108.0_vel   fixed                   FACTOR          245.7         122.85         368.55            wind0              1              0                   1
+wind0_height:10970.0_dir fixed                 RELATIVE           14.9          -85.1          114.9            wind0              1              0                   1
+wind0_height:10970.0_vel fixed                   FACTOR           49.4           24.7           74.1            wind0              1              0                   1
+wind0_height:12450.0_dir fixed                 RELATIVE           16.6          -83.4          116.6            wind0              1              0                   1
+wind0_height:12450.0_vel fixed                   FACTOR           45.7          22.85          68.55            wind0              1              0                   1
+wind0_height:14251.0_dir fixed                 RELATIVE           13.9          -86.1          113.9            wind0              1              0                   1
+wind0_height:14251.0_vel fixed                   FACTOR           70.3          35.15         105.45            wind0              1              0                   1
+wind0_height:1519.0_dir  fixed                 RELATIVE            2.5          -97.5          102.5            wind0              1              0                   1
+wind0_height:1519.0_vel  fixed                   FACTOR          296.6          148.3          444.9            wind0              1              0                   1
+wind0_height:16592.0_dir fixed                 RELATIVE           10.1          -89.9          110.1            wind0              1              0                   1
+wind0_height:16592.0_vel fixed                   FACTOR          118.3          59.15         177.45            wind0              1              0                   1
+wind0_height:18615.0_dir fixed                 RELATIVE              7            -93            107            wind0              1              0                   1
+wind0_height:18615.0_vel fixed                   FACTOR           80.9          40.45         121.35            wind0              1              0                   1
+wind0_height:20606.0_dir fixed                 RELATIVE           10.2          -89.8          110.2            wind0              1              0                   1
+wind0_height:20606.0_vel fixed                   FACTOR           86.6           43.3          129.9            wind0              1              0                   1
+wind0_height:23792.0_dir fixed                 RELATIVE            0.9          -99.1          100.9            wind0              1              0                   1
+wind0_height:23792.0_vel fixed                   FACTOR           54.5          27.25          81.75            wind0              1              0                   1
+wind0_height:26400.0_dir fixed                 RELATIVE           15.9          -84.1          115.9            wind0              1              0                   1
+wind0_height:26400.0_vel fixed                   FACTOR          272.5         136.25         408.75            wind0              1              0                   1
+wind0_height:31031.0_dir fixed                 RELATIVE           32.4          -67.6          132.4            wind0              1              0                   1
+wind0_height:31031.0_vel fixed                   FACTOR          267.7         133.85         401.55            wind0              1              0                   1
+wind0_height:3157.0_dir  fixed                 RELATIVE            2.7          -97.3          102.7            wind0              1              0                   1
+wind0_height:3157.0_vel  fixed                   FACTOR            309          154.5          463.5            wind0              1              0                   1
+wind0_height:4424.0_dir  fixed                 RELATIVE            2.1          -97.9          102.1            wind0              1              0                   1
+wind0_height:4424.0_vel  fixed                   FACTOR          309.1         154.55         463.65            wind0              1              0                   1
+wind0_height:5873.0_dir  fixed                 RELATIVE            1.7          -98.3          101.7            wind0              1              0                   1
+wind0_height:5873.0_vel  fixed                   FACTOR          139.8           69.9          209.7            wind0              1              0                   1
+wind0_height:7597.0_dir  fixed                 RELATIVE            4.1          -95.9          104.1            wind0              1              0                   1
+wind0_height:7597.0_vel  fixed                   FACTOR           88.6           44.3          132.9            wind0              1              0                   1
+wind0_height:791.0_dir   fixed                 RELATIVE            6.2          -93.8          106.2            wind0              1              0                   1
+wind0_height:791.0_vel   fixed                   FACTOR          267.2          133.6          400.8            wind0              1              0                   1
+wind0_height:9703.0_dir  fixed                 RELATIVE           10.7          -89.3          110.7            wind0              1              0                   1
+wind0_height:9703.0_vel  fixed                   FACTOR           52.6           26.3           78.9            wind0              1              0                   1
+wind1_height:102.0_dir   fixed                 RELATIVE            6.3          -93.7          106.3            wind1              1              0                   1
+wind1_height:102.0_vel   fixed                   FACTOR          252.4          126.2          378.6            wind1              1              0                   1
+wind1_height:10957.0_dir fixed                 RELATIVE           13.6          -86.4          113.6            wind1              1              0                   1
+wind1_height:10957.0_vel fixed                   FACTOR           61.6           30.8           92.4            wind1              1              0                   1
+wind1_height:12436.0_dir fixed                 RELATIVE           16.7          -83.3          116.7            wind1              1              0                   1
+wind1_height:12436.0_vel fixed                   FACTOR           62.5          31.25          93.75            wind1              1              0                   1
+wind1_height:14238.0_dir fixed                 RELATIVE           15.9          -84.1          115.9            wind1              1              0                   1
+wind1_height:14238.0_vel fixed                   FACTOR           81.3          40.65         121.95            wind1              1              0                   1
+wind1_height:1517.0_dir  fixed                 RELATIVE            4.2          -95.8          104.2            wind1              1              0                   1
+wind1_height:1517.0_vel  fixed                   FACTOR          304.4          152.2          456.6            wind1              1              0                   1
+wind1_height:16597.0_dir fixed                 RELATIVE             12            -88            112            wind1              1              0                   1
+wind1_height:16597.0_vel fixed                   FACTOR            106             53            159            wind1              1              0                   1
+wind1_height:18635.0_dir fixed                 RELATIVE            6.6          -93.4          106.6            wind1              1              0                   1
+wind1_height:18635.0_vel fixed                   FACTOR           54.9          27.45          82.35            wind1              1              0                   1
+wind1_height:20616.0_dir fixed                 RELATIVE            5.5          -94.5          105.5            wind1              1              0                   1
+wind1_height:20616.0_vel fixed                   FACTOR           65.3          32.65          97.95            wind1              1              0                   1
+wind1_height:23805.0_dir fixed                 RELATIVE            2.3          -97.7          102.3            wind1              1              0                   1
+wind1_height:23805.0_vel fixed                   FACTOR          244.5         122.25         366.75            wind1              1              0                   1
+wind1_height:26432.0_dir fixed                 RELATIVE           11.5          -88.5          111.5            wind1              1              0                   1
+wind1_height:26432.0_vel fixed                   FACTOR          271.5         135.75         407.25            wind1              1              0                   1
+wind1_height:31048.0_dir fixed                 RELATIVE           24.5          -75.5          124.5            wind1              1              0                   1
+wind1_height:31048.0_vel fixed                   FACTOR          252.7         126.35         379.05            wind1              1              0                   1
+wind1_height:3154.0_dir  fixed                 RELATIVE            3.7          -96.3          103.7            wind1              1              0                   1
+wind1_height:3154.0_vel  fixed                   FACTOR          308.4          154.2          462.6            wind1              1              0                   1
+wind1_height:4416.0_dir  fixed                 RELATIVE            3.3          -96.7          103.3            wind1              1              0                   1
+wind1_height:4416.0_vel  fixed                   FACTOR          317.5         158.75         476.25            wind1              1              0                   1
+wind1_height:5863.0_dir  fixed                 RELATIVE            1.8          -98.2          101.8            wind1              1              0                   1
+wind1_height:5863.0_vel  fixed                   FACTOR           47.3          23.65          70.95            wind1              1              0                   1
+wind1_height:7586.0_dir  fixed                 RELATIVE            4.6          -95.4          104.6            wind1              1              0                   1
+wind1_height:7586.0_vel  fixed                   FACTOR           55.6           27.8           83.4            wind1              1              0                   1
+wind1_height:786.0_dir   fixed                 RELATIVE            6.4          -93.6          106.4            wind1              1              0                   1
+wind1_height:786.0_vel   fixed                   FACTOR          273.6          136.8          410.4            wind1              1              0                   1
+wind1_height:9690.0_dir  fixed                 RELATIVE              9            -91            109            wind1              1              0                   1
+wind1_height:9690.0_vel  fixed                   FACTOR           56.8           28.4           85.2            wind1              1              0                   1
+wind2_height:10957.0_dir fixed                 RELATIVE           11.4          -88.6          111.4            wind2              1              0                   1
+wind2_height:10957.0_vel fixed                   FACTOR           66.1          33.05          99.15            wind2              1              0                   1
+wind2_height:113.0_dir   fixed                 RELATIVE            6.6          -93.4          106.6            wind2              1              0                   1
+wind2_height:113.0_vel   fixed                   FACTOR          239.2          119.6          358.8            wind2              1              0                   1
+wind2_height:12431.0_dir fixed                 RELATIVE           15.1          -84.9          115.1            wind2              1              0                   1
+wind2_height:12431.0_vel fixed                   FACTOR             73           36.5          109.5            wind2              1              0                   1
+wind2_height:14229.0_dir fixed                 RELATIVE           17.6          -82.4          117.6            wind2              1              0                   1
+wind2_height:14229.0_vel fixed                   FACTOR           97.5          48.75         146.25            wind2              1              0                   1
+wind2_height:1523.0_dir  fixed                 RELATIVE            0.6          -99.4          100.6            wind2              1              0                   1
+wind2_height:1523.0_vel  fixed                   FACTOR          341.6          170.8          512.4            wind2              1              0                   1
+wind2_height:16572.0_dir fixed                 RELATIVE           10.3          -89.7          110.3            wind2              1              0                   1
+wind2_height:16572.0_vel fixed                   FACTOR           94.4           47.2          141.6            wind2              1              0                   1
+wind2_height:18587.0_dir fixed                 RELATIVE            8.1          -91.9          108.1            wind2              1              0                   1
+wind2_height:18587.0_vel fixed                   FACTOR           83.6           41.8          125.4            wind2              1              0                   1
+wind2_height:20579.0_dir fixed                 RELATIVE              8            -92            108            wind2              1              0                   1
+wind2_height:20579.0_vel fixed                   FACTOR             85           42.5          127.5            wind2              1              0                   1
+wind2_height:23807.0_dir fixed                 RELATIVE            7.3          -92.7          107.3            wind2              1              0                   1
+wind2_height:23807.0_vel fixed                   FACTOR          250.1         125.05         375.15            wind2              1              0                   1
+wind2_height:26441.0_dir fixed                 RELATIVE           17.5          -82.5          117.5            wind2              1              0                   1
+wind2_height:26441.0_vel fixed                   FACTOR            270            135            405            wind2              1              0                   1
+wind2_height:31030.0_dir fixed                 RELATIVE           28.2          -71.8          128.2            wind2              1              0                   1
+wind2_height:31030.0_vel fixed                   FACTOR          253.1         126.55         379.65            wind2              1              0                   1
+wind2_height:3159.0_dir  fixed                 RELATIVE            2.6          -97.4          102.6            wind2              1              0                   1
+wind2_height:3159.0_vel  fixed                   FACTOR           62.4           31.2           93.6            wind2              1              0                   1
+wind2_height:4421.0_dir  fixed                 RELATIVE            2.8          -97.2          102.8            wind2              1              0                   1
+wind2_height:4421.0_vel  fixed                   FACTOR           30.3          15.15          45.45            wind2              1              0                   1
+wind2_height:5869.0_dir  fixed                 RELATIVE            4.3          -95.7          104.3            wind2              1              0                   1
+wind2_height:5869.0_vel  fixed                   FACTOR           71.1          35.55         106.65            wind2              1              0                   1
+wind2_height:7593.0_dir  fixed                 RELATIVE            6.4          -93.6          106.4            wind2              1              0                   1
+wind2_height:7593.0_vel  fixed                   FACTOR             63           31.5           94.5            wind2              1              0                   1
+wind2_height:795.0_dir   fixed                 RELATIVE              5            -95            105            wind2              1              0                   1
+wind2_height:795.0_vel   fixed                   FACTOR          246.5         123.25         369.75            wind2              1              0                   1
+wind2_height:9695.0_dir  fixed                 RELATIVE            7.7          -92.3          107.7            wind2              1              0                   1
+wind2_height:9695.0_vel  fixed                   FACTOR           56.1          28.05          84.15            wind2              1              0                   1
+wind3_height:108.0_dir   none                  RELATIVE            5.3          -94.7          105.3            wind3              1              0                   1
+wind3_height:108.0_vel   none                    FACTOR          236.6          118.3          354.9            wind3              1              0                   1
+wind3_height:10959.0_dir none                  RELATIVE             11            -89            111            wind3              1              0                   1
+wind3_height:10959.0_vel none                    FACTOR           83.2           41.6          124.8            wind3              1              0                   1
+wind3_height:12437.0_dir none                  RELATIVE           13.8          -86.2          113.8            wind3              1              0                   1
+wind3_height:12437.0_vel none                    FACTOR           75.3          37.65         112.95            wind3              1              0                   1
+wind3_height:14238.0_dir none                  RELATIVE           13.9          -86.1          113.9            wind3              1              0                   1
+wind3_height:14238.0_vel none                    FACTOR          100.3          50.15         150.45            wind3              1              0                   1
+wind3_height:1522.0_dir  none                  RELATIVE            0.9          -99.1          100.9            wind3              1              0                   1
+wind3_height:1522.0_vel  none                    FACTOR            6.3           3.15           9.45            wind3              1              0                   1
+wind3_height:16586.0_dir none                  RELATIVE            8.3          -91.7          108.3            wind3              1              0                   1
+wind3_height:16586.0_vel none                    FACTOR           70.9          35.45         106.35            wind3              1              0                   1
+wind3_height:18608.0_dir none                  RELATIVE            8.5          -91.5          108.5            wind3              1              0                   1
+wind3_height:18608.0_vel none                    FACTOR           78.4           39.2          117.6            wind3              1              0                   1
+wind3_height:20595.0_dir none                  RELATIVE            7.5          -92.5          107.5            wind3              1              0                   1
+wind3_height:20595.0_vel none                    FACTOR           72.1          36.05         108.15            wind3              1              0                   1
+wind3_height:23802.0_dir none                  RELATIVE            7.9          -92.1          107.9            wind3              1              0                   1
+wind3_height:23802.0_vel none                    FACTOR          267.8          133.9          401.7            wind3              1              0                   1
+wind3_height:26418.0_dir none                  RELATIVE           16.6          -83.4          116.6            wind3              1              0                   1
+wind3_height:26418.0_vel none                    FACTOR          271.4          135.7          407.1            wind3              1              0                   1
+wind3_height:3159.0_dir  none                  RELATIVE            3.3          -96.7          103.3            wind3              1              0                   1
+wind3_height:3159.0_vel  none                    FACTOR           79.4           39.7          119.1            wind3              1              0                   1
+wind3_height:4424.0_dir  none                  RELATIVE            2.3          -97.7          102.3            wind3              1              0                   1
+wind3_height:4424.0_vel  none                    FACTOR           50.2           25.1           75.3            wind3              1              0                   1
+wind3_height:5874.0_dir  none                  RELATIVE            4.4          -95.6          104.4            wind3              1              0                   1
+wind3_height:5874.0_vel  none                    FACTOR           99.2           49.6          148.8            wind3              1              0                   1
+wind3_height:7597.0_dir  none                  RELATIVE            8.4          -91.6          108.4            wind3              1              0                   1
+wind3_height:7597.0_vel  none                    FACTOR           90.7          45.35         136.05            wind3              1              0                   1
+wind3_height:791.0_dir   none                  RELATIVE              4            -96            104            wind3              1              0                   1
+wind3_height:791.0_vel   none                    FACTOR          252.5         126.25         378.75            wind3              1              0                   1
+wind3_height:9697.0_dir  none                  RELATIVE            8.5          -91.5          108.5            wind3              1              0                   1
+wind3_height:9697.0_vel  none                    FACTOR           85.3          42.65         127.95            wind3              1              0                   1
+wind4_height:108.0_dir   fixed                 RELATIVE            6.2          -93.8          106.2            wind4              1              0                   1
+wind4_height:108.0_vel   fixed                   FACTOR          243.7         121.85         365.55            wind4              1              0                   1
+wind4_height:10961.0_dir fixed                 RELATIVE           12.4          -87.6          112.4            wind4              1              0                   1
+wind4_height:10961.0_vel fixed                   FACTOR           63.6           31.8           95.4            wind4              1              0                   1
+wind4_height:12438.0_dir fixed                 RELATIVE           15.2          -84.8          115.2            wind4              1              0                   1
+wind4_height:12438.0_vel fixed                   FACTOR           63.4           31.7           95.1            wind4              1              0                   1
+wind4_height:14239.0_dir fixed                 RELATIVE             15            -85            115            wind4              1              0                   1
+wind4_height:14239.0_vel fixed                   FACTOR           87.8           43.9          131.7            wind4              1              0                   1
+wind4_height:1520.0_dir  fixed                 RELATIVE            1.9          -98.1          101.9            wind4              1              0                   1
+wind4_height:1520.0_vel  fixed                   FACTOR          310.8          155.4          466.2            wind4              1              0                   1
+wind4_height:16587.0_dir fixed                 RELATIVE            9.7          -90.3          109.7            wind4              1              0                   1
+wind4_height:16587.0_vel fixed                   FACTOR           99.1          49.55         148.65            wind4              1              0                   1
+wind4_height:18611.0_dir fixed                 RELATIVE            7.4          -92.6          107.4            wind4              1              0                   1
+wind4_height:18611.0_vel fixed                   FACTOR           75.3          37.65         112.95            wind4              1              0                   1
+wind4_height:20599.0_dir fixed                 RELATIVE            7.7          -92.3          107.7            wind4              1              0                   1
+wind4_height:20599.0_vel fixed                   FACTOR             79           39.5          118.5            wind4              1              0                   1
+wind4_height:23802.0_dir fixed                 RELATIVE            4.1          -95.9          104.1            wind4              1              0                   1
+wind4_height:23802.0_vel fixed                   FACTOR          258.5         129.25         387.75            wind4              1              0                   1
+wind4_height:26423.0_dir fixed                 RELATIVE           15.4          -84.6          115.4            wind4              1              0                   1
+wind4_height:26423.0_vel fixed                   FACTOR          271.3         135.65         406.95            wind4              1              0                   1
+wind4_height:3157.0_dir  fixed                 RELATIVE            1.5          -98.5          101.5            wind4              1              0                   1
+wind4_height:3157.0_vel  fixed                   FACTOR            4.9           2.45           7.35            wind4              1              0                   1
+wind4_height:4421.0_dir  fixed                 RELATIVE            1.9          -98.1          101.9            wind4              1              0                   1
+wind4_height:4421.0_vel  fixed                   FACTOR          355.5         177.75         533.25            wind4              1              0                   1
+wind4_height:5870.0_dir  fixed                 RELATIVE            2.7          -97.3          102.7            wind4              1              0                   1
+wind4_height:5870.0_vel  fixed                   FACTOR           86.8           43.4          130.2            wind4              1              0                   1
+wind4_height:7593.0_dir  fixed                 RELATIVE            5.7          -94.3          105.7            wind4              1              0                   1
+wind4_height:7593.0_vel  fixed                   FACTOR             76             38            114            wind4              1              0                   1
+wind4_height:791.0_dir   fixed                 RELATIVE            5.3          -94.7          105.3            wind4              1              0                   1
+wind4_height:791.0_vel   fixed                   FACTOR          261.6          130.8          392.4            wind4              1              0                   1
+wind4_height:9696.0_dir  fixed                 RELATIVE            8.7          -91.3          108.7            wind4              1              0                   1
+wind4_height:9696.0_vel  fixed                   FACTOR             62             31             93            wind4              1              0                   1
+wind5_height:-167.0_dir  fixed                 RELATIVE            6.4          -93.6          106.4            wind5              1              0                   1
+wind5_height:-167.0_vel  fixed                   FACTOR          224.4          112.2          336.6            wind5              1              0                   1
+wind5_height:11110.0_dir fixed                 RELATIVE           14.6          -85.4          114.6            wind5              1              0                   1
+wind5_height:11110.0_vel fixed                   FACTOR           70.5          35.25         105.75            wind5              1              0                   1
+wind5_height:1112.0_dir  fixed                 RELATIVE            2.5          -97.5          102.5            wind5              1              0                   1
+wind5_height:1112.0_vel  fixed                   FACTOR          220.1         110.05         330.15            wind5              1              0                   1
+wind5_height:12960.0_dir fixed                 RELATIVE           14.4          -85.6          114.4            wind5              1              0                   1
+wind5_height:12960.0_vel fixed                   FACTOR           78.8           39.4          118.2            wind5              1              0                   1
+wind5_height:15549.0_dir fixed                 RELATIVE           12.4          -87.6          112.4            wind5              1              0                   1
+wind5_height:15549.0_vel fixed                   FACTOR           73.2           36.6          109.8            wind5              1              0                   1
+wind5_height:17811.0_dir fixed                 RELATIVE           10.9          -89.1          110.9            wind5              1              0                   1
+wind5_height:17811.0_vel fixed                   FACTOR           85.8           42.9          128.7            wind5              1              0                   1
+wind5_height:19927.0_dir fixed                 RELATIVE            8.3          -91.7          108.3            wind5              1              0                   1
+wind5_height:19927.0_vel fixed                   FACTOR           83.8           41.9          125.7            wind5              1              0                   1
+wind5_height:23125.0_dir fixed                 RELATIVE            5.8          -94.2          105.8            wind5              1              0                   1
+wind5_height:23125.0_vel fixed                   FACTOR          288.1         144.05         432.15            wind5              1              0                   1
+wind5_height:25669.0_dir fixed                 RELATIVE           23.1          -76.9          123.1            wind5              1              0                   1
+wind5_height:25669.0_vel fixed                   FACTOR          245.2          122.6          367.8            wind5              1              0                   1
+wind5_height:2588.0_dir  fixed                 RELATIVE            2.5          -97.5          102.5            wind5              1              0                   1
+wind5_height:2588.0_vel  fixed                   FACTOR          108.4           54.2          162.6            wind5              1              0                   1
+wind5_height:30125.0_dir fixed                 RELATIVE           39.7          -60.3          139.7            wind5              1              0                   1
+wind5_height:30125.0_vel fixed                   FACTOR          254.8          127.4          382.2            wind5              1              0                   1
+wind5_height:3728.0_dir  fixed                 RELATIVE            5.6          -94.4          105.6            wind5              1              0                   1
+wind5_height:3728.0_vel  fixed                   FACTOR           84.9          42.45         127.35            wind5              1              0                   1
+wind5_height:455.0_dir   fixed                 RELATIVE            6.3          -93.7          106.3            wind5              1              0                   1
+wind5_height:455.0_vel   fixed                   FACTOR          237.3         118.65         355.95            wind5              1              0                   1
+wind5_height:5032.0_dir  fixed                 RELATIVE            8.6          -91.4          108.6            wind5              1              0                   1
+wind5_height:5032.0_vel  fixed                   FACTOR           91.3          45.65         136.95            wind5              1              0                   1
+wind5_height:6574.0_dir  fixed                 RELATIVE            7.7          -92.3          107.7            wind5              1              0                   1
+wind5_height:6574.0_vel  fixed                   FACTOR           77.2           38.6          115.8            wind5              1              0                   1
+wind5_height:8488.0_dir  fixed                 RELATIVE            9.1          -90.9          109.1            wind5              1              0                   1
+wind5_height:8488.0_vel  fixed                   FACTOR             97           48.5          145.5            wind5              1              0                   1
+wind5_height:9673.0_dir  fixed                 RELATIVE           12.1          -87.9          112.1            wind5              1              0                   1
+wind5_height:9673.0_vel  fixed                   FACTOR           87.6           43.8          131.4            wind5              1              0                   1
+
+
+
+Observation information
+NAME                                                   VALUE                GROUP              WEIGHT
+mass_east:228716.0000_north:1351748.00                     0               obgnme                  10
+mass_east:230961.0000_north:1604587.00                     0               obgnme                  10
+mass_east:282095.0000_north:1328043.00                     0               obgnme                  10
+mass_east:284901.0000_north:1632653.00                     0               obgnme                  10
+mass_east:671948.0000_north:1468335.00                     0               obgnme                  10
+mass_east:672867.0000_north:1486992.00                     0               obgnme                  10
+mass_east:673346.0000_north:1454749.00                     0               obgnme                  10
+mass_east:678652.0000_north:1507746.00                     0               obgnme                  10
+mass_east:680222.0000_north:1444151.00                     0               obgnme                  10
+mass_east:682167.0000_north:1406593.00                     0               obgnme                  10
+mass_east:687065.4788_north:1463263.947                  4.5               obgnme             2.22222
+mass_east:688128.2578_north:1465335.321                  7.5               obgnme             1.33333
+mass_east:688645.4866_north:1467976.518                   15               obgnme            0.666667
+mass_east:688893.3636_north:1468603.156                 22.5               obgnme            0.444444
+mass_east:689018.9478_north:1468771.178                 19.5               obgnme            0.512821
+mass_east:689566.2899_north:1468142.227                 19.5               obgnme            0.512821
+mass_east:689990.5854_north:1465709.388                  7.5               obgnme             1.33333
+mass_east:689998.3193_north:1465052.028                   12               obgnme            0.833333
+mass_east:690192.1061_north:1469885.689                   30               obgnme            0.333333
+mass_east:690700.0000_north:1455649.00                     0               obgnme                  10
+mass_east:690721.4336_north:1467926.473                   15               obgnme            0.666667
+mass_east:690829.0000_north:1436753.00                     0               obgnme                  10
+mass_east:690862.0289_north:1470112.851                 37.5               obgnme            0.266667
+mass_east:691035.0000_north:1518113.00                     0               obgnme                  10
+mass_east:691536.9571_north:1472268.609                 52.5               obgnme            0.190476
+mass_east:691761.1951_north:1472254.183                   60               obgnme            0.166667
+mass_east:692160.2298_north:1473177.647                   60               obgnme            0.166667
+mass_east:692193.98_north:1472953.2                       75               obgnme            0.133333
+mass_east:692320.9146_north:1470354.661                 37.5               obgnme            0.266667
+mass_east:692341.83_north:1473492.4                     97.5               obgnme            0.102564
+mass_east:692364.7132_north:1470367.143                 37.5               obgnme            0.266667
+mass_east:692531.9473_north:1470074.692                   27               obgnme             0.37037
+mass_east:692553.9683_north:1470044.157                   27               obgnme             0.37037
+mass_east:692556.9148_north:1474042.065                   60               obgnme            0.166667
+mass_east:692614.89_north:1473096.06                     195               obgnme                 0.1
+mass_east:692625.6287_north:1471812.114                   60               obgnme            0.166667
+mass_east:693237.55_north:1473027.71                      90               obgnme            0.111111
+mass_east:693307.83_north:1472882.83                      90               obgnme            0.111111
+mass_east:693883.83_north:1473125.85                     120               obgnme                 0.1
+mass_east:694377.36_north:1467140.62                     150               obgnme                 0.1
+mass_east:695371.19_north:1473577.85                     180               obgnme                 0.1
+mass_east:695655.19_north:1473710.47                     180               obgnme                 0.1
+mass_east:696191.0000_north:1452089.00                     0               obgnme                  10
+mass_east:697158.0000_north:1424023.00                     0               obgnme                  10
+mass_east:697897.37_north:1474135.59                     270               obgnme                 0.1
+mass_east:697934.47_north:1474070.69                     180               obgnme                 0.1
+mass_east:697994.98_north:1474063.94                     195               obgnme                 0.1
+mass_east:698119.03_north:1473992.05                     120               obgnme                 0.1
+mass_east:698174.92_north:1473965.36                     180               obgnme                 0.1
+mass_east:698193.14_north:1473787.02                     300               obgnme                 0.1
+mass_east:698366.88_north:1479093                         45               obgnme            0.222222
+mass_east:698388.54_north:1479093.16                      45               obgnme            0.222222
+mass_east:698414.01_north:1473663.84                     150               obgnme                 0.1
+mass_east:698421.15_north:1473650.61                   127.5               obgnme                 0.1
+mass_east:698637.1944_north:1479927.937                 16.5               obgnme            0.606061
+mass_east:699066.57_north:1473349.55                   112.5               obgnme                 0.1
+mass_east:699749.19_north:1478820.01                    22.5               obgnme            0.444444
+mass_east:700125.6119_north:1479352.578                 22.5               obgnme            0.444444
+mass_east:700383.6161_north:1472828.366                   75               obgnme            0.133333
+mass_east:700534.2473_north:1465200.142                  7.5               obgnme             1.33333
+mass_east:700608.11_north:1479002.79                      15               obgnme            0.666667
+mass_east:700951.9146_north:1479457.732                 22.5               obgnme            0.444444
+mass_east:701230.3042_north:1473607.164                   90               obgnme            0.111111
+mass_east:701236.78_north:1475734.54                    82.5               obgnme            0.121212
+mass_east:701403.2659_north:1474089.033                 97.5               obgnme            0.102564
+mass_east:701447.5679_north:1478796.18                    30               obgnme            0.333333
+mass_east:701979.8903_north:1474231.631                 97.5               obgnme            0.102564
+mass_east:702055.6754_north:1478553.709                 37.5               obgnme            0.266667
+mass_east:702329.8068_north:1477485.218                   45               obgnme            0.222222
+mass_east:702331.1537_north:1477050.524                   30               obgnme            0.333333
+mass_east:702349.4475_north:1472091.164                   60               obgnme            0.166667
+mass_east:702379.37_north:1474878.73                      45               obgnme            0.222222
+mass_east:702482.643_north:1470462.43                   34.5               obgnme            0.289855
+mass_east:702518.8983_north:1470461.695                 34.5               obgnme            0.289855
+mass_east:702524.6997_north:1464702.711                  4.5               obgnme             2.22222
+mass_east:702558.411_north:1475908.563                    60               obgnme            0.166667
+mass_east:702689.9009_north:1472997.564                 52.5               obgnme            0.190476
+mass_east:702691.3487_north:1464877.287                 10.5               obgnme            0.952381
+mass_east:702823.0000_north:1433739.00                     0               obgnme                  10
+mass_east:702854.5674_north:1467466.96                    18               obgnme            0.555556
+mass_east:702936.0558_north:1474386.983                 52.5               obgnme            0.190476
+mass_east:703169.6307_north:1473542.173                   45               obgnme            0.222222
+mass_east:703507.349_north:1474766.077                    45               obgnme            0.222222
+mass_east:703540.6353_north:1472478.642                   45               obgnme            0.222222
+mass_east:703626.6524_north:1470324.906                 37.5               obgnme            0.266667
+mass_east:703634.9476_north:1470325.699                 37.5               obgnme            0.266667
+mass_east:703737.2128_north:1469459.118                 25.5               obgnme            0.392157
+mass_east:703741.109_north:1468505.821                    30               obgnme            0.333333
+mass_east:703894.7541_north:1465612.15                  22.5               obgnme            0.444444
+mass_east:703963.5297_north:1471311.749                 37.5               obgnme            0.266667
+mass_east:703986.7135_north:1466887.458                   15               obgnme            0.666667
+mass_east:703990.7543_north:1467265.652                   18               obgnme            0.555556
+mass_east:707362.0000_north:1529879.00                     0               obgnme                  10
+mass_east:718127.0000_north:1533707.00                     0               obgnme                  10
+mass_east:721921.0000_north:1555453.00                     0               obgnme                  10
+mass_east:725423.0000_north:1408581.00                     0               obgnme                  10
+mass_east:750535.0000_north:1400531.00                     0               obgnme                  10
+mass_east:761845.0000_north:1557976.00                     0               obgnme                  10
+mass_east:819866.0000_north:1573265.00                     0               obgnme                  10
+mass_east:822988.0000_north:1379186.00                     0               obgnme                  10
+mass_east:866800_north:1475343                         0.007               obgnme                  10
+mass_east:869966.27_north:1447717.22                   0.021               obgnme                  10
+
+
+
+Prior information
+
+   no prior information provided
+
+
+
+PEST SVD Information
+    maxsing = 10000000
+    eigthresh = 1e-06
+
+
+
+
+
+...loading prior parameter covariance matrix
+
+   -----    Starting pestpp-glm Iterations    ----    
+
+-----------------------------------------
+     ---   OPTIMIZATION COMPLETE   ---   
+  Reason for terminating PEST++ simulation: NOPTMAX criterion met
+  Summary of termination criteria:
+  NOPTMAX = 0 ;  NOPT at termination = 0
+  NPHINORED = 3 ;  NPHINORED at termination = 0
+  NRELPAR = 3; RELPARSTP = 0.01 ;  NRELPAR at termination = 0
+  PHIREDSTP = 0.01; NPHISTP = 3
+  NPHISTP lowest PHI's:
+
+FINAL OPTIMISATION RESULTS
+
+  Optimal parameter values  
+
+     Parameter            
+        Name         Value
+    ------------  ------------
+    eruption_mass   3.16228e+10
+    median_grainsize             1
+    plume_height       13856.4
+    std_grainsize       2.12132
+    wind0_height:108.0_dir           6.8
+    wind0_height:108.0_vel         245.7
+    wind0_height:10970.0_dir          14.9
+    wind0_height:10970.0_vel          49.4
+    wind0_height:12450.0_dir          16.6
+    wind0_height:12450.0_vel          45.7
+    wind0_height:14251.0_dir          13.9
+    wind0_height:14251.0_vel          70.3
+    wind0_height:1519.0_dir           2.5
+    wind0_height:1519.0_vel         296.6
+    wind0_height:16592.0_dir          10.1
+    wind0_height:16592.0_vel         118.3
+    wind0_height:18615.0_dir             7
+    wind0_height:18615.0_vel          80.9
+    wind0_height:20606.0_dir          10.2
+    wind0_height:20606.0_vel          86.6
+    wind0_height:23792.0_dir           0.9
+    wind0_height:23792.0_vel          54.5
+    wind0_height:26400.0_dir          15.9
+    wind0_height:26400.0_vel         272.5
+    wind0_height:31031.0_dir          32.4
+    wind0_height:31031.0_vel         267.7
+    wind0_height:3157.0_dir           2.7
+    wind0_height:3157.0_vel           309
+    wind0_height:4424.0_dir           2.1
+    wind0_height:4424.0_vel         309.1
+    wind0_height:5873.0_dir           1.7
+    wind0_height:5873.0_vel         139.8
+    wind0_height:7597.0_dir           4.1
+    wind0_height:7597.0_vel          88.6
+    wind0_height:791.0_dir           6.2
+    wind0_height:791.0_vel         267.2
+    wind0_height:9703.0_dir          10.7
+    wind0_height:9703.0_vel          52.6
+    wind1_height:102.0_dir           6.3
+    wind1_height:102.0_vel         252.4
+    wind1_height:10957.0_dir          13.6
+    wind1_height:10957.0_vel          61.6
+    wind1_height:12436.0_dir          16.7
+    wind1_height:12436.0_vel          62.5
+    wind1_height:14238.0_dir          15.9
+    wind1_height:14238.0_vel          81.3
+    wind1_height:1517.0_dir           4.2
+    wind1_height:1517.0_vel         304.4
+    wind1_height:16597.0_dir            12
+    wind1_height:16597.0_vel           106
+    wind1_height:18635.0_dir           6.6
+    wind1_height:18635.0_vel          54.9
+    wind1_height:20616.0_dir           5.5
+    wind1_height:20616.0_vel          65.3
+    wind1_height:23805.0_dir           2.3
+    wind1_height:23805.0_vel         244.5
+    wind1_height:26432.0_dir          11.5
+    wind1_height:26432.0_vel         271.5
+    wind1_height:31048.0_dir          24.5
+    wind1_height:31048.0_vel         252.7
+    wind1_height:3154.0_dir           3.7
+    wind1_height:3154.0_vel         308.4
+    wind1_height:4416.0_dir           3.3
+    wind1_height:4416.0_vel         317.5
+    wind1_height:5863.0_dir           1.8
+    wind1_height:5863.0_vel          47.3
+    wind1_height:7586.0_dir           4.6
+    wind1_height:7586.0_vel          55.6
+    wind1_height:786.0_dir           6.4
+    wind1_height:786.0_vel         273.6
+    wind1_height:9690.0_dir             9
+    wind1_height:9690.0_vel          56.8
+    wind2_height:10957.0_dir          11.4
+    wind2_height:10957.0_vel          66.1
+    wind2_height:113.0_dir           6.6
+    wind2_height:113.0_vel         239.2
+    wind2_height:12431.0_dir          15.1
+    wind2_height:12431.0_vel            73
+    wind2_height:14229.0_dir          17.6
+    wind2_height:14229.0_vel          97.5
+    wind2_height:1523.0_dir           0.6
+    wind2_height:1523.0_vel         341.6
+    wind2_height:16572.0_dir          10.3
+    wind2_height:16572.0_vel          94.4
+    wind2_height:18587.0_dir           8.1
+    wind2_height:18587.0_vel          83.6
+    wind2_height:20579.0_dir             8
+    wind2_height:20579.0_vel            85
+    wind2_height:23807.0_dir           7.3
+    wind2_height:23807.0_vel         250.1
+    wind2_height:26441.0_dir          17.5
+    wind2_height:26441.0_vel           270
+    wind2_height:31030.0_dir          28.2
+    wind2_height:31030.0_vel         253.1
+    wind2_height:3159.0_dir           2.6
+    wind2_height:3159.0_vel          62.4
+    wind2_height:4421.0_dir           2.8
+    wind2_height:4421.0_vel          30.3
+    wind2_height:5869.0_dir           4.3
+    wind2_height:5869.0_vel          71.1
+    wind2_height:7593.0_dir           6.4
+    wind2_height:7593.0_vel            63
+    wind2_height:795.0_dir             5
+    wind2_height:795.0_vel         246.5
+    wind2_height:9695.0_dir           7.7
+    wind2_height:9695.0_vel          56.1
+    wind3_height:108.0_dir           5.3
+    wind3_height:108.0_vel         236.6
+    wind3_height:10959.0_dir            11
+    wind3_height:10959.0_vel          83.2
+    wind3_height:12437.0_dir          13.8
+    wind3_height:12437.0_vel          75.3
+    wind3_height:14238.0_dir          13.9
+    wind3_height:14238.0_vel         100.3
+    wind3_height:1522.0_dir           0.9
+    wind3_height:1522.0_vel           6.3
+    wind3_height:16586.0_dir           8.3
+    wind3_height:16586.0_vel          70.9
+    wind3_height:18608.0_dir           8.5
+    wind3_height:18608.0_vel          78.4
+    wind3_height:20595.0_dir           7.5
+    wind3_height:20595.0_vel          72.1
+    wind3_height:23802.0_dir           7.9
+    wind3_height:23802.0_vel         267.8
+    wind3_height:26418.0_dir          16.6
+    wind3_height:26418.0_vel         271.4
+    wind3_height:3159.0_dir           3.3
+    wind3_height:3159.0_vel          79.4
+    wind3_height:4424.0_dir           2.3
+    wind3_height:4424.0_vel          50.2
+    wind3_height:5874.0_dir           4.4
+    wind3_height:5874.0_vel          99.2
+    wind3_height:7597.0_dir           8.4
+    wind3_height:7597.0_vel          90.7
+    wind3_height:791.0_dir             4
+    wind3_height:791.0_vel         252.5
+    wind3_height:9697.0_dir           8.5
+    wind3_height:9697.0_vel          85.3
+    wind4_height:108.0_dir           6.2
+    wind4_height:108.0_vel         243.7
+    wind4_height:10961.0_dir          12.4
+    wind4_height:10961.0_vel          63.6
+    wind4_height:12438.0_dir          15.2
+    wind4_height:12438.0_vel          63.4
+    wind4_height:14239.0_dir            15
+    wind4_height:14239.0_vel          87.8
+    wind4_height:1520.0_dir           1.9
+    wind4_height:1520.0_vel         310.8
+    wind4_height:16587.0_dir           9.7
+    wind4_height:16587.0_vel          99.1
+    wind4_height:18611.0_dir           7.4
+    wind4_height:18611.0_vel          75.3
+    wind4_height:20599.0_dir           7.7
+    wind4_height:20599.0_vel            79
+    wind4_height:23802.0_dir           4.1
+    wind4_height:23802.0_vel         258.5
+    wind4_height:26423.0_dir          15.4
+    wind4_height:26423.0_vel         271.3
+    wind4_height:3157.0_dir           1.5
+    wind4_height:3157.0_vel           4.9
+    wind4_height:4421.0_dir           1.9
+    wind4_height:4421.0_vel         355.5
+    wind4_height:5870.0_dir           2.7
+    wind4_height:5870.0_vel          86.8
+    wind4_height:7593.0_dir           5.7
+    wind4_height:7593.0_vel            76
+    wind4_height:791.0_dir           5.3
+    wind4_height:791.0_vel         261.6
+    wind4_height:9696.0_dir           8.7
+    wind4_height:9696.0_vel            62
+    wind5_height:-167.0_dir           6.4
+    wind5_height:-167.0_vel         224.4
+    wind5_height:11110.0_dir          14.6
+    wind5_height:11110.0_vel          70.5
+    wind5_height:1112.0_dir           2.5
+    wind5_height:1112.0_vel         220.1
+    wind5_height:12960.0_dir          14.4
+    wind5_height:12960.0_vel          78.8
+    wind5_height:15549.0_dir          12.4
+    wind5_height:15549.0_vel          73.2
+    wind5_height:17811.0_dir          10.9
+    wind5_height:17811.0_vel          85.8
+    wind5_height:19927.0_dir           8.3
+    wind5_height:19927.0_vel          83.8
+    wind5_height:23125.0_dir           5.8
+    wind5_height:23125.0_vel         288.1
+    wind5_height:25669.0_dir          23.1
+    wind5_height:25669.0_vel         245.2
+    wind5_height:2588.0_dir           2.5
+    wind5_height:2588.0_vel         108.4
+    wind5_height:30125.0_dir          39.7
+    wind5_height:30125.0_vel         254.8
+    wind5_height:3728.0_dir           5.6
+    wind5_height:3728.0_vel          84.9
+    wind5_height:455.0_dir           6.3
+    wind5_height:455.0_vel         237.3
+    wind5_height:5032.0_dir           8.6
+    wind5_height:5032.0_vel          91.3
+    wind5_height:6574.0_dir           7.7
+    wind5_height:6574.0_vel          77.2
+    wind5_height:8488.0_dir           9.1
+    wind5_height:8488.0_vel            97
+    wind5_height:9673.0_dir          12.1
+    wind5_height:9673.0_vel          87.6
+
+
+  Observations with optimal model-simulated equivalents and residuals
+                                    Name        Group             Measured             Modelled             Residual               Weight
+  mass_east:228716.0000_north:1351748.00       obgnme              0.00000          6.70544e-05         -6.70544e-05              10.0000
+  mass_east:230961.0000_north:1604587.00       obgnme              0.00000          7.29175e-05         -7.29175e-05              10.0000
+  mass_east:282095.0000_north:1328043.00       obgnme              0.00000          8.39091e-05         -8.39091e-05              10.0000
+  mass_east:284901.0000_north:1632653.00       obgnme              0.00000          9.34510e-05         -9.34510e-05              10.0000
+  mass_east:671948.0000_north:1468335.00       obgnme              0.00000            0.0390951           -0.0390951              10.0000
+  mass_east:672867.0000_north:1486992.00       obgnme              0.00000            0.0444972           -0.0444972              10.0000
+  mass_east:673346.0000_north:1454749.00       obgnme              0.00000            0.0289084           -0.0289084              10.0000
+  mass_east:678652.0000_north:1507746.00       obgnme              0.00000            0.0365461           -0.0365461              10.0000
+  mass_east:680222.0000_north:1444151.00       obgnme              0.00000            0.0282744           -0.0282744              10.0000
+  mass_east:682167.0000_north:1406593.00       obgnme              0.00000           0.00852434          -0.00852434              10.0000
+ mass_east:687065.4788_north:1463263.947       obgnme              4.50000             0.190557              4.30944              2.22222
+ mass_east:688128.2578_north:1465335.321       obgnme              7.50000             0.285173              7.21483              1.33333
+ mass_east:688645.4866_north:1467976.518       obgnme              15.0000             0.433181              14.5668             0.666667
+ mass_east:688893.3636_north:1468603.156       obgnme              22.5000             0.495620              22.0044             0.444444
+ mass_east:689018.9478_north:1468771.178       obgnme              19.5000             0.521898              18.9781             0.512821
+ mass_east:689566.2899_north:1468142.227       obgnme              19.5000             0.550605              18.9494             0.512821
+ mass_east:689990.5854_north:1465709.388       obgnme              7.50000             0.430551              7.06945              1.33333
+ mass_east:689998.3193_north:1465052.028       obgnme              12.0000             0.393042              11.6070             0.833333
+ mass_east:690192.1061_north:1469885.689       obgnme              30.0000             0.832608              29.1674             0.333333
+  mass_east:690700.0000_north:1455649.00       obgnme              0.00000             0.136779            -0.136779              10.0000
+ mass_east:690721.4336_north:1467926.473       obgnme              15.0000             0.712801              14.2872             0.666667
+  mass_east:690829.0000_north:1436753.00       obgnme              0.00000            0.0332554           -0.0332554              10.0000
+ mass_east:690862.0289_north:1470112.851       obgnme              37.5000              1.05928              36.4407             0.266667
+  mass_east:691035.0000_north:1518113.00       obgnme              0.00000            0.0452535           -0.0452535              10.0000
+ mass_east:691536.9571_north:1472268.609       obgnme              52.5000              1.91188              50.5881             0.190476
+ mass_east:691761.1951_north:1472254.183       obgnme              60.0000              2.10106              57.8989             0.166667
+ mass_east:692160.2298_north:1473177.647       obgnme              60.0000              2.91643              57.0836             0.166667
+     mass_east:692193.98_north:1472953.2       obgnme              75.0000              2.87022              72.1298             0.133333
+ mass_east:692320.9146_north:1470354.661       obgnme              37.5000              1.83414              35.6659             0.266667
+     mass_east:692341.83_north:1473492.4       obgnme              97.5000              3.34727              94.1527             0.102564
+ mass_east:692364.7132_north:1470367.143       obgnme              37.5000              1.86952              35.6305             0.266667
+ mass_east:692531.9473_north:1470074.692       obgnme              27.0000              1.86361              25.1364             0.370370
+ mass_east:692553.9683_north:1470044.157       obgnme              27.0000              1.86567              25.1343             0.370370
+ mass_east:692556.9148_north:1474042.065       obgnme              60.0000              4.02985              55.9702             0.166667
+    mass_east:692614.89_north:1473096.06       obgnme              195.000              3.65926              191.341             0.100000
+ mass_east:692625.6287_north:1471812.114       obgnme              60.0000              2.86490              57.1351             0.166667
+    mass_east:693237.55_north:1473027.71       obgnme              90.0000              5.18048              84.8195             0.111111
+    mass_east:693307.83_north:1472882.83       obgnme              90.0000              5.23890              84.7611             0.111111
+    mass_east:693883.83_north:1473125.85       obgnme              120.000              8.11937              111.881             0.100000
+    mass_east:694377.36_north:1467140.62       obgnme              150.000              1.59164              148.408             0.100000
+    mass_east:695371.19_north:1473577.85       obgnme              180.000              35.5945              144.406             0.100000
+    mass_east:695655.19_north:1473710.47       obgnme              180.000              52.6810              127.319             0.100000
+  mass_east:696191.0000_north:1452089.00       obgnme              0.00000             0.158224            -0.158224              10.0000
+  mass_east:697158.0000_north:1424023.00       obgnme              0.00000            0.0227363           -0.0227363              10.0000
+    mass_east:697897.37_north:1474135.59       obgnme              270.000              254.254              15.7460             0.100000
+    mass_east:697934.47_north:1474070.69       obgnme              180.000              243.480             -63.4800             0.100000
+    mass_east:697994.98_north:1474063.94       obgnme              195.000              239.379             -44.3790             0.100000
+    mass_east:698119.03_north:1473992.05       obgnme              120.000              224.502             -104.502             0.100000
+    mass_east:698174.92_north:1473965.36       obgnme              180.000              219.003             -39.0030             0.100000
+    mass_east:698193.14_north:1473787.02       obgnme              300.000              197.352              102.648             0.100000
+       mass_east:698366.88_north:1479093       obgnme              45.0000              38.7337              6.26630             0.222222
+    mass_east:698388.54_north:1479093.16       obgnme              45.0000              38.9640              6.03600             0.222222
+    mass_east:698414.01_north:1473663.84       obgnme              150.000              179.221             -29.2210             0.100000
+    mass_east:698421.15_north:1473650.61       obgnme              127.500              177.756             -50.2560             0.100000
+ mass_east:698637.1944_north:1479927.937       obgnme              16.5000              27.4718             -10.9718             0.606061
+    mass_east:699066.57_north:1473349.55       obgnme              112.500              145.998             -33.4980             0.100000
+    mass_east:699749.19_north:1478820.01       obgnme              22.5000              59.4039             -36.9039             0.444444
+ mass_east:700125.6119_north:1479352.578       obgnme              22.5000              48.8232             -26.3232             0.444444
+ mass_east:700383.6161_north:1472828.366       obgnme              75.0000              112.381             -37.3810             0.133333
+ mass_east:700534.2473_north:1465200.142       obgnme              7.50000              3.37591              4.12409              1.33333
+    mass_east:700608.11_north:1479002.79       obgnme              15.0000              60.5186             -45.5186             0.666667
+ mass_east:700951.9146_north:1479457.732       obgnme              22.5000              51.3490             -28.8490             0.444444
+ mass_east:701230.3042_north:1473607.164       obgnme              90.0000              139.017             -49.0170             0.111111
+    mass_east:701236.78_north:1475734.54       obgnme              82.5000              164.836             -82.3360             0.121212
+ mass_east:701403.2659_north:1474089.033       obgnme              97.5000              151.571             -54.0710             0.102564
+  mass_east:701447.5679_north:1478796.18       obgnme              30.0000              69.7718             -39.7718             0.333333
+ mass_east:701979.8903_north:1474231.631       obgnme              97.5000              145.127             -47.6270             0.102564
+ mass_east:702055.6754_north:1478553.709       obgnme              37.5000              77.3584             -39.8584             0.266667
+ mass_east:702329.8068_north:1477485.218       obgnme              45.0000              107.110             -62.1100             0.222222
+ mass_east:702331.1537_north:1477050.524       obgnme              30.0000              119.185             -89.1850             0.333333
+ mass_east:702349.4475_north:1472091.164       obgnme              60.0000              79.1890             -19.1890             0.166667
+    mass_east:702379.37_north:1474878.73       obgnme              45.0000              146.501             -101.501             0.222222
+   mass_east:702482.643_north:1470462.43       obgnme              34.5000              40.1147             -5.61470             0.289855
+ mass_east:702518.8983_north:1470461.695       obgnme              34.5000              40.1383             -5.63830             0.289855
+ mass_east:702524.6997_north:1464702.711       obgnme              4.50000              3.82828             0.671720              2.22222
+  mass_east:702558.411_north:1475908.563       obgnme              60.0000              139.795             -79.7950             0.166667
+ mass_east:702689.9009_north:1472997.564       obgnme              52.5000              103.640             -51.1400             0.190476
+ mass_east:702691.3487_north:1464877.287       obgnme              10.5000              4.13847              6.36153             0.952381
+  mass_east:702823.0000_north:1433739.00       obgnme              0.00000            0.0469962           -0.0469962              10.0000
+  mass_east:702854.5674_north:1467466.96       obgnme              18.0000              10.9918              7.00820             0.555556
+ mass_east:702936.0558_north:1474386.983       obgnme              52.5000              131.320             -78.8200             0.190476
+ mass_east:703169.6307_north:1473542.173       obgnme              45.0000              111.982             -66.9820             0.222222
+  mass_east:703507.349_north:1474766.077       obgnme              45.0000              125.392             -80.3920             0.222222
+ mass_east:703540.6353_north:1472478.642       obgnme              45.0000              82.7429             -37.7429             0.222222
+ mass_east:703626.6524_north:1470324.906       obgnme              37.5000              38.1899            -0.689900             0.266667
+ mass_east:703634.9476_north:1470325.699       obgnme              37.5000              38.1996            -0.699600             0.266667
+ mass_east:703737.2128_north:1469459.118       obgnme              25.5000              26.8124             -1.31240             0.392157
+  mass_east:703741.109_north:1468505.821       obgnme              30.0000              18.0859              11.9141             0.333333
+  mass_east:703894.7541_north:1465612.15       obgnme              22.5000              6.06836              16.4316             0.444444
+ mass_east:703963.5297_north:1471311.749       obgnme              37.5000              54.9420             -17.4420             0.266667
+ mass_east:703986.7135_north:1466887.458       obgnme              15.0000              9.70077              5.29923             0.666667
+ mass_east:703990.7543_north:1467265.652       obgnme              18.0000              11.2069              6.79310             0.555556
+  mass_east:707362.0000_north:1529879.00       obgnme              0.00000            0.0478649           -0.0478649              10.0000
+  mass_east:718127.0000_north:1533707.00       obgnme              0.00000            0.0540754           -0.0540754              10.0000
+  mass_east:721921.0000_north:1555453.00       obgnme              0.00000            0.0237402           -0.0237402              10.0000
+  mass_east:725423.0000_north:1408581.00       obgnme              0.00000            0.0230514           -0.0230514              10.0000
+  mass_east:750535.0000_north:1400531.00       obgnme              0.00000            0.0235438           -0.0235438              10.0000
+  mass_east:761845.0000_north:1557976.00       obgnme              0.00000            0.0370957           -0.0370957              10.0000
+  mass_east:819866.0000_north:1573265.00       obgnme              0.00000            0.0274100           -0.0274100              10.0000
+  mass_east:822988.0000_north:1379186.00       obgnme              0.00000            0.0156721           -0.0156721              10.0000
+          mass_east:866800_north:1475343       obgnme           0.00700000            0.0525446           -0.0455446              10.0000
+    mass_east:869966.27_north:1447717.22       obgnme            0.0210000            0.0403589           -0.0193589              10.0000
+
+Final composite objective function 
+  Final phi                                           Total : 8568.65
+  Contribution to phi from observation group       "obgnme" : 8568.65
+
+
+Number of forward model runs performed during optimization: 1
+
+
+pestpp-glm analysis complete...
+started at 01/08/23 09:33:00
+finished at 01/08/23 09:33:01
+took 0.0166667 minutes

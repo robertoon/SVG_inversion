@@ -1,0 +1,14 @@
+pargpnme,inctyp,derinc,derinclb,forcen,derincmul,dermthd,splitthresh,splitreldiff,splitaction
+wind0,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+wind1,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+wind2,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+wind5,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+wind3,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+wind4,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+beta,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+diffusion_coefficient,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+eruption_mass,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+fall_time_threshold,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+median_grainsize,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+plume_height,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller
+std_grainsize,relative,0.01,0.0,switch,2.0,parabolic,1e-05,0.5,smaller

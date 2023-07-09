@@ -1,0 +1,577 @@
+             pestpp-glm 5.1.24
+
+    by The PEST++ Development Team
+
+
+
+version: 5.1.24
+binary compiled on Oct  7 2022 at 02:40:29
+
+using control file: "pest.pst"
+
+in directory: "/home1/robertcon/SVG_inv/svg_test_5/U1_pest"
+on host: "master32"
+started at 12/17/22 12:36:31
+
+...reading external file 'pest.pargp_data.csv'
+...header line: PARGPNME,INCTYP,DERINC,DERINCLB,FORCEN,DERINCMUL,DERMTHD,SPLITTHRESH,SPLITRELDIFF,SPLITACTION
+...read 9 lines from external file
+...reading external file 'pest.par_data.csv'
+...header line: PARNME,PARTRANS,PARCHGLIM,PARVAL1,PARLBND,PARUBND,PARGP,SCALE,OFFSET,DERCOM,HEIGHT
+...read 40 lines from external file
+...reading external file 'pest.obs_data.csv'
+...header line: OBSNME,OBSVAL,WEIGHT,OBGNME,EAST,NORTH,STANDARD_DEVIATION,LOWER_BOUND
+...read 65 lines from external file
+...reading external file 'pest.tplfile_data.csv'
+...header line: PEST_FILE,MODEL_FILE
+...read 3 lines from external file
+...reading external file 'pest.insfile_data.csv'
+...header line: PEST_FILE,MODEL_FILE
+...read 2 lines from external file
+
+Note 'NOPTMAX' == 0, switching to forgiveness mode when checking inputs
+
+noptmax = 0, resetting max_run_fail = 1
+
+    This software has been approved for release by the
+    U.S.Geological Survey(USGS).Although the software has 
+    been subjected to rigorous review, the USGS reserves the
+    right to update the software as needed pursuant to further
+    analysisand review.No warranty, expressed or implied, is 
+    made by the USGS or the U.S.Government as to the
+    functionality of the softwareand related material nor shall
+    the fact of release constitute any such warranty.
+    Furthermore, the software is released on condition that
+    neither the USGS nor the U.S.Government shall be held
+    liable for any damages resulting from its authorized 
+    or unauthorized use.
+
+
+pestmode:- 
+   estimation
+
+
+Case dimensions:- 
+    Number of parameters = 39
+    Number of adjustable parameters = 39
+    Number of observations = 64
+    Number of prior estimates = 0
+
+PEST Control Information
+    relparmax = 1
+    facparmax = 1.1
+    facorig = 0.001
+    phiredswh = 0.1
+    noptmax = 0
+    phiredstp = 0.01
+    nphistp = 3
+    nphinored = 3
+    relparstp = 0.01
+    nrelpar = 3
+
+
+    PEST++ OPTIONS: 
+
+...general options (used in multiple tools): 
+svd_pack: redsvd
+lambda_scale_fac: 0.75,1,1.1,
+forgive_unknown_args: 0
+max_run_fail: 1
+panther_poll_interval: 1
+parameter_covariance: 
+observation_covariance: 
+hotstart_resfile: 
+overdue_resched_fac: 1.15
+overdue_giveup_fac: 100
+overdue_giveup_minutes: 1e+30
+condor_submit_file: 
+tie_by_group: 0
+par_sigma_range: 4
+enforce_tied_bounds: 0
+debug_parse_only: 0
+check_tplins: 1
+fill_tpl_zeros: 0
+tpl_force_decimal: 0
+additional_ins_delimiters: 
+random_seed: 358183147
+num_tpl_ins_threads: 1
+save_binary: 0
+ensemble_output_precision: 6
+panther_echo: 1
+panther_agent_restart_on_error: 0
+panther_agent_no_ping_timeout_secs: -1
+panther_debug_loop: 0
+debug_check_par_en_consistency: 0
+panther_agent_freeze_on_fail: 0
+panther_transfer_on_finish: 
+panther_transfer_on_fail: 
+
+...pestpp-glm specific options:
+max_n_super: 1000000
+super_eigthresh: 1e-06
+n_iter_base: 1000000
+n_iter_super: 0
+super_relparmax: 0.1
+max_super_frz_iter: 20
+max_reg_iter: 20
+lambdas: 0.1,1,10,100,1000,
+iteration_summary: 1
+der_forgive: 1
+uncertainty: 1
+forecasts: 
+base_jacobian: 
+glm_num_reals: 0
+jac_scale: 1
+glm_normal_form: DIAG
+glm_debug_der_fail: 0
+glm_debug_lamb_fail: 0
+glm_debug_real_fail: 0
+glm_accept_mc_phi: 0
+glm_rebase_super: 0
+glm_iter_mc: 0
+glm_high_2nd_iter_phi: 0
+
+...pestpp-swp options:
+sweep_parameter_csv_file: 
+sweep_output_csv_file: sweep_out.csv
+sweep_chunk: 500
+sweep_forgive: 0
+sweep_base_run: 0
+sweep_include_regul_phi: 0
+
+...pestpp-opt options:
+opt_objective_function: 
+opt_coin_log: 1
+opt_skip_final: 0
+opt_std_weights: 0
+opt_stack_size: 0
+opt_par_stack: 
+opt_obs_stack: 
+opt_decision_variable_groups: 
+opt_external_variable_groups: 
+opt_constraint_groups: 
+opt_risk: 0.5
+opt_iter_derinc_fac: 1
+opt_direction: 1
+opt_iter_tol: 0.001
+opt_recalc_fosm_every: 1
+opt_chance_points: SINGLE
+
+...pestpp-sqp options:
+sqp_dv_en: 
+sqp_obs_restart_en: 
+sqp_num_reals: -1
+sqp_update_hessian: 0
+sqp_scale_facs:
+  1e-05
+  0.0001
+  0.001
+  0.005
+  0.01
+  0.05
+  0.075
+  0.1
+  0.25
+  0.5
+  1
+
+...pestpp-mou options:
+mou_generator: DE
+mou_population_size: 100
+mou_dv_population_file: 
+mou_obs_population_restart_file: 
+mou_objectives: 
+mou_max_archive_size: 500
+mou_risk_objective: 0
+mou_verbose_level: 1
+mou_env_selector: NSGA
+mou_mating_selector: TOURNAMENT
+mou_crossover_prob: 0.75
+mou_mutation_prob: -999
+mou_de_f: 0.8
+mou_save_population_every: -1
+mou_pso_omega: 0.7
+mou_pso_social_const: 2
+mou_pso_cognitive: 2
+mou_population_schedule: 
+mou_simplex_reflections:10
+mou_simplex_factors: 
+ 0.5
+ 0.6
+ 0.7
+ 0.8
+mou_simplex_mutation: 0
+
+...shared pestpp-ies/pestpp-da options:
+(note: 'da' args override 'ies' args when using pestpp-da)
+ies_parameter_ensemble: 
+ies_observation_ensemble: 
+ies_weights_ensemble: 
+ies_restart_parameter_ensemble: 
+ies_restart_observation_ensemble: 
+ies_use_approximate_solution: 1
+ies_lambda_mults: 0.1,1,10,
+ies_initial_lambda: 0
+ies_use_approx: 1
+ies_subset_size: 4
+ies_reg_factor: 0
+ies_verbose_level: 1
+ies_use_prior_scaling: 0
+ies_num_reals: 50
+ies_bad_phi: 1e+300
+ies_bad_phi_sigma: 1e+300
+ies_include_base: 1
+ies_use_empirical_prior: 0
+ies_group_draws: 0
+ies_enforce_bounds: 1
+ies_localizer: 
+ies_accept_phi_fac: 1.05
+ies_lambda_inc_fac: 10
+ies_lambda_dec_fac: 0.75
+ies_save_lambda_ensembles: 0
+ies_subset_how: RANDOM
+ies_localize_how: PARAMETERS
+ies_num_threads: -1
+ies_debug_fail_subset: 0
+ies_debug_fail_remainder: 0
+ies_debug_bad_phi: 0
+ies_debug_upgrade_only: 0
+ies_debug_high_subset_phi: 0
+ies_debug_high_upgrade_phi: 0
+ies_csv_by_reals: 1
+ies_autoadaloc: 0
+ies_autoadaloc_sigma_dist: 1
+ies_enforce_chglim: 0
+ies_center_on: 
+ies_no_noise: 0
+ies_drop_conflicts: 0
+ies_save_rescov:0
+ies_pdc_sigma_distance: -1
+ies_use_mda: 0
+ies_mda_init_fac: 10
+ies_mda_dec_fac: 0.5
+ies_localization_type: LOCAL
+ies_upgrades_in_memory: 1
+ies_ordered_binary: 1
+ies_multimodal_alpha: 1
+ies_localizer_forgive_extra: 0
+ies_phi_fractions_file: 
+
+pestpp-sen options: 
+gsa_method: MORRIS
+gsa_morris_pooled_obs: 0
+gsa_morris_obs_sen: 1
+gsa_morris_p: 4
+gsa_morris_r: 4
+gsa_morris_delta: 0.6666
+gsa_sobol_samples: 4
+gsa_sobol_par_dist: norm
+
+pestpp-da options (those not shared with pestpp-ies):
+da_parameter_cycle_table: 
+da_observation_cycle_table: 
+da_hotstart_cycle: 0
+da_stop_cycle: 1000000000
+da_use_simulated_states: 1
+da_noptmax_schedule: 
+
+
+
+Model command line(s):- 
+    python forward_run.py
+
+Model interface files:-
+    template files:
+      ./tephra2.in.tpl
+      ./wind0.tpl
+    model input files:
+      ./tephra2.in
+      ./wind0
+
+    instruction files:
+      ./svg_u1_data.txt.ins
+    model output files:
+      ./svg_u1_data.txt
+
+
+Parameter group information
+NAME                   INCREMENT TYPE     DERIVATIVE INCREMENT    INCREMENT LOWER BOUND  FORCE CENTRAL     INCREMENT MULTIPLIER
+wind0                        RELATIVE                     0.01                        0         SWITCH                        2
+beta                         RELATIVE                     0.01                        0         SWITCH                        2
+diffusion_coefficient        RELATIVE                     0.01                        0         SWITCH                        2
+eruption_mass                RELATIVE                     0.01                        0         SWITCH                        2
+fall_time_threshold          RELATIVE                     0.01                        0         SWITCH                        2
+median_grainsize             RELATIVE                     0.01                        0         SWITCH                        2
+plume_height                 RELATIVE                     0.01                        0         SWITCH                        2
+std_grainsize                RELATIVE                     0.01                        0         SWITCH                        2
+
+
+
+Parameter information
+NAME                     TRANSFORMATION        CHANGE LIMIT  INITIAL VALUE    LOWER BOUND    UPPER BOUND                 GROUP          SCALE         OFFSET  DERIVATIVE COMMAND
+beta                     log                     FACTOR       0.316228            0.1              1                  beta              1              0                   1
+diffusion_coefficient    log                     FACTOR        1732.05            300          10000 diffusion_coefficient              1              0                   1
+eruption_mass            log                     FACTOR    2.23607e+10          5e+09          1e+11         eruption_mass              1              0                   1
+fall_time_threshold      log                     FACTOR        848.528            600           1200   fall_time_threshold              1              0                   1
+median_grainsize         none                  RELATIVE              0             -2              2      median_grainsize              1              0                   1
+plume_height             log                     FACTOR        13856.4          12000          16000          plume_height              1              0                   1
+std_grainsize            log                     FACTOR        2.29129            1.5            3.5         std_grainsize              1              0                   1
+wind0_height:10974.0_dir none                  RELATIVE           16.7          -83.3          116.7                 wind0              1              0                   1
+wind0_height:10974.0_vel none                    FACTOR           63.2           31.6           94.8                 wind0              1              0                   1
+wind0_height:112.0_dir   none                  RELATIVE            5.8          -94.2          105.8                 wind0              1              0                   1
+wind0_height:112.0_vel   none                    FACTOR          251.3         125.65         376.95                 wind0              1              0                   1
+wind0_height:12456.0_dir none                  RELATIVE           18.2          -81.8          118.2                 wind0              1              0                   1
+wind0_height:12456.0_vel none                    FACTOR           62.7          31.35          94.05                 wind0              1              0                   1
+wind0_height:14262.0_dir none                  RELATIVE           20.2          -79.8          120.2                 wind0              1              0                   1
+wind0_height:14262.0_vel none                    FACTOR           72.5          36.25         108.75                 wind0              1              0                   1
+wind0_height:1525.0_dir  none                  RELATIVE            3.4          -96.6          103.4                 wind0              1              0                   1
+wind0_height:1525.0_vel  none                    FACTOR          302.4          151.2          453.6                 wind0              1              0                   1
+wind0_height:16622.0_dir none                  RELATIVE           17.4          -82.6          117.4                 wind0              1              0                   1
+wind0_height:16622.0_vel none                    FACTOR           90.7          45.35         136.05                 wind0              1              0                   1
+wind0_height:18640.0_dir none                  RELATIVE           10.3          -89.7          110.3                 wind0              1              0                   1
+wind0_height:18640.0_vel none                    FACTOR             88             44            132                 wind0              1              0                   1
+wind0_height:20616.0_dir none                  RELATIVE            8.9          -91.1          108.9                 wind0              1              0                   1
+wind0_height:20616.0_vel none                    FACTOR           90.5          45.25         135.75                 wind0              1              0                   1
+wind0_height:23814.0_dir none                  RELATIVE              2            -98            102                 wind0              1              0                   1
+wind0_height:23814.0_vel none                    FACTOR          248.3         124.15         372.45                 wind0              1              0                   1
+wind0_height:26442.0_dir none                  RELATIVE           10.9          -89.1          110.9                 wind0              1              0                   1
+wind0_height:26442.0_vel none                    FACTOR          270.9         135.45         406.35                 wind0              1              0                   1
+wind0_height:3163.0_dir  none                  RELATIVE              1            -99            101                 wind0              1              0                   1
+wind0_height:3163.0_vel  none                    FACTOR          344.6          172.3          516.9                 wind0              1              0                   1
+wind0_height:4432.0_dir  none                  RELATIVE            1.2          -98.8          101.2                 wind0              1              0                   1
+wind0_height:4432.0_vel  none                    FACTOR           17.3           8.65          25.95                 wind0              1              0                   1
+wind0_height:5882.0_dir  none                  RELATIVE            2.7          -97.3          102.7                 wind0              1              0                   1
+wind0_height:5882.0_vel  none                    FACTOR           81.3          40.65         121.95                 wind0              1              0                   1
+wind0_height:7604.0_dir  none                  RELATIVE            7.1          -92.9          107.1                 wind0              1              0                   1
+wind0_height:7604.0_vel  none                    FACTOR           97.9          48.95         146.85                 wind0              1              0                   1
+wind0_height:796.0_dir   none                  RELATIVE            6.4          -93.6          106.4                 wind0              1              0                   1
+wind0_height:796.0_vel   none                    FACTOR          272.7         136.35         409.05                 wind0              1              0                   1
+wind0_height:9708.0_dir  none                  RELATIVE           13.1          -86.9          113.1                 wind0              1              0                   1
+wind0_height:9708.0_vel  none                    FACTOR           56.5          28.25          84.75                 wind0              1              0                   1
+
+
+
+Observation information
+NAME                                                   VALUE                GROUP              WEIGHT
+mass_east:691536.9571_north:1472268.609                  7.5               obgnme             1.33333
+mass_east:691761.1951_north:1472254.183                  7.5               obgnme             1.33333
+mass_east:692160.2298_north:1473177.647                   15               obgnme            0.666667
+mass_east:692193.9800_north:1472953.200                   30               obgnme            0.333333
+mass_east:692320.9146_north:1470354.661                  1.5               obgnme             6.66667
+mass_east:692341.8300_north:1473492.400                 22.5               obgnme            0.444444
+mass_east:692364.7132_north:1470367.143                  1.5               obgnme             6.66667
+mass_east:692531.9473_north:1470074.692                  1.5               obgnme             6.66667
+mass_east:692553.9683_north:1470044.157                 0.75               obgnme                  10
+mass_east:692556.9148_north:1474042.065                    3               obgnme             3.33333
+mass_east:692614.8900_north:1473096.060                   30               obgnme            0.333333
+mass_east:692625.6287_north:1471812.114                  4.5               obgnme             2.22222
+mass_east:693237.5500_north:1473027.710                   30               obgnme            0.333333
+mass_east:693307.8300_north:1472882.830                   45               obgnme            0.222222
+mass_east:693883.8300_north:1473125.850                   45               obgnme            0.222222
+mass_east:694377.3600_north:1467140.620                 37.5               obgnme            0.266667
+mass_east:695371.1900_north:1473577.850                   30               obgnme            0.333333
+mass_east:695655.1900_north:1473710.470                   75               obgnme            0.133333
+mass_east:697797.7000_north:1474207.000                  240               obgnme                 0.1
+mass_east:697897.3700_north:1474135.590                  300               obgnme                 0.1
+mass_east:697934.4700_north:1474070.690                  270               obgnme                 0.1
+mass_east:697994.9800_north:1474063.940                  345               obgnme                 0.1
+mass_east:698174.9200_north:1473965.360                  285               obgnme                 0.1
+mass_east:698193.1400_north:1473787.020                  225               obgnme                 0.1
+mass_east:698366.8800_north:1479093.000                   60               obgnme            0.166667
+mass_east:698388.5400_north:1479093.160                   45               obgnme            0.222222
+mass_east:698414.0100_north:1473663.840                  195               obgnme                 0.1
+mass_east:698421.1500_north:1473650.610                  165               obgnme                 0.1
+mass_east:698637.1944_north:1479927.937                   15               obgnme            0.666667
+mass_east:699066.5700_north:1473349.550                  105               obgnme                 0.1
+mass_east:699749.1900_north:1478820.010                  150               obgnme                 0.1
+mass_east:700125.6119_north:1479352.578                   75               obgnme            0.133333
+mass_east:700383.6161_north:1472828.366                   45               obgnme            0.222222
+mass_east:700534.2473_north:1465200.142                    3               obgnme             3.33333
+mass_east:700608.1100_north:1479002.790                  120               obgnme                 0.1
+mass_east:700951.9146_north:1479457.732                 82.5               obgnme            0.121212
+mass_east:701230.3042_north:1473607.164                   60               obgnme            0.166667
+mass_east:701236.7800_north:1475734.540                142.5               obgnme                 0.1
+mass_east:701403.2659_north:1474089.033                   75               obgnme            0.133333
+mass_east:701447.5679_north:1478796.180                 82.5               obgnme            0.121212
+mass_east:701979.8903_north:1474231.631                   75               obgnme            0.133333
+mass_east:702055.6754_north:1478553.709                   75               obgnme            0.133333
+mass_east:702329.8068_north:1477485.218                 97.5               obgnme            0.102564
+mass_east:702331.1537_north:1477050.524                 82.5               obgnme            0.121212
+mass_east:702349.4475_north:1472091.164                 22.5               obgnme            0.444444
+mass_east:702379.3700_north:1474878.730                 67.5               obgnme            0.148148
+mass_east:702482.6430_north:1470462.430                  7.5               obgnme             1.33333
+mass_east:702518.8983_north:1470461.695                  7.5               obgnme             1.33333
+mass_east:702558.4110_north:1475908.563                   90               obgnme            0.111111
+mass_east:702689.9009_north:1472997.564                   45               obgnme            0.222222
+mass_east:702691.3487_north:1464877.287                  1.5               obgnme             6.66667
+mass_east:702854.5674_north:1467466.960                   60               obgnme            0.166667
+mass_east:702936.0558_north:1474386.983                   45               obgnme            0.222222
+mass_east:703169.6307_north:1473542.173                   30               obgnme            0.333333
+mass_east:703507.3490_north:1474766.077                   45               obgnme            0.222222
+mass_east:703540.6353_north:1472478.642                   15               obgnme            0.666667
+mass_east:703626.6524_north:1470324.906                 10.5               obgnme            0.952381
+mass_east:703634.9476_north:1470325.699                 10.5               obgnme            0.952381
+mass_east:703737.2128_north:1469459.118                    6               obgnme             1.66667
+mass_east:703741.1090_north:1468505.821                  7.5               obgnme             1.33333
+mass_east:703894.7541_north:1465612.150                  7.5               obgnme             1.33333
+mass_east:703963.5297_north:1471311.749                  7.5               obgnme             1.33333
+mass_east:703986.7135_north:1466887.458                  7.5               obgnme             1.33333
+mass_east:703990.7543_north:1467265.652                  7.5               obgnme             1.33333
+
+
+
+Prior information
+
+   no prior information provided
+
+
+
+PEST SVD Information
+    maxsing = 10000000
+    eigthresh = 1e-06
+
+
+
+
+
+...loading prior parameter covariance matrix
+
+   -----    Starting pestpp-glm Iterations    ----    
+
+-----------------------------------------
+     ---   OPTIMIZATION COMPLETE   ---   
+  Reason for terminating PEST++ simulation: NOPTMAX criterion met
+  Summary of termination criteria:
+  NOPTMAX = 0 ;  NOPT at termination = 0
+  NPHINORED = 3 ;  NPHINORED at termination = 0
+  NRELPAR = 3; RELPARSTP = 0.01 ;  NRELPAR at termination = 0
+  PHIREDSTP = 0.01; NPHISTP = 3
+  NPHISTP lowest PHI's:
+
+FINAL OPTIMISATION RESULTS
+
+  Optimal parameter values  
+
+     Parameter            
+        Name         Value
+    ------------  ------------
+    beta              0.316228
+    diffusion_coefficient       1732.05
+    eruption_mass   2.23607e+10
+    fall_time_threshold       848.528
+    median_grainsize             0
+    plume_height       13856.4
+    std_grainsize       2.29129
+    wind0_height:10974.0_dir          16.7
+    wind0_height:10974.0_vel          63.2
+    wind0_height:112.0_dir           5.8
+    wind0_height:112.0_vel         251.3
+    wind0_height:12456.0_dir          18.2
+    wind0_height:12456.0_vel          62.7
+    wind0_height:14262.0_dir          20.2
+    wind0_height:14262.0_vel          72.5
+    wind0_height:1525.0_dir           3.4
+    wind0_height:1525.0_vel         302.4
+    wind0_height:16622.0_dir          17.4
+    wind0_height:16622.0_vel          90.7
+    wind0_height:18640.0_dir          10.3
+    wind0_height:18640.0_vel            88
+    wind0_height:20616.0_dir           8.9
+    wind0_height:20616.0_vel          90.5
+    wind0_height:23814.0_dir             2
+    wind0_height:23814.0_vel         248.3
+    wind0_height:26442.0_dir          10.9
+    wind0_height:26442.0_vel         270.9
+    wind0_height:3163.0_dir             1
+    wind0_height:3163.0_vel         344.6
+    wind0_height:4432.0_dir           1.2
+    wind0_height:4432.0_vel          17.3
+    wind0_height:5882.0_dir           2.7
+    wind0_height:5882.0_vel          81.3
+    wind0_height:7604.0_dir           7.1
+    wind0_height:7604.0_vel          97.9
+    wind0_height:796.0_dir           6.4
+    wind0_height:796.0_vel         272.7
+    wind0_height:9708.0_dir          13.1
+    wind0_height:9708.0_vel          56.5
+
+
+  Observations with optimal model-simulated equivalents and residuals
+                                    Name        Group             Measured             Modelled             Residual               Weight
+ mass_east:691536.9571_north:1472268.609       obgnme              7.50000              2.85702              4.64298              1.33333
+ mass_east:691761.1951_north:1472254.183       obgnme              7.50000              3.12140              4.37860              1.33333
+ mass_east:692160.2298_north:1473177.647       obgnme              15.0000              5.42726              9.57274             0.666667
+ mass_east:692193.9800_north:1472953.200       obgnme              30.0000              5.05844              24.9416             0.333333
+ mass_east:692320.9146_north:1470354.661       obgnme              1.50000              1.80473            -0.304730              6.66667
+ mass_east:692341.8300_north:1473492.400       obgnme              22.5000              6.80786              15.6921             0.444444
+ mass_east:692364.7132_north:1470367.143       obgnme              1.50000              1.83606            -0.336060              6.66667
+ mass_east:692531.9473_north:1470074.692       obgnme              1.50000              1.71555            -0.215550              6.66667
+ mass_east:692553.9683_north:1470044.157       obgnme             0.750000              1.70525            -0.955250              10.0000
+ mass_east:692556.9148_north:1474042.065       obgnme              3.00000              9.49154             -6.49154              3.33333
+ mass_east:692614.8900_north:1473096.060       obgnme              30.0000              6.81408              23.1859             0.333333
+ mass_east:692625.6287_north:1471812.114       obgnme              4.50000              3.75001             0.749990              2.22222
+ mass_east:693237.5500_north:1473027.710       obgnme              30.0000              9.58974              20.4103             0.333333
+ mass_east:693307.8300_north:1472882.830       obgnme              45.0000              9.25842              35.7416             0.222222
+ mass_east:693883.8300_north:1473125.850       obgnme              45.0000              14.9936              30.0064             0.222222
+ mass_east:694377.3600_north:1467140.620       obgnme              37.5000             0.845486              36.6545             0.266667
+ mass_east:695371.1900_north:1473577.850       obgnme              30.0000              41.6495             -11.6495             0.333333
+ mass_east:695655.1900_north:1473710.470       obgnme              75.0000              49.3642              25.6358             0.133333
+ mass_east:697797.7000_north:1474207.000       obgnme              240.000              72.0088              167.991             0.100000
+ mass_east:697897.3700_north:1474135.590       obgnme              300.000              69.8990              230.101             0.100000
+ mass_east:697934.4700_north:1474070.690       obgnme              270.000              68.1729              201.827             0.100000
+ mass_east:697994.9800_north:1474063.940       obgnme              345.000              67.8012              277.199             0.100000
+ mass_east:698174.9200_north:1473965.360       obgnme              285.000              64.8224              220.178             0.100000
+ mass_east:698193.1400_north:1473787.020       obgnme              225.000              60.3375              164.662             0.100000
+ mass_east:698366.8800_north:1479093.000       obgnme              60.0000              47.4327              12.5673             0.166667
+ mass_east:698388.5400_north:1479093.160       obgnme              45.0000              47.7248             -2.72480             0.222222
+ mass_east:698414.0100_north:1473663.840       obgnme              195.000              56.8488              138.151             0.100000
+ mass_east:698421.1500_north:1473650.610       obgnme              165.000              56.5123              108.488             0.100000
+ mass_east:698637.1944_north:1479927.937       obgnme              15.0000              39.0593             -24.0593             0.666667
+ mass_east:699066.5700_north:1473349.550       obgnme              105.000              48.7273              56.2727             0.100000
+ mass_east:699749.1900_north:1478820.010       obgnme              150.000              71.5459              78.4541             0.100000
+ mass_east:700125.6119_north:1479352.578       obgnme              75.0000              67.3794              7.62060             0.133333
+ mass_east:700383.6161_north:1472828.366       obgnme              45.0000              37.3379              7.66210             0.222222
+ mass_east:700534.2473_north:1465200.142       obgnme              3.00000             0.782420              2.21758              3.33333
+ mass_east:700608.1100_north:1479002.790       obgnme              120.000              79.4153              40.5847             0.100000
+ mass_east:700951.9146_north:1479457.732       obgnme              82.5000              75.0145              7.48550             0.121212
+ mass_east:701230.3042_north:1473607.164       obgnme              60.0000              52.3773              7.62270             0.166667
+ mass_east:701236.7800_north:1475734.540       obgnme              142.500              96.1519              46.3481             0.100000
+ mass_east:701403.2659_north:1474089.033       obgnme              75.0000              62.7034              12.2966             0.133333
+ mass_east:701447.5679_north:1478796.180       obgnme              82.5000              90.6402             -8.14020             0.121212
+ mass_east:701979.8903_north:1474231.631       obgnme              75.0000              63.9625              11.0375             0.133333
+ mass_east:702055.6754_north:1478553.709       obgnme              75.0000              96.9958             -21.9958             0.133333
+ mass_east:702329.8068_north:1477485.218       obgnme              97.5000              105.362             -7.86200             0.102564
+ mass_east:702331.1537_north:1477050.524       obgnme              82.5000              105.241             -22.7410             0.121212
+ mass_east:702349.4475_north:1472091.164       obgnme              22.5000              23.8529             -1.35290             0.444444
+ mass_east:702379.3700_north:1474878.730       obgnme              67.5000              75.9946             -8.49460             0.148148
+ mass_east:702482.6430_north:1470462.430       obgnme              7.50000              9.51816             -2.01816              1.33333
+ mass_east:702518.8983_north:1470461.695       obgnme              7.50000              9.50725             -2.00725              1.33333
+ mass_east:702558.4110_north:1475908.563       obgnme              90.0000              93.6330             -3.63300             0.111111
+ mass_east:702689.9009_north:1472997.564       obgnme              45.0000              36.6547              8.34530             0.222222
+ mass_east:702691.3487_north:1464877.287       obgnme              1.50000             0.774748             0.725252              6.66667
+ mass_east:702854.5674_north:1467466.960       obgnme              60.0000              2.03575              57.9642             0.166667
+ mass_east:702936.0558_north:1474386.983       obgnme              45.0000              62.3237             -17.3237             0.222222
+ mass_east:703169.6307_north:1473542.173       obgnme              30.0000              44.4599             -14.4599             0.333333
+ mass_east:703507.3490_north:1474766.077       obgnme              45.0000              65.7156             -20.7156             0.222222
+ mass_east:703540.6353_north:1472478.642       obgnme              15.0000              26.5023             -11.5023             0.666667
+ mass_east:703626.6524_north:1470324.906       obgnme              10.5000              8.49860              2.00140             0.952381
+ mass_east:703634.9476_north:1470325.699       obgnme              10.5000              8.49916              2.00084             0.952381
+ mass_east:703737.2128_north:1469459.118       obgnme              6.00000              5.34691             0.653090              1.66667
+ mass_east:703741.1090_north:1468505.821       obgnme              7.50000              3.31809              4.18191              1.33333
+ mass_east:703894.7541_north:1465612.150       obgnme              7.50000              1.02284              6.47716              1.33333
+ mass_east:703963.5297_north:1471311.749       obgnme              7.50000              14.1023             -6.60230              1.33333
+ mass_east:703986.7135_north:1466887.458       obgnme              7.50000              1.63780              5.86220              1.33333
+ mass_east:703990.7543_north:1467265.652       obgnme              7.50000              1.90916              5.59084              1.33333
+
+Final composite objective function 
+  Final phi                                           Total : 5231.97
+  Contribution to phi from observation group       "obgnme" : 5231.97
+
+
+Number of forward model runs performed during optimization: 1
+
+
+pestpp-glm analysis complete...
+started at 12/17/22 12:36:31
+finished at 12/17/22 12:36:32
+took 0.0166667 minutes
